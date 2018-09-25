@@ -11,10 +11,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
-        Eloquent::unguard();
-        $path = storage_path('master/kecamatan.sql');
-        DB::unprepared(file_get_contents($path));
-        $this->command->info('Table Kecamatan seeded!');
+        $this->call(KategoriSeeder::class);
+        // Eloquent::unguard();
+        // $path = storage_path('master/kecamatan.sql');
+        // DB::unprepared(file_get_contents($path));
+        // $this->command->info('Table Kecamatan seeded!');
     }
 }

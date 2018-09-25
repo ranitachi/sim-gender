@@ -18,4 +18,13 @@
 Auth::routes();
 
 Route::get('/', 'DashboardController@index')->name('dashboard');
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/kategori', function(){
+    return view('test');
+});
+
+Route::get('/test/url-route', 'TestController@test');
+
+Route::get('/coba/url-route', 'CobaController@coba');
