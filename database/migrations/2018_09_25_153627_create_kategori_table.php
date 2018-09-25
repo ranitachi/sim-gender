@@ -17,6 +17,8 @@ class CreateKategoriTable extends Migration
             $table->increments('id');
             $table->integer('id_subyek');
             $table->string('judul');
+            $table->string('tahun');
+            $table->string('sumber_data');
             $table->string('url_route');
             $table->timestamps();
             $table->softdeletes();
