@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         // DB::unprepared(file_get_contents($path));
         // $this->command->info('Table Kecamatan seeded!');
 
-        $this->call(SubyekTableSeeder::class);
+        // $this->call(SubyekTableSeeder::class);
+        $this->call(KategoriSeederTable::class);
     }
 }
