@@ -11,7 +11,7 @@ class Kategori extends Model
 
     protected $table = 'kategori';
 
-    protected $fillable = [ 'id_subyek', 'judul' ];
+    protected $fillable = [ 'id_subyek', 'judul', 'tahun', 'sumber_data', 'url_route' ];
 
     public function subyek()
     {
