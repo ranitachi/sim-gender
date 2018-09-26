@@ -41,12 +41,12 @@ $(function () {
             // ------------------------------
 
             var basic_columns = ec.init(document.getElementById('basic_columns'), limitless);
-            var stacked_columns = ec.init(document.getElementById('stacked_columns'), limitless);
-            var stacked_clustered_columns = ec.init(document.getElementById('stacked_clustered_columns'), limitless);
-            var thermometer_columns = ec.init(document.getElementById('thermometer_columns'), limitless);
-            var compositive_waterfall = ec.init(document.getElementById('compositive_waterfall'), limitless);
-            var change_waterfall = ec.init(document.getElementById('change_waterfall'), limitless);
-            var columns_timeline = ec.init(document.getElementById('columns_timeline'), limitless);
+            // var stacked_columns = ec.init(document.getElementById('stacked_columns'), limitless);
+            // var stacked_clustered_columns = ec.init(document.getElementById('stacked_clustered_columns'), limitless);
+            // var thermometer_columns = ec.init(document.getElementById('thermometer_columns'), limitless);
+            // var compositive_waterfall = ec.init(document.getElementById('compositive_waterfall'), limitless);
+            // var change_waterfall = ec.init(document.getElementById('change_waterfall'), limitless);
+            // var columns_timeline = ec.init(document.getElementById('columns_timeline'), limitless);
 
 
 
@@ -989,12 +989,12 @@ $(function () {
             // ------------------------------
 
             basic_columns.setOption(basic_columns_options);
-            stacked_columns.setOption(stacked_columns_options);
-            stacked_clustered_columns.setOption(stacked_clustered_columns_options);
-            thermometer_columns.setOption(thermometer_columns_options);
-            compositive_waterfall.setOption(compositive_waterfall_options);
-            change_waterfall.setOption(change_waterfall_options);
-            columns_timeline.setOption(columns_timeline_options);
+            // stacked_columns.setOption(stacked_columns_options);
+            // stacked_clustered_columns.setOption(stacked_clustered_columns_options);
+            // thermometer_columns.setOption(thermometer_columns_options);
+            // compositive_waterfall.setOption(compositive_waterfall_options);
+            // change_waterfall.setOption(change_waterfall_options);
+            // columns_timeline.setOption(columns_timeline_options);
 
 
 
@@ -1004,12 +1004,12 @@ $(function () {
             window.onresize = function () {
                 setTimeout(function () {
                     basic_columns.resize();
-                    stacked_columns.resize();
-                    stacked_clustered_columns.resize();
-                    thermometer_columns.resize();
-                    compositive_waterfall.resize();
-                    change_waterfall.resize();
-                    columns_timeline.resize();
+                    // stacked_columns.resize();
+                    // stacked_clustered_columns.resize();
+                    // thermometer_columns.resize();
+                    // compositive_waterfall.resize();
+                    // change_waterfall.resize();
+                    // columns_timeline.resize();
                 }, 200);
             }
         }

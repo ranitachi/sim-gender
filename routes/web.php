@@ -18,5 +18,9 @@
 Auth::routes();
 
 Route::get('/', 'DashboardController@index')->name('dashboard');
+Route::get('beranda', 'DashboardController@index')->name('beranda');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//--Subyek--
+Route::get('subyek/{jenis}','SubyekController@index')->name('subyek.index');

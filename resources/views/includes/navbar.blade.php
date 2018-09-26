@@ -1,6 +1,6 @@
 <div class="navbar navbar-default navbar-fixed-top header-highlight">
 		<div class="navbar-header">
-			<a class="navbar-brand" href="index.html"><img src="{{asset('assets/images/logo_light.png')}}" alt=""></a>
+			<a class="navbar-brand" href="{{route('beranda')}}"><img src="{{asset('assets/images/logo_light.png')}}" alt=""></a>
 
 			<ul class="nav navbar-nav visible-xs-block">
 				<li><a data-toggle="collapse" data-target="#navbar-mobile"><i class="icon-tree5"></i></a></li>
