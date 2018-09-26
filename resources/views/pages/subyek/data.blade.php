@@ -5,6 +5,7 @@
 @endsection
 
 @section('konten')
+
     <div class="row">
         <div class="col-lg-6">
 
@@ -50,45 +51,46 @@
         </div>
 
        
-    <div class="row">
-		<div class="col-lg-12">
-			<!-- Marketing campaigns -->
-			<div class="panel panel-flat">
-				<div class="panel-heading">
-					<h6 class="panel-title">Grafik Pemetaan</h6>
-					<div class="heading-elements">
-						<span class="label bg-success heading-text">
-                            <i class="icon-graph"></i>
-                        </span>
-						
-	            	</div>
+</div>
+            <!-- Marketing campaigns -->
+            <div class="content">
+                <div class="panel panel-flat">
+                    <div class="panel-heading">
+                        <h6 class="panel-title">Grafik Pemetaan</h6>
+                        <div class="heading-elements">
+                            <span class="label bg-success heading-text">
+                                <i class="icon-graph"></i>
+                            </span>
+                            
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-bordered datatable-basic">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Kategori</th>
+                                        <th>Tahun</th>
+                                        <th>Sumber</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach ($data as $no=> $item)                                
+                                    <tr>
+                                        <td class="text-center">{{++$no}}</td>
+                                        <td><a href="{{url($item->url_route,$item->id)}}">{{$item->judul}}</a></td>
+                                        <td class="text-center">{{$item->tahun}}</td>
+                                        <td>{{$item->sumber_data}}</td>
+                                        
+                                    </tr>   
+                                @endforeach
+                                </tbody>
+                        </table>
+                    </div>			
                 </div>
-                <div class="panel-body">
-					<table class="table table-bordered datatable-basic">
-							<thead>
-								<tr>
-									<th>No</th>
-									<th>Kategori</th>
-									<th>Tahun</th>
-									<th>Sumber</th>
-								</tr>
-							</thead>
-							<tbody>
-                            @foreach ($data as $no=> $item)                                
-                                <tr>
-									<td class="text-center">{{++$no}}</td>
-                                    <td><a href="{{url($item->url_route,$item->id)}}">{{$item->judul}}</a></td>
-									<td class="text-center">{{$item->tahun}}</td>
-									<td>{{$item->sumber_data}}</td>
-									
-                                </tr>   
-                            @endforeach
-                            </tbody>
-					</table>
-				</div>			
             </div>
-        </div>
-    </div>
+            
+    
 @endsection
 
 @section('footscript')

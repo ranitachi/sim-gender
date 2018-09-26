@@ -11,7 +11,7 @@ class Subyek extends Model
 
     protected $table = 'subyek';
 
-    protected $fillable = [ 'nama_subyek' ];
+    protected $fillable = [ 'nama_subyek','tahun'];
 
     public function kategori()
     {
