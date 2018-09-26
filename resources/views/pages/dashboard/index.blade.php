@@ -125,6 +125,8 @@
 @endsection
 
 @section('footscript')
+<script type="text/javascript" src="{{asset('assets/js/plugins/visualization/echarts/echarts.js')}}"></script>
+
 <script type="text/javascript" src="{{asset('assets/js/charts/echarts/columns_waterfalls.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/charts/echarts/timeline_option.js')}}"></script>
 @endsection
