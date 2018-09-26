@@ -4,9 +4,10 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	@yield('title')
-
+	
 	@include('includes.script')
+	
+	@yield('title')
 </head>
 
 <body class="navbar-top">
@@ -31,7 +32,7 @@
 			<div class="content-wrapper">
 
 				<!-- Content area -->
-				<div class="content">
+				{{-- <div class="content"> --}}
 
 					
 					<!-- Dashboard content -->
@@ -43,7 +44,7 @@
 					@include('includes.footer')
 					<!-- /footer -->
 
-				</div>
+				{{-- </div> --}}
 				<!-- /content area -->
 
 			</div>
