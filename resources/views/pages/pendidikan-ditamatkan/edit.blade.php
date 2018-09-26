@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    <title>Pendidikan Sekolah : Sistem Informasi Statistik Kabupaten Tangerang</title>
+    <title>Presentase Penduduk Tamat Pendidikan : Sistem Informasi Statistik Kabupaten Tangerang</title>
     <style>
         .left-margin-for-header {
             margin-left: 27px;
@@ -36,8 +36,8 @@
                         <ul class="breadcrumb">
                             <li><a href=""><i class="icon-home2 position-left"></i> Dashboard</a></li>
                             <li><a href="">Pendidikan Sekolah</a></li>
-                            <li><a href="">Jenjang {{strtoupper($jenjang)}}</a></li>
-                            <li class="active">Tambah Data</li>
+                            <li><a href="{{route('pendidikan-ditamatkan.index',$kategori->id)}}">Pendidikan yang Ditamatkan</a></li>
+                            <li class="active">Edit Data</li>
                         </ul>
                     </div>
                 </div>
@@ -57,26 +57,26 @@
                 </div>
             </div>
             <div class="panel-body">
-                <form action="{{ route('pendidikan-sekolah.store', array($jenjang,$kategori->id)) }}" method="post">
+                <form action="{{ route('pendidikan-ditamatkan.update', array($kategori->id)) }}" method="post">
                     @csrf
+                    @method('put')
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th rowspan="2" class="text-center">#</th>
-                                <th rowspan="2" class="text-center">Kecamatan</th>
-                                @php
-                                    $jjg=explode('-',$jenjang)
-                                @endphp
-                                @foreach ($jjg as $item)    
-                                    <th colspan="2" class="text-center">Angka Masuk Kasar {{strtoupper($item)}}</th>
-                                @endforeach
-                            </tr>
-                            <tr>
-                                @foreach ($jjg as $item)    
-                                    <th class="text-center" style="width:110px;">L</th>
-                                    <th class="text-center" style="width:110px;">P</th>
-                                @endforeach
-                            </tr>
+                            <th rowspan="2" class="text-center">#</th>
+                            <th rowspan="2" class="text-center">Kecamatan</th>
+                            <th colspan="5" class="text-center">Pendidikan Yang Ditamatkan</th>  
+                        </tr>
+                        <tr>
+                            @php
+                                $jjg=array('bawah_sd'=>'<SD','sd'=>'SD / Sederajat','smp'=>'SMP','sma'=>'SMA','pt'=>'Perguruan Tinggi');
+                            @endphp
+                            @foreach ($jjg as $item)    
+                                <th class="text-center" style="width:150px">{{$item}}</th>
+                            @endforeach
+                                
+                            
+                        </tr>
                         </thead>
                         <tbody>
                             @foreach ($kecamatan as $key => $item)
@@ -86,12 +86,13 @@
                                         <input type="hidden" class="form-control" name="id_kecamatan[{{$item->id}}]" value="{{ $item->id }}">
                                         <input type="text" class="form-control" readonly value="{{ $item->nama_kecamatan }}">
                                     </td>
-                                    @foreach ($jjg as $jg)
+                                    @foreach ($jjg as $idx_jg=>$jg)
+                                        @php
+                                            $jlh=(isset($det[$item->id]) ? $det[$item->id][$idx_jg] : 0);
+                                            // $jlh=(isset($det[$item->id_kecamatan]) ? $det[$item->id_kecamatan][$idx_jg] : rand(0,90));
+                                        @endphp
                                         <td>
-                                            <input type="number" max="100" min="0" class="form-control text-center" name="angka_masuk_l[{{$jg}}][{{$item->id}}]">
-                                        </td>
-                                        <td>
-                                            <input type="number" min="0" class="form-control text-center" name="angka_masuk_p[{{$jg}}][{{$item->id}}]">
+                                            <input type="number" max="100" min="0" class="form-control text-center"     name="jumlah[{{$idx_jg}}][{{$item->id}}]" value="{{$jlh}}">
                                         </td>
                                     @endforeach
                                 </tr>

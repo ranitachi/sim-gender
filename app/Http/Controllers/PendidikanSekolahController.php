@@ -19,14 +19,17 @@ class PendidikanSekolahController extends Controller
         $kecamatan=Kecamatan::orderBy('nama_kecamatan','asc')->get();
 
         $det=array();
+        $chart_kecamatan = [];
         foreach($data as $k =>$v)
         {
             $det[$v->id_kecamatan][$v->jenjang]['L']=$v->angka_masuk_kasar_l;
             $det[$v->id_kecamatan][$v->jenjang]['P']=$v->angka_masuk_kasar_p;
+            $chart_kecamatan[$v->id_kecamatan] = ucwords(strtolower($v->kecamatan->nama_kecamatan));
         }
 
         return view('pages.pendidikan-sekolah.index')
             ->with('data', $data)
+            ->with('chart_kecamatan', $chart_kecamatan)
             ->with('det', $det)
             ->with('jenjang', $jenjang)
             ->with('kecamatan', $kecamatan)

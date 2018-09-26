@@ -84,7 +84,7 @@
                                 <tr>
                                     <td>{{ $key = $key + 1 }}</td>
                                     <td>
-                                        <input type="hidden" class="form-control" name="id_kecamatan[]" value="{{ $item->id }}">
+                                        <input type="hidden" class="form-control" name="id_kecamatan[{{$item->id}}]" value="{{ $item->id }}">
                                         <input type="text" class="form-control" readonly value="{{ $item->nama_kecamatan }}">
                                     </td>
                                     @foreach ($jjg as $jg)

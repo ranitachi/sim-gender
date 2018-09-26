@@ -34,7 +34,7 @@ class KependudukanKepadatanController extends Controller
             ->with('chart_kepadatan', $chart_kepadatan)
             ->with('kategori', $kategori);
     }
-
+    
     public function create($id_kategori)
     {
         $kategori = Kategori::with('subyek')->findOrFail($id_kategori);

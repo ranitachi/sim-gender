@@ -2,6 +2,9 @@
 
 @section('title')
     <title>Pendidikan Sekolah : Sistem Informasi Statistik Kabupaten Tangerang</title>
+    <script type="text/javascript" src="{{ asset('/') }}chartjs/Chart.bundle.js"></script>
+    <script type="text/javascript" src="{{ asset('/') }}chartjs/util.js"></script>
+    <script type="text/javascript" src="{{ asset('/') }}js/datalabel.js"></script>
     <style>
         .left-margin-for-header {
             margin-left: 27px;
@@ -10,6 +13,178 @@
 @endsection
 
 @section('konten')
+<script>
+        var ctx='';
+        function grafik(selector,jenjang)
+        {
+            if(jenjang=='tk')
+            {
+                // alert(jenjang)
+                var dtL=[
+                        @foreach($chart_kecamatan as $ix=>$kec)
+                            {{ isset($det[$ix]['tk']['L']) ? $det[$ix]['tk']['L'] : 0}},
+                        @endforeach
+                    ];
+                var dtP=[
+                        @foreach($chart_kecamatan as $ix=>$kec)
+                            {{ isset($det[$ix]['tk']['P']) ? $det[$ix]['tk']['P'] : 0}},
+                        @endforeach
+                    ];
+            }
+            if(jenjang=='ra')
+            {
+                var dtL=[
+                    @foreach($chart_kecamatan as $ix=>$kec)
+                            {{ isset($det[$ix]['ra']['L']) ? $det[$ix]['ra']['L'] : 0}},
+                        @endforeach
+                    ];
+                var dtP=[
+                    @foreach($chart_kecamatan as $ix=>$kec)
+                            {{ isset($det[$ix]['ra']['P']) ? $det[$ix]['ra']['P'] : 0}},
+                        @endforeach
+                    ];
+            }
+            if(jenjang=='sd')
+            {
+                var dtL=[
+                        @foreach($chart_kecamatan as $ix=>$kec)
+                            {{ isset($det[$ix]['sd']['L']) ? $det[$ix]['sd']['L'] : 0}},
+                        @endforeach
+                    ];
+                var dtP=[
+                        @foreach($chart_kecamatan as $ix=>$kec)
+                            {{ isset($det[$ix]['sd']['P']) ? $det[$ix]['sd']['P'] : 0}},
+                        @endforeach
+                    ];
+            }
+            if(jenjang=='mi')
+            {
+                var dtL=[
+                    @foreach($chart_kecamatan as $ix=>$kec)
+                            {{ isset($det[$ix]['mi']['L']) ? $det[$ix]['mi']['L'] : 0}},
+                        @endforeach
+                    ];
+                var dtP=[
+                    @foreach($chart_kecamatan as $ix=>$kec)
+                            {{ isset($det[$ix]['mi']['P']) ? $det[$ix]['mi']['P'] : 0}},
+                        @endforeach
+                    ];
+            }
+            if(jenjang=='smp')
+            {
+                var dtL=[
+                        @foreach($chart_kecamatan as $ix=>$kec)
+                            {{ isset($det[$ix]['smp']['L']) ? $det[$ix]['smp']['L'] : 0}},
+                        @endforeach
+                    ];
+                var dtP=[
+                        @foreach($chart_kecamatan as $ix=>$kec)
+                            {{ isset($det[$ix]['smp']['P']) ? $det[$ix]['smp']['P'] : 0}},
+                        @endforeach
+                    ];
+            }
+            if(jenjang=='mts')
+            {
+                var dtL=[
+                    @foreach($chart_kecamatan as $ix=>$kec)
+                            {{ isset($det[$ix]['mts']['L']) ? $det[$ix]['mts']['L'] : 0}},
+                        @endforeach
+                    ];
+                var dtP=[
+                    @foreach($chart_kecamatan as $ix=>$kec)
+                            {{ isset($det[$ix]['mts']['P']) ? $det[$ix]['mts']['P'] : 0}},
+                        @endforeach
+                    ];
+            }
+            if(jenjang=='sma')
+            {
+                var dtL=[
+                        @foreach($chart_kecamatan as $ix=>$kec)
+                            {{ isset($det[$ix]['sma']['L']) ? $det[$ix]['sma']['L'] : 0}},
+                        @endforeach
+                    ];
+                var dtP=[
+                        @foreach($chart_kecamatan as $ix=>$kec)
+                            {{ isset($det[$ix]['sma']['P']) ? $det[$ix]['sma']['P'] : 0}},
+                        @endforeach
+                    ];
+            }
+            if(jenjang=='smk')
+            {
+                var dtL=[
+                    @foreach($chart_kecamatan as $ix=>$kec)
+                            {{ isset($det[$ix]['smk']['L']) ? $det[$ix]['smk']['L'] : 0}},
+                        @endforeach
+                    ];
+                var dtP=[
+                    @foreach($chart_kecamatan as $ix=>$kec)
+                            {{ isset($det[$ix]['smk']['P']) ? $det[$ix]['smk']['P'] : 0}},
+                        @endforeach
+                    ];
+            }
+            if(jenjang=='ma')
+            {
+                var dtL=[
+                    @foreach($chart_kecamatan as $ix=>$kec)
+                            {{ isset($det[$ix]['ma']['L']) ? $det[$ix]['ma']['L'] : 0}},
+                        @endforeach
+                    ];
+                var dtP=[
+                    @foreach($chart_kecamatan as $ix=>$kec)
+                            {{ isset($det[$ix]['ma']['P']) ? $det[$ix]['ma']['P'] : 0}},
+                        @endforeach
+                    ];
+            }
+
+            var color = Chart.helpers.color;
+            var horizontalBarChartData = {
+                labels: [
+                    @foreach($chart_kecamatan as $item)
+                        '{{ $item }}',
+                    @endforeach
+                ],
+                datasets: [{
+                    label: 'Laki - Laki (L)',
+                    backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
+                    borderColor: window.chartColors.red,
+                    borderWidth: 1,
+                    data: dtL
+                },
+                {
+                    label: 'Perempuan (P)',
+                    backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
+                    borderColor: window.chartColors.blue,
+                    borderWidth: 1,
+                    data: dtP
+                }]
+
+            };
+
+                ctx = document.getElementById(selector).getContext('2d');
+                window.myHorizontalBar = new Chart(ctx, {
+                    type: 'horizontalBar',
+                    data: horizontalBarChartData,
+                    options: {
+                        elements: {
+                            rectangle: {
+                                borderWidth: 2,
+                            }
+                        },
+                        responsive: true,
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Angka Masuk Kasar '+jenjang.toUpperCase()
+                        },
+                        maintainAspectRatio: false,
+                    }
+                });
+
+            
+        }
+</script>
     <div class="row">
         <div class="col-md-12">
             <div class="content-group">
@@ -75,10 +250,38 @@
                 </div>
             </div>
     
-            <div class="panel-body">
-                <div class="chart-container">
-                    {{-- <div class="chart has-fixed-height" id="basic_bars"></div> --}}
-                    Chart Here..
+            
+            @php
+                $jjg=explode('-',$jenjang);
+                $lebar=99/count($jjg);
+            @endphp
+            
+               <div class="panel-body">
+                    <div class="chart-container">
+                        <div class="text-center"><h5>Grafik {{ $kategori->judul }}</h5></div>
+                        @foreach ($jjg as $idx=>$item)    
+                            <div id="container" style="width: {{$lebar}}%; height:1000px;float:left">
+                                <canvas id="canvas_{{$idx+1}}"></canvas>
+                            </div>
+                        @endforeach
+                        <script>
+                            var jjd="{{count($jjg)}}";
+                            var i;
+                            for(i=0;i<jjd;i++)
+                            {
+                                if(i==0)
+                                    var jen='{{$jjg[0]}}';
+                                else if(i==1)
+                                    var jen='{{$jjg[1]}}';
+                                else if(i==2)
+                                    var jen='{{isset($jjg[2]) ? $jjg[2] : ""}}';
+
+                                grafik('canvas_'+(i+1) , jen);
+                            }
+                            // grafik('canvas_1' , 'tk');
+                            // grafik('canvas_2' , 'ra');
+                        </script>
+                    </div>
                 </div>
             
        
@@ -87,9 +290,7 @@
                         <tr>
                             <th rowspan="2" class="text-center">#</th>
                             <th rowspan="2" class="text-center">Kecamatan</th>
-                            @php
-                                $jjg=explode('-',$jenjang)
-                            @endphp
+                            
                             @foreach ($jjg as $item)    
                                 <th colspan="3" class="text-center">Angka Masuk Kasar {{strtoupper($item)}}</th>
                             @endforeach
@@ -137,7 +338,7 @@
 @endsection
 
 @section('footscript')
-     <script type="text/javascript" src="{{asset('assets/js/plugins/tables/datatables/datatables.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('assets/js/plugins/tables/datatables/datatables.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/plugins/forms/selects/select2.min.js')}}"></script>
 
     <script>
@@ -158,6 +359,9 @@
                 $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
             }
         });
+        
     });
-    </script>
+
+        
+	</script>
 @endsection
