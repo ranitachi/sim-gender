@@ -77,10 +77,10 @@
                                         <input type="text" class="form-control" readonly value="{{ $item->nama_kecamatan }}">
                                     </td>
                                     <td>
-                                        <input type="number" max="100" min="0" class="form-control" name="persentase_penduduk[]">
+                                        <input type="number" max="100" min="0" class="form-control" name="persentase_penduduk[]" value="0">
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="kepadatan_penduduk[]">
+                                        <input type="number" min="0" class="form-control" name="kepadatan_penduduk[]" value="0">
                                     </td>
                                 </tr>
                             @endforeach
