@@ -18,8 +18,20 @@ class KependudukanKepadatanController extends Controller
 
         $data = KependudukanKepadatan::where('id_kategori', $id_kategori)->with('kecamatan')->get();
 
+        $chart_kecamatan = [];
+        $chart_persentase = [];
+        $chart_kepadatan = [];
+        foreach ($data as $item) {
+            $chart_kecamatan[] = ucwords(strtolower($item->kecamatan->nama_kecamatan));
+            $chart_persentase[] = $item->persentase_penduduk;
+            $chart_kepadatan[] = $item->kepadatan_penduduk;
+        }
+
         return view('pages.kependudukan-kepadatan.index')
             ->with('data', $data)
+            ->with('chart_kecamatan', $chart_kecamatan)
+            ->with('chart_persentase', $chart_persentase)
+            ->with('chart_kepadatan', $chart_kepadatan)
             ->with('kategori', $kategori);
     }
 

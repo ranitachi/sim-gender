@@ -50,9 +50,9 @@
                                 
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     @if ($data->count()==0)
-                                        <li><a href="{{ route('kependudukan-kepadatan.create', $kategori->id) }}"><i class="icon-googleplus5 pull-right"></i> Tambah Data</a></li>
+                                        <li><a href="{{ route('kependudukan-pmks.create', $kategori->id) }}"><i class="icon-googleplus5 pull-right"></i> Tambah Data</a></li>
                                     @else
-                                        <li><a href="{{ route('kependudukan-kepadatan.edit', $kategori->id) }}"><i class="icon-googleplus5 pull-right"></i> Ubah Data</a></li>
+                                        <li><a href="{{ route('kependudukan-pmks.edit', $kategori->id) }}"><i class="icon-googleplus5 pull-right"></i> Ubah Data</a></li>
                                     @endif
                                 </ul>
                             </li>
@@ -78,7 +78,7 @@
     
             <div class="panel-body">
                 <div class="chart-container">
-                    <div id="container" style="width: 100%; height:1000px;">
+                    <div id="container" style="width: 100%; height:1500px;">
                         <canvas id="canvas"></canvas>
                     </div>
                 </div>
@@ -91,8 +91,12 @@
                     <tr>
                         <th>#</th>
                         <th>Kecamatan</th>
-                        <th>Persentase Penduduk (%)</th>
-                        <th>Kepadatan Penduduk Per Km<sup>2</sup></th>
+                        <th>Bayi Terlantar</th>
+                        <th>Anak Terlantar</th>
+                        <th>Anak yang Membutuhkan Perlindungan Khusus</th>
+                        <th>Anak Berhadapan dengan Hukum</th>
+                        <th>Anak Jalanan</th>
+                        <th>Anak dengan Kedisabilitasan (ADK)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -100,8 +104,12 @@
                         <tr>
                             <td>{{ $key = $key + 1 }}</td>
                             <td>{{ $item->kecamatan->nama_kecamatan }}</td>
-                            <td>{{ $item->persentase_penduduk }} %</td>
-                            <td>{{ $item->kepadatan_penduduk }} Jiwa</td>
+                            <td>{{ $item->bayi_terlantar }}</td>
+                            <td>{{ $item->anak_terlantar }}</td>
+                            <td>{{ $item->anak_perlindungan_khusus }}</td>
+                            <td>{{ $item->anak_berhadapan_hukum }}</td>
+                            <td>{{ $item->anak_jalanan }}</td>
+                            <td>{{ $item->anak_disabilitas }}</td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -139,21 +147,57 @@
                 @endforeach
             ],
 			datasets: [{
-				label: 'Persentase Penduduk (%)',
+				label: 'Bayi Terlantar',
 				backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
 				borderColor: window.chartColors.red,
 				borderWidth: 1,
 				data: [
-					@foreach($chart_persentase as $item)
+					@foreach($chart_bayi as $item)
                         {{ $item }},
                     @endforeach
 				]
 			}, {
-				label: 'Kepadatan Penduduk (Jiwa)',
+				label: 'Anak Terlantar',
 				backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
 				borderColor: window.chartColors.blue,
 				data: [
-					@foreach($chart_kepadatan as $item)
+					@foreach($chart_anak as $item)
+                        {{ $item }},
+                    @endforeach
+				]
+			}, {
+				label: 'Anak yang Membutuhkan Perlindungan Khusus',
+				backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
+				borderColor: window.chartColors.yellow,
+				data: [
+					@foreach($chart_apk as $item)
+                        {{ $item }},
+                    @endforeach
+				]
+			}, {
+				label: 'Anak Berhadapan dengan Hukum',
+				backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
+				borderColor: window.chartColors.orange,
+				data: [
+					@foreach($chart_abh as $item)
+                        {{ $item }},
+                    @endforeach
+				]
+			}, {
+				label: 'Anak Jalanan',
+				backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
+				borderColor: window.chartColors.purple,
+				data: [
+					@foreach($chart_jalan as $item)
+                        {{ $item }},
+                    @endforeach
+				]
+			}, {
+				label: 'Anak dengan Kedisabilitasan',
+				backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
+				borderColor: window.chartColors.green,
+				data: [
+					@foreach($chart_disabilitas as $item)
                         {{ $item }},
                     @endforeach
 				]

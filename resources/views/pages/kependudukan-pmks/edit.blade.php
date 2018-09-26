@@ -37,7 +37,7 @@
                             <li><a href=""><i class="icon-home2 position-left"></i> Dashboard</a></li>
                             <li><a href="">Kependudukan</a></li>
                             <li><a href="">{{ $kategori->judul }}</a></li>
-                            <li class="active">Tambah Data</li>
+                            <li class="active">Ubah Data</li>
                         </ul>
                     </div>
                 </div>
@@ -57,30 +57,47 @@
                 </div>
             </div>
             <div class="panel-body">
-                <form action="{{ route('kependudukan-kepadatan.store', $kategori->id) }}" method="post">
+                <form action="{{ route('kependudukan-pmks.update', $kategori->id) }}" method="post">
                     @csrf
+                    @method('put')
                     <table class="table">
                         <thead>
                             <tr>
                                 <th>#</th>
                                 <th>Kecamatan</th>
-                                <th>Persentase Penduduk (%)</th>
-                                <th>Kepadatan Penduduk Per Km<sup>2</sup></th>
+                                <th>Bayi Terlantar</th>
+                                <th>Anak Terlantar</th>
+                                <th>Anak yang Memerlukan Perlindungan Khusus</th>
+                                <th>Anak Berhadapan dengan Hukum</th>
+                                <th>Anak Jalanan</th>
+                                <th>Anak dengan Kedisabilitasan</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($kecamatan as $key => $item)
+                            @foreach ($data as $key => $item)
                                 <tr>
                                     <td>{{ $key = $key + 1 }}</td>
                                     <td>
-                                        <input type="hidden" class="form-control" name="id_kecamatan[]" value="{{ $item->id }}">
-                                        <input type="text" class="form-control" readonly value="{{ $item->nama_kecamatan }}">
+                                        <input type="hidden" class="form-control" name="id_kecamatan[]" value="{{ $item->kecamatan->id }}">
+                                        <input type="text" class="form-control" readonly value="{{ $item->kecamatan->nama_kecamatan }}">
                                     </td>
                                     <td>
-                                        <input type="number" max="100" min="0" class="form-control" name="persentase_penduduk[]" value="0">
+                                        <input type="number" min="0" class="form-control" name="bayi_terlantar[]" value="{{ $item->bayi_terlantar }}">
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="kepadatan_penduduk[]" value="0">
+                                        <input type="number" min="0" class="form-control" name="anak_terlantar[]" value="{{ $item->anak_terlantar }}">
+                                    </td>
+                                    <td>
+                                        <input type="number" min="0" class="form-control" name="anak_perlindungan_khusus[]" value="{{ $item->anak_perlindungan_khusus }}">
+                                    </td>
+                                    <td>
+                                        <input type="number" min="0" class="form-control" name="anak_berhadapan_hukum[]" value="{{ $item->anak_berhadapan_hukum }}">
+                                    </td>
+                                    <td>
+                                        <input type="number" min="0" class="form-control" name="anak_jalanan[]" value="{{ $item->anak_jalanan }}">
+                                    </td>
+                                    <td>
+                                        <input type="number" min="0" class="form-control" name="anak_disabilitas[]" value="{{ $item->anak_disabilitas }}">
                                     </td>
                                 </tr>
                             @endforeach

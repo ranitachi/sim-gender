@@ -57,15 +57,19 @@
                 </div>
             </div>
             <div class="panel-body">
-                <form action="{{ route('kependudukan-kepadatan.store', $kategori->id) }}" method="post">
+                <form action="{{ route('kependudukan-pmks.store', $kategori->id) }}" method="post">
                     @csrf
                     <table class="table">
                         <thead>
                             <tr>
                                 <th>#</th>
                                 <th>Kecamatan</th>
-                                <th>Persentase Penduduk (%)</th>
-                                <th>Kepadatan Penduduk Per Km<sup>2</sup></th>
+                                <th>Bayi Terlantar</th>
+                                <th>Anak Terlantar</th>
+                                <th>Anak yang Memerlukan Perlindungan Khusus</th>
+                                <th>Anak Berhadapan dengan Hukum</th>
+                                <th>Anak Jalanan</th>
+                                <th>Anak dengan Kedisabilitasan</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -77,10 +81,22 @@
                                         <input type="text" class="form-control" readonly value="{{ $item->nama_kecamatan }}">
                                     </td>
                                     <td>
-                                        <input type="number" max="100" min="0" class="form-control" name="persentase_penduduk[]" value="0">
+                                        <input type="number" min="0" class="form-control" name="bayi_terlantar[]" value="0">
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="kepadatan_penduduk[]" value="0">
+                                        <input type="number" min="0" class="form-control" name="anak_terlantar[]" value="0">
+                                    </td>
+                                    <td>
+                                        <input type="number" min="0" class="form-control" name="anak_perlindungan_khusus[]" value="0">
+                                    </td>
+                                    <td>
+                                        <input type="number" min="0" class="form-control" name="anak_berhadapan_hukum[]" value="0">
+                                    </td>
+                                    <td>
+                                        <input type="number" min="0" class="form-control" name="anak_jalanan[]" value="0">
+                                    </td>
+                                    <td>
+                                        <input type="number" min="0" class="form-control" name="anak_disabilitas[]" value="0">
                                     </td>
                                 </tr>
                             @endforeach
