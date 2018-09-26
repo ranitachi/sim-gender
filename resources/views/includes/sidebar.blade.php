@@ -1,30 +1,15 @@
 <div class="sidebar sidebar-main sidebar-fixed">
 				<div class="sidebar-content">
 
-					<!-- User menu -->
-					<div class="sidebar-user">
+					<div class="sidebar-user-material">
 						<div class="category-content">
-							<div class="media">
-								<a href="#" class="media-left"><img src="{{asset('assets/images/placeholder.jpg')}}" class="img-circle img-sm" alt=""></a>
-								<div class="media-body">
-									<span class="media-heading text-semibold">Victoria Baker</span>
-									<div class="text-size-mini text-muted">
-										<i class="icon-pin text-size-small"></i> &nbsp;Santa Ana, CA
-									</div>
-								</div>
-
-								<div class="media-right media-middle">
-									<ul class="icons-list">
-										<li>
-											<a href="#"><i class="icon-cog3"></i></a>
-										</li>
-									</ul>
-								</div>
+							<div class="sidebar-user-material-content text-center">
+								<a href="#" class="legitRipple"><img src="{{ asset('/') }}assets/images/logo-kabupaten-tangerang.png" style="padding-left:10px;" class="img-circle img-responsive" alt=""></a>
+								<h5>Pemerintah Kabupaten Tangerang</h5>
+								<span class="text-size-small">hello@tangerangkab.go.id</span>
 							</div>
 						</div>
 					</div>
-					<!-- /user menu -->
-
 
 					<!-- Main navigation -->
 					<div class="sidebar-category sidebar-category-visible">
@@ -32,7 +17,7 @@
 							<ul class="navigation navigation-main navigation-accordion">
 
 								<!-- Main -->
-								<li><a href="{{route('beranda')}}"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+								{{-- <li><a href="{{route('beranda')}}"><i class="icon-home4"></i> <span>Dashboard</span></a></li> --}}
                                 <li class="navigation-header"><span>Subyek</span> <i class="icon-menu" title="Main pages"></i></li>
                                 @php
                                     $subjek=\App\Models\Subyek::orderBy('nama_subyek')->get();
