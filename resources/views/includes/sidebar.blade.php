@@ -17,7 +17,7 @@
 							<ul class="navigation navigation-main navigation-accordion">
 
 								<!-- Main -->
-								<li><a href="{{route('beranda')}}"><i class="icon-home4"></i> <span>Dashboard</span></a></li>
+								{{-- <li><a href="{{route('beranda')}}"><i class="icon-home4"></i> <span>Dashboard</span></a></li> --}}
                                 <li class="navigation-header"><span>Subyek</span> <i class="icon-menu" title="Main pages"></i></li>
                                 @php
                                     $subjek=\App\Models\Subyek::orderBy('nama_subyek')->get();
