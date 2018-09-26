@@ -6,6 +6,8 @@
 
 @section('konten')
 
+            <div class="content">
+
     <div class="row">
         <div class="col-lg-6">
 
@@ -53,7 +55,6 @@
        
 </div>
             <!-- Marketing campaigns -->
-            <div class="content">
                 <div class="panel panel-flat">
                     <div class="panel-heading">
                         <h6 class="panel-title">Grafik Pemetaan</h6>
