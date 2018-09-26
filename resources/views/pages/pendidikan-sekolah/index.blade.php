@@ -20,7 +20,6 @@
                                 <i class="icon-arrow-left52 position-left"></i>
                                 <span class="text-semibold">Subyek: {{ $kategori->subyek->nama_subyek }}</span><br> 
                                 <span class="left-margin-for-header">{{ $kategori->judul }}</span>
-                                <span class="left-margin-for-header">Tahun {{ $kategori->tahun }}</span>
                                 <small class="display-block" style="margin-left:27px;">
                                     Sumber Data: &nbsp;{{ !is_null($kategori->sumber_data) ? $kategori->sumber_data : 'Informasi Tidak Tersedia' }}
                                 </small>
