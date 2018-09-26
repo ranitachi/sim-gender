@@ -17,12 +17,12 @@ class CreateKependudukanPmksTable extends Migration
             $table->increments('id');
             $table->integer('id_kategori');
             $table->integer('id_kecamatan');
-            $table->integer('bayi_terlantar');
-            $table->integer('anak_terlantar');
-            $table->integer('anak_perlindungan_khusus');
-            $table->integer('anak_berhadapan_hukum');
-            $table->integer('anak_jalanan');
-            $table->integer('anak_disabilitas');
+            $table->integer('bayi_terlantar')->default(0);
+            $table->integer('anak_terlantar')->default(0);
+            $table->integer('anak_perlindungan_khusus')->default(0);
+            $table->integer('anak_berhadapan_hukum')->default(0);
+            $table->integer('anak_jalanan')->default(0);
+            $table->integer('anak_disabilitas')->default(0);
             $table->timestamps();
             $table->softdeletes();
         });

@@ -12,8 +12,8 @@ class SubyekTableSeeder extends Seeder
      */
     public function run()
     {
-        $array=array('Politik Keamanan','Tenaga Kerja','Kesehatan','Pendidikan','Kependudukan');
-        // sort($array);
+        $array = array('Politik Keamanan','Tenaga Kerja','Kesehatan','Pendidikan','Kependudukan');
+        
         foreach($array as $item)
         {
             $sub = new Subyek;
@@ -21,24 +21,5 @@ class SubyekTableSeeder extends Seeder
             $sub->slug = str_slug($item);
             $sub->save();
         }
-        // $sub = new Subyek;
-        // $sub->nama_subyek = "Politik Keamanan";
-        // $sub->save();
-
-        // $sub = new Subyek;
-        // $sub->nama_subyek = "Tenaga Kerja";
-        // $sub->save();
-
-        // $sub = new Subyek;
-        // $sub->nama_subyek = "Kesehatan";
-        // $sub->save();
-
-        // $sub = new Subyek;
-        // $sub->nama_subyek = "Pendidikan";
-        // $sub->save();
-
-        // $sub = new Subyek;
-        // $sub->nama_subyek = "Kependudukan";
-        // $sub->save();
     }
 }

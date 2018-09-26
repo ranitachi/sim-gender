@@ -17,10 +17,10 @@ class CreateKependudukanPotensiTable extends Migration
             $table->increments('id');
             $table->integer('id_kategori');
             $table->integer('id_kecamatan');
-            $table->integer('korban_tindak_kekerasan');
-            $table->integer('pekerja_migran_terlantar');
-            $table->integer('penyandang_disabilitas');
-            $table->integer('korban_trafficking');
+            $table->integer('korban_tindak_kekerasan')->default(0);
+            $table->integer('pekerja_migran_terlantar')->default(0);
+            $table->integer('penyandang_disabilitas')->default(0);
+            $table->integer('korban_trafficking')->default(0);
             $table->timestamps();
             $table->softdeletes();
         });

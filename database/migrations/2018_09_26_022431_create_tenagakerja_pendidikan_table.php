@@ -17,11 +17,11 @@ class CreateTenagakerjaPendidikanTable extends Migration
             $table->increments('id');
             $table->integer('id_kategori');
             $table->integer('id_kecamatan');
-            $table->integer('bekerja');
-            $table->integer('pengangguran_terbuka');
-            $table->integer('jumlah_total_bekerja');
-            $table->integer('bukan_angkatan_kerja');
-            $table->integer('jumlah_total');
+            $table->integer('bekerja')->default(0);
+            $table->integer('pengangguran_terbuka')->default(0);
+            $table->integer('jumlah_total_bekerja')->default(0);
+            $table->integer('bukan_angkatan_kerja')->default(0);
+            $table->integer('jumlah_total')->default(0);
             $table->timestamps();
             $table->softdeletes();
         });

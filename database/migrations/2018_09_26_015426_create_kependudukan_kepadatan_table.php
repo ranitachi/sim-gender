@@ -17,8 +17,8 @@ class CreateKependudukanKepadatanTable extends Migration
             $table->increments('id');
             $table->integer('id_kategori');
             $table->integer('id_kecamatan');
-            $table->integer('persentase_penduduk');
-            $table->integer('kepadatan_penduduk');
+            $table->integer('persentase_penduduk')->default(0);
+            $table->integer('kepadatan_penduduk')->default(0);
             $table->timestamps();
             $table->softdeletes();
         });

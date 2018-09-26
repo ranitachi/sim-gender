@@ -16,9 +16,9 @@ class CreateTenagakerjaPengangguranTable extends Migration
         Schema::create('tenagakerja_pengangguran', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_kecamatan');
-            $table->integer('jumlah');
-            $table->integer('persentase');
-            $table->integer('tpt_persentase');
+            $table->integer('jumlah')->default(0);
+            $table->integer('persentase')->default(0);
+            $table->integer('tpt_persentase')->default(0);
             $table->timestamps();
             $table->softdeletes();
         });

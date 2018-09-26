@@ -17,7 +17,7 @@ class CreateKesehatanDisabilitasTable extends Migration
             $table->increments('id');
             $table->integer('id_kategori');
             $table->string('jenis');
-            $table->integer('jumlah');
+            $table->integer('jumlah')->default(0);
             $table->timestamps();
             $table->softdeletes();
         });

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddSlugSubyek extends Migration
+class AddColumnSlugToKategoriTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddSlugSubyek extends Migration
      */
     public function up()
     {
-        Schema::table('Subyek', function (Blueprint $table) {
-            $table->string('slug')->nullable()->after('nama_subyek');
+        Schema::table('kategori', function (Blueprint $table) {
+            $table->string('slug')->after('url_route')->nullable();
         });
     }
 
@@ -25,8 +25,6 @@ class AddSlugSubyek extends Migration
      */
     public function down()
     {
-        Schema::table('Subyek', function (Blueprint $table) {
-            //
-        });
+        
     }
 }

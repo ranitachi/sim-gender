@@ -53,7 +53,6 @@
                                     @else
                                         <li><a href="{{ route('kependudukan-kepadatan.edit', $kategori->id) }}"><i class="icon-googleplus5 pull-right"></i> Ubah Data</a></li>
                                     @endif
-                                    <li><a href="#"><i class="icon-inbox pull-right"></i> Hapus Data</a></li>
                                 </ul>
                             </li>
                         </ul>

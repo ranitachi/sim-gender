@@ -16,10 +16,10 @@ class CreateTenagakerjaBekerjaTable extends Migration
         Schema::create('tenagakerja_bekerja', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_kategori');
-            $table->string('status_pekerjaan_utama');
-            $table->integer('laki_laki');
-            $table->integer('perempuan');
-            $table->integer('jumlah');
+            $table->string('status_pekerjaan_utama')->default(0);
+            $table->integer('laki_laki')->default(0);
+            $table->integer('perempuan')->default(0);
+            $table->integer('jumlah')->default(0);
             $table->timestamps();
             $table->softdeletes();
         });

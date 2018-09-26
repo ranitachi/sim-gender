@@ -17,8 +17,8 @@ class CreatePolitikkeamananJeniskejahatanTable extends Migration
             $table->increments('id');
             $table->integer('id_kategori');
             $table->string('jenis_kejahatan');
-            $table->integer('tindak_pidana');
-            $table->integer('penyelesaian');
+            $table->integer('tindak_pidana')->default(0);
+            $table->integer('penyelesaian')->default(0);
             $table->timestamps();
             $table->softdeletes();
         });

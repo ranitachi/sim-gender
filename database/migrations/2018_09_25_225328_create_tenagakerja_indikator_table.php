@@ -17,9 +17,9 @@ class CreateTenagakerjaIndikatorTable extends Migration
             $table->increments('id');
             $table->integer('id_kategori');
             $table->string('karakteristik');
-            $table->integer('laki_laki');
-            $table->integer('perempuan');
-            $table->integer('jumlah');
+            $table->integer('laki_laki')->default(0);
+            $table->integer('perempuan')->default(0);
+            $table->integer('jumlah')->default(0);
             $table->timestamps();
             $table->softdeletes();
         });

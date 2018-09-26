@@ -17,8 +17,8 @@ class CreatePolitikkeamananLpTable extends Migration
             $table->increments('id');
             $table->integer('id_kategori');
             $table->string('jenis');
-            $table->integer('laki_laki');
-            $table->integer('perempuan');
+            $table->integer('laki_laki')->default(0);
+            $table->integer('perempuan')->default(0);
             $table->timestamps();
             $table->softdeletes();
         });

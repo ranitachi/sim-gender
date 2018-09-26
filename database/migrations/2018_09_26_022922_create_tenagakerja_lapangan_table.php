@@ -16,10 +16,10 @@ class CreateTenagakerjaLapanganTable extends Migration
         Schema::create('tenagakerja_lapangan', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_kategori');
-            $table->string('lapangan_pekerjaan');
-            $table->integer('laki_laki');
-            $table->integer('perempuan');
-            $table->integer('jumlah');
+            $table->string('lapangan_pekerjaan')->default(0);
+            $table->integer('laki_laki')->default(0);
+            $table->integer('perempuan')->default(0);
+            $table->integer('jumlah')->default(0);
             $table->timestamps();
             $table->softdeletes();
         });
