@@ -22,14 +22,6 @@
 <script type="text/javascript" src="{{asset('assets/js/plugins/ui/moment/moment.min.js')}}"></script>
 <script type="text/javascript" src="{{asset('assets/js/plugins/pickers/daterangepicker.js')}}"></script>
 
-<script type="text/javascript" src="{{asset('assets/js/plugins/visualization/echarts/echarts.js')}}"></script>
-<script type="text/javascript" src="{{asset('assets/js/plugins/tables/datatables/datatables.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('assets/js/plugins/forms/selects/select2.min.js')}}"></script>
 
 <script type="text/javascript" src="{{asset('assets/js/core/app.js')}}"></script>
-{{-- <script type="text/javascript" src="{{asset('assets/js/pages/dashboard.js')}}"></script> --}}
 <script type="text/javascript" src="{{asset('assets/js/pages/layout_fixed_native.js')}}"></script>
-
-{{-- <script type="text/javascript" src="{{asset('assets/js/pages/datatables_basic.js')}}"></script> --}}
-
-

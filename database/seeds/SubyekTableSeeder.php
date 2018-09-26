@@ -12,24 +12,33 @@ class SubyekTableSeeder extends Seeder
      */
     public function run()
     {
-        $sub = new Subyek;
-        $sub->nama_subyek = "Politik Keamanan";
-        $sub->save();
+        $array=array('Politik Keamanan','Tenaga Kerja','Kesehatan','Pendidikan','Kependudukan');
+        // sort($array);
+        foreach($array as $item)
+        {
+            $sub = new Subyek;
+            $sub->nama_subyek = $item;
+            $sub->slug = str_slug($item);
+            $sub->save();
+        }
+        // $sub = new Subyek;
+        // $sub->nama_subyek = "Politik Keamanan";
+        // $sub->save();
 
-        $sub = new Subyek;
-        $sub->nama_subyek = "Tenaga Kerja";
-        $sub->save();
+        // $sub = new Subyek;
+        // $sub->nama_subyek = "Tenaga Kerja";
+        // $sub->save();
 
-        $sub = new Subyek;
-        $sub->nama_subyek = "Kesehatan";
-        $sub->save();
+        // $sub = new Subyek;
+        // $sub->nama_subyek = "Kesehatan";
+        // $sub->save();
 
-        $sub = new Subyek;
-        $sub->nama_subyek = "Pendidikan";
-        $sub->save();
+        // $sub = new Subyek;
+        // $sub->nama_subyek = "Pendidikan";
+        // $sub->save();
 
-        $sub = new Subyek;
-        $sub->nama_subyek = "Kependudukan";
-        $sub->save();
+        // $sub = new Subyek;
+        // $sub->nama_subyek = "Kependudukan";
+        // $sub->save();
     }
 }
