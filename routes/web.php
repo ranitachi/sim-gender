@@ -76,6 +76,18 @@ Route::get('/kesehatan/jumlah/doktor-spesialis/{id_kategori}/create', 'Kesehatan
 Route::get('/kesehatan/jumlah/doktor-spesialis/{id_kategori}/edit', 'KesehatanJumlahDokterController@edit')->name('kesehatan-jumlah-dokter.edit');
 Route::put('/kesehatan/jumlah/doktor-spesialis/{id_kategori}/update', 'KesehatanJumlahDokterController@update')->name('kesehatan-jumlah-dokter.update');
 Route::post('/kesehatan/jumlah/doktor-spesialis/{id_kategori}/store', 'KesehatanJumlahDokterController@store')->name('kesehatan-jumlah-dokter.store');
+//--------Kesehatan Jumlah BBLR
+Route::get('/kesehatan/jumlah/bblr/{id_kategori}', 'KesehatanJumlahBblrController@index')->name('kesehatan-jumlah-bblr.index');
+Route::get('/kesehatan/jumlah/bblr/{id_kategori}/create', 'KesehatanJumlahBblrController@create')->name('kesehatan-jumlah-bblr.create');
+Route::get('/kesehatan/jumlah/bblr/{id_kategori}/edit', 'KesehatanJumlahBblrController@edit')->name('kesehatan-jumlah-bblr.edit');
+Route::put('/kesehatan/jumlah/bblr/{id_kategori}/update', 'KesehatanJumlahBblrController@update')->name('kesehatan-jumlah-bblr.update');
+Route::post('/kesehatan/jumlah/bblr/{id_kategori}/store', 'KesehatanJumlahBblrController@store')->name('kesehatan-jumlah-bblr.store');
+//--------Kesehatan Jumlah BBLR
+Route::get('/kesehatan/disabilitas/{id_kategori}', 'KesehatanDisabilitasController@index')->name('kesehatan-disabilitas.index');
+Route::get('/kesehatan/disabilitas/{id_kategori}/create', 'KesehatanDisabilitasController@create')->name('kesehatan-disabilitas.create');
+Route::get('/kesehatan/disabilitas/{id_kategori}/edit', 'KesehatanDisabilitasController@edit')->name('kesehatan-disabilitas.edit');
+Route::put('/kesehatan/disabilitas/{id_kategori}/update', 'KesehatanDisabilitasController@update')->name('kesehatan-disabilitas.update');
+Route::post('/kesehatan/disabilitas/{id_kategori}/store', 'KesehatanDisabilitasController@store')->name('kesehatan-disabilitas.store');
 
 
 Route::get('/kependudukan/pmks/{id_kategori}', 'KependudukanPMKSController@index')->name('kependudukan-pmks.index');
