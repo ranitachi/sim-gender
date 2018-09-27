@@ -81,8 +81,9 @@ class KesehatanJumlahDokterController extends Controller
                 $insert->unit_kerja=$v;
                 $insert->id_kategori=$id_kategori;
                 $insert->dokter_spesialis=$request->dokter_spesialis[str_slug($v)];
-                $insert->dokter_umum=$request->dokter_umum[str_slug($v)];;
-                $insert->dokter_gigi=$request->dokter_gigi[str_slug($v)];;
+                $insert->dokter_umum=$request->dokter_umum[str_slug($v)];
+                $insert->dokter_gigi=$request->dokter_gigi[str_slug($v)];
+                $insert->save();
             }
         });
 
@@ -91,14 +92,16 @@ class KesehatanJumlahDokterController extends Controller
 
     public function store(Request $request, $id_kategori)
     {
+        // dd($request->all(0));
         foreach($request->unit_kerja as $k=>$v)
         {
             $insert=new KesehatanJumlahDokter;
             $insert->unit_kerja=$v;
             $insert->id_kategori=$id_kategori;
             $insert->dokter_spesialis=$request->dokter_spesialis[str_slug($v)];
-            $insert->dokter_umum=$request->dokter_umum[str_slug($v)];;
-            $insert->dokter_gigi=$request->dokter_gigi[str_slug($v)];;
+            $insert->dokter_umum=$request->dokter_umum[str_slug($v)];
+            $insert->dokter_gigi=$request->dokter_gigi[str_slug($v)];
+            $insert->save();
         }
 
         return redirect()->route('kesehatan-jumlah-dokter.index', array($id_kategori));

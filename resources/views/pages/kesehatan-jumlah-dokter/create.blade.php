@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    <title>Presentase Anak Lahir Hidup : Sistem Informasi Statistik Kabupaten Tangerang</title>
+    <title>Jumlah Dokter Spesialis, Umum dan Gigi : Sistem Informasi Statistik Kabupaten Tangerang</title>
     <style>
         .left-margin-for-header {
             margin-left: 27px;
@@ -35,7 +35,7 @@
                     <div class="breadcrumb-line"><a class="breadcrumb-elements-toggle"><i class="icon-menu-open"></i></a>
                         <ul class="breadcrumb">
                             <li><a href=""><i class="icon-home2 position-left"></i> Dashboard</a></li>
-                            <li><a href="">Presentase Anak Lahir Hidup</a></li>
+                            <li><a href="">Jumlah Dokter</a></li>
                             <li class="active">Tambah Data</li>
                         </ul>
                     </div>
@@ -56,32 +56,35 @@
                 </div>
             </div>
             <div class="panel-body">
-                <form action="{{ route('kesehatan-alh.store', array($kategori->id)) }}" method="post">
+                <form action="{{ route('kesehatan-jumlah-dokter.store', array($kategori->id)) }}" method="post">
                     @csrf
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th class="text-center">#</th>
-                                <th class="text-center">Kecamatan</th>
-                                <th class="text-center" style="width:240px;">Anak Lahir Hidup</th>
-                                <th class="text-center" style="width:240px;">Penolong Kelahiran</th>
-                            
+                                <th class="text-center">Unit Kerja</th>
+                                <th class="text-center">Dokter Spesialis</th>
+                                <th class="text-center">Dokter Umum</th>
+                                <th class="text-center">Dokter Gigi</th>
                             </tr>
                             
                         </thead>
                         <tbody>
-                            @foreach ($kecamatan as $key => $item)
+                            @foreach ($unit_kerja as $key => $item)
                                 <tr>
                                     <td>{{ $key = $key + 1 }}</td>
                                     <td>
-                                        <input type="hidden" class="form-control" name="id_kecamatan[{{$item->id}}]" value="{{ $item->id }}">
-                                        <input type="text" class="form-control" readonly value="{{ $item->nama_kecamatan }}">
+                                        <input type="hidden" class="form-control" name="unit_kerja[{{str_slug($item)}}]" value="{{ ($item) }}">
+                                        <input type="text" class="form-control" readonly value="{{ $item }}">
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control text-center" name="jumlah_alh[{{$item->id}}]" value="{{rand(10,100)}}">
+                                        <input type="number" min="0" class="form-control text-center" name="dokter_spesialis[{{str_slug($item)}}]" value="{{rand(10,100)}}">
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control text-center" name="jumlah_penolong[{{$item->id}}]" value="{{rand(10,100)}}">
+                                        <input type="number" min="0" class="form-control text-center" name="dokter_umum[{{str_slug($item)}}]" value="{{rand(10,100)}}">
+                                    </td>
+                                    <td>
+                                        <input type="number" min="0" class="form-control text-center" name="dokter_gigi[{{str_slug($item)}}]" value="{{rand(10,100)}}">
                                     </td>
                                     
                                 </tr>
