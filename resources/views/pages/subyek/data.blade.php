@@ -12,14 +12,14 @@
         <div class="col-lg-6">
 
             <!-- Members online -->
-            <div class="panel bg-teal-400">
+            <div class="panel">
                 <div class="panel-body"  style="height:100px !important;">
                     <div class="row">
                         <div class="col-sm-6 text-left">    
                             <h3 class="no-margin pull-right;text-right" style="font-size:50px;">{{$data->count()}}</h3>
                         </div>
                         <div class="col-sm-6 text-right">
-                            <span class="heading-text badge bg-teal-800">Jumlah Tabel</span>
+                            <span class="heading-text badge bg-teal-800">Jumlah Kategori Informasi</span>
                             
                             <h6>Subyek : {{$sbj->nama_subyek}}</h6>
                             
@@ -34,7 +34,7 @@
 
         <div class="col-lg-6">
 
-            <div class="panel bg-pink-400">
+            <div class="panel">
                 <div class="panel-body"  style="height:100px !important;">
                     <div class="row">
                         <div class="col-sm-6 text-left">    
@@ -57,7 +57,7 @@
             <!-- Marketing campaigns -->
                 <div class="panel panel-flat">
                     <div class="panel-heading">
-                        <h6 class="panel-title">Grafik Pemetaan</h6>
+                        <h6 class="panel-title">Data Kategori Informasi</h6>
                         <div class="heading-elements">
                             <span class="label bg-success heading-text">
                                 <i class="icon-graph"></i>
