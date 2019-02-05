@@ -357,12 +357,6 @@ class KategoriSeederTable extends Seeder
         $kat = new Kategori;
         $kat->id_subyek = 5;
         $kat->judul = "Persentase Rumah Tangga menurut Karakteristik dan Status Kepemilikan Bangunan Tempat Tinggal yang Ditempati";
-        $kat->url_route = "/kependudukan/status-kepemilikan-bangunan"; 
-        $kat->save();
-
-        $kat = new Kategori;
-        $kat->id_subyek = 5;
-        $kat->judul = "Persentase Rumah Tangga menurut Karakteristik dan Status Kepemilikan Bangunan Tempat Tinggal yang Ditempati";
         $kat->url_route = "/kependudukan/status-kepemilikan-ditempati"; 
         $kat->save();
 
