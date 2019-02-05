@@ -72,6 +72,20 @@ Route::get('/kependudukan/perempuan-sosial-ekonomi/{id_kategori}/{tahun}/edit', 
 Route::put('/kependudukan/perempuan-sosial-ekonomi/{id_kategori}/{tahun}/update', 'KependudukanPerempuanController@update')->name('kependudukan-perempuan.update');
 Route::post('/kependudukan/perempuan-sosial-ekonomi/{id_kategori}/{tahun}/store', 'KependudukanPerempuanController@store')->name('kependudukan-perempuan.store');
 
+// -------Kependudukan Perempuan Sosial Ekonomi
+Route::get('/kependudukan/lansia-terlantar/{id_kategori}/{tahun}', 'KependudukanLansiaController@index')->name('kependudukan-lansia.index');
+Route::get('/kependudukan/lansia-terlantar/{id_kategori}/{tahun}/create', 'KependudukanLansiaController@create')->name('kependudukan-lansia.create');
+Route::get('/kependudukan/lansia-terlantar/{id_kategori}/{tahun}/edit', 'KependudukanLansiaController@edit')->name('kependudukan-lansia.edit');
+Route::put('/kependudukan/lansia-terlantar/{id_kategori}/{tahun}/update', 'KependudukanLansiaController@update')->name('kependudukan-lansia.update');
+Route::post('/kependudukan/lansia-terlantar/{id_kategori}/{tahun}/store', 'KependudukanLansiaController@store')->name('kependudukan-lansia.store');
+
+
+
+
+
+
+
+
 //--------Pendidikan Sekolah
 Route::get('/pendidikan/sekolah/{jenjang}/{id_kategori}', 'PendidikanSekolahController@index')->name('pendidikan-sekolah.index');
 Route::get('/pendidikan/sekolah/{jenjang}/{id_kategori}/create', 'PendidikanSekolahController@create')->name('pendidikan-sekolah.create');
@@ -86,7 +100,7 @@ Route::get('/pendidikan/penduduk/kecamatan/{id_kategori}/edit', 'PendidikanDitam
 Route::put('/pendidikan/penduduk/kecamatan/{id_kategori}/update', 'PendidikanDitamatkanController@update')->name('pendidikan-ditamatkan.update');
 Route::post('/pendidikan/penduduk/kecamatan/{id_kategori}/store', 'PendidikanDitamatkanController@store')->name('pendidikan-ditamatkan.store');
 
-//--------Pendidikan Rasion
+//--------Pendidikan Rasio
 Route::get('/pendidikan/rasio/{jenjang}/{id_kategori}', 'PendidikanRasioController@index')->name('pendidikan-rasio.index');
 Route::get('/pendidikan/rasio/{jenjang}/{id_kategori}/create', 'PendidikanRasioController@create')->name('pendidikan-rasio.create');
 Route::get('/pendidikan/rasio/{jenjang}/{id_kategori}/edit', 'PendidikanRasioController@edit')->name('pendidikan-rasio.edit');
