@@ -72,19 +72,26 @@ Route::get('/kependudukan/perempuan-sosial-ekonomi/{id_kategori}/{tahun}/edit', 
 Route::put('/kependudukan/perempuan-sosial-ekonomi/{id_kategori}/{tahun}/update', 'KependudukanPerempuanController@update')->name('kependudukan-perempuan.update');
 Route::post('/kependudukan/perempuan-sosial-ekonomi/{id_kategori}/{tahun}/store', 'KependudukanPerempuanController@store')->name('kependudukan-perempuan.store');
 
-// -------Kependudukan Perempuan Sosial Ekonomi
+// -------Kependudukan Lansia
 Route::get('/kependudukan/lansia-terlantar/{id_kategori}/{tahun}', 'KependudukanLansiaController@index')->name('kependudukan-lansia.index');
 Route::get('/kependudukan/lansia-terlantar/{id_kategori}/{tahun}/create', 'KependudukanLansiaController@create')->name('kependudukan-lansia.create');
 Route::get('/kependudukan/lansia-terlantar/{id_kategori}/{tahun}/edit', 'KependudukanLansiaController@edit')->name('kependudukan-lansia.edit');
 Route::put('/kependudukan/lansia-terlantar/{id_kategori}/{tahun}/update', 'KependudukanLansiaController@update')->name('kependudukan-lansia.update');
 Route::post('/kependudukan/lansia-terlantar/{id_kategori}/{tahun}/store', 'KependudukanLansiaController@store')->name('kependudukan-lansia.store');
 
-// -------Kependudukan Perempuan Sosial Ekonomi
+// -------Kependudukan Tuna Susila
 Route::get('/kependudukan/tuna-susila/{id_kategori}/{tahun}', 'KependudukanSusilaController@index')->name('kependudukan-susila.index');
 Route::get('/kependudukan/tuna-susila/{id_kategori}/{tahun}/create', 'KependudukanSusilaController@create')->name('kependudukan-susila.create');
 Route::get('/kependudukan/tuna-susila/{id_kategori}/{tahun}/edit', 'KependudukanSusilaController@edit')->name('kependudukan-susila.edit');
 Route::put('/kependudukan/tuna-susila/{id_kategori}/{tahun}/update', 'KependudukanSusilaController@update')->name('kependudukan-susila.update');
 Route::post('/kependudukan/tuna-susila/{id_kategori}/{tahun}/store', 'KependudukanSusilaController@store')->name('kependudukan-susila.store');
+
+// -------Kependudukan Balita Terlantar
+Route::get('/kependudukan/balita-terlantar/{id_kategori}/{tahun}', 'KependudukanBalitaController@index')->name('kependudukan-balita.index');
+Route::get('/kependudukan/balita-terlantar/{id_kategori}/{tahun}/create', 'KependudukanBalitaController@create')->name('kependudukan-balita.create');
+Route::get('/kependudukan/balita-terlantar/{id_kategori}/{tahun}/edit', 'KependudukanBalitaController@edit')->name('kependudukan-balita.edit');
+Route::put('/kependudukan/balita-terlantar/{id_kategori}/{tahun}/update', 'KependudukanBalitaController@update')->name('kependudukan-balita.update');
+Route::post('/kependudukan/balita-terlantar/{id_kategori}/{tahun}/store', 'KependudukanBalitaController@store')->name('kependudukan-balita.store');
 
 
 
