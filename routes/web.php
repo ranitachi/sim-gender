@@ -121,6 +121,27 @@ Route::get('/politik-dan-keamanan/korban-kekerasan-status-bekerja/{id_kategori}/
 Route::put('/politik-dan-keamanan/korban-kekerasan-status-bekerja/{id_kategori}/{tahun}/update', 'PolitikStatusController@update')->name('politik-status.update');
 Route::post('/politik-dan-keamanan/korban-kekerasan-status-bekerja/{id_kategori}/{tahun}/store', 'PolitikStatusController@store')->name('politik-status.store');
 
+// -------Politik dan Keamanan Korban Kekerasan Umur
+Route::get('/politik-dan-keamanan/korban-kekerasan-status-perkawinan/{id_kategori}/{tahun}', 'PolitikKawinController@index')->name('politik-kawin.index');
+Route::get('/politik-dan-keamanan/korban-kekerasan-status-perkawinan/{id_kategori}/{tahun}/create', 'PolitikKawinController@create')->name('politik-kawin.create');
+Route::get('/politik-dan-keamanan/korban-kekerasan-status-perkawinan/{id_kategori}/{tahun}/edit', 'PolitikKawinController@edit')->name('politik-kawin.edit');
+Route::put('/politik-dan-keamanan/korban-kekerasan-status-perkawinan/{id_kategori}/{tahun}/update', 'PolitikKawinController@update')->name('politik-kawin.update');
+Route::post('/politik-dan-keamanan/korban-kekerasan-status-perkawinan/{id_kategori}/{tahun}/store', 'PolitikKawinController@store')->name('politik-kawin.store');
+
+// -------Politik dan Keamanan Korban Kekerasan Umur
+Route::get('/politik-dan-keamanan/korban-kekerasan-hubungan-korban/{id_kategori}/{tahun}', 'PolitikKorbanController@index')->name('politik-korban.index');
+Route::get('/politik-dan-keamanan/korban-kekerasan-hubungan-korban/{id_kategori}/{tahun}/create', 'PolitikKorbanController@create')->name('politik-korban.create');
+Route::get('/politik-dan-keamanan/korban-kekerasan-hubungan-korban/{id_kategori}/{tahun}/edit', 'PolitikKorbanController@edit')->name('politik-korban.edit');
+Route::put('/politik-dan-keamanan/korban-kekerasan-hubungan-korban/{id_kategori}/{tahun}/update', 'PolitikKorbanController@update')->name('politik-korban.update');
+Route::post('/politik-dan-keamanan/korban-kekerasan-hubungan-korban/{id_kategori}/{tahun}/store', 'PolitikKorbanController@store')->name('politik-korban.store');
+
+// -------Politik dan Keamanan Korban Kekerasan Umur
+Route::get('/politik-dan-keamanan/korban-kekerasan-pelayanan/{id_kategori}/{tahun}', 'PolitikPelayananController@index')->name('politik-pelayanan.index');
+Route::get('/politik-dan-keamanan/korban-kekerasan-pelayanan/{id_kategori}/{tahun}/create', 'PolitikPelayananController@create')->name('politik-pelayanan.create');
+Route::get('/politik-dan-keamanan/korban-kekerasan-pelayanan/{id_kategori}/{tahun}/edit', 'PolitikPelayananController@edit')->name('politik-pelayanan.edit');
+Route::put('/politik-dan-keamanan/korban-kekerasan-pelayanan/{id_kategori}/{tahun}/update', 'PolitikPelayananController@update')->name('politik-pelayanan.update');
+Route::post('/politik-dan-keamanan/korban-kekerasan-pelayanan/{id_kategori}/{tahun}/store', 'PolitikPelayananController@store')->name('politik-pelayanan.store');
+
 
 
 

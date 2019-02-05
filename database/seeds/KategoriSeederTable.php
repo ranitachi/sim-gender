@@ -463,12 +463,6 @@ class KategoriSeederTable extends Seeder
 
         $kat = new Kategori;
         $kat->id_subyek = 1;
-        $kat->judul = "Jumlah Kekerasan Menurut Status Perkawinan";
-        $kat->url_route = "/politik-dan-keamanan/korban-kekerasan-status-perkawinan"; 
-        $kat->save();
-
-        $kat = new Kategori;
-        $kat->id_subyek = 1;
         $kat->judul = "Jumlah Pelaku Kekerasan Menurut Hubungan Dengan Korban";
         $kat->url_route = "/politik-dan-keamanan/korban-kekerasan-hubungan-korban"; 
         $kat->save();
