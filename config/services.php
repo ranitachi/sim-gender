@@ -36,4 +36,10 @@ return [
     ],
     'kelompok_umur' => ['0-4','5-10','10-14','15-19','20-24','25-29','30-34','35-39','40-44','45-49','50-54','55-59','60-64','65-69','70-74','75'],
 
+    'jenjang' => ['paud'=>'PAUD','sd_mi'=>'SD/MI','smp_mts'=>'SMP/MTS','sma_smk'=>'SMA/SMK'],
+    
+    'jenjang2' => ['paud'=>'PAUD','tk_ra'=>'TK/RA','sd_mi'=>'SD/MI','smp_mts'=>'SMP/MTS','sma_smk'=>'SMA/SMK'],
+    
+    'jenis_huruf' => ['latin'=>'HURUF LATIN','arab'=>'HURUF ARAB','lainnya'=>'HURUF LAINNYA','buta'=>'BUTA HURUF'],
+
 ];

@@ -142,6 +142,42 @@ Route::get('/pendidikan/rasio/{jenjang}/{id_kategori}/edit', 'PendidikanRasioCon
 Route::put('/pendidikan/rasio/{jenjang}/{id_kategori}/update', 'PendidikanRasioController@update')->name('pendidikan-rasio.update');
 Route::post('/pendidikan/rasio/{jenjang}/{id_kategori}/store', 'PendidikanRasioController@store')->name('pendidikan-rasio.store');
 
+//--------Pendidikan Rasio Murid Guru
+Route::get('/pendidikan/rasio-jenjang-pendidikan/{id_kategori}/{tahun?}', 'PendidikanRasioMuridGuruController@index')->name('rasio-murid-guru.index');
+Route::get('/pendidikan/rasio-jenjang-pendidikan/{id_kategori}/{tahun?}/create', 'PendidikanRasioMuridGuruController@create')->name('rasio-murid-guru.create');
+Route::get('/pendidikan/rasio-jenjang-pendidikan/{id_kategori}/{tahun?}/edit', 'PendidikanRasioMuridGuruController@edit')->name('rasio-murid-guru.edit');
+Route::post('/pendidikan/rasio-jenjang-pendidikan/{id_kategori}/{tahun?}/update', 'PendidikanRasioMuridGuruController@update')->name('rasio-murid-guru.update');
+Route::post('/pendidikan/rasio-jenjang-pendidikan/{id_kategori}/{tahun?}/store', 'PendidikanRasioMuridGuruController@store')->name('rasio-murid-guru.store');
+
+//--------Pendidikan APTS
+Route::get('/pendidikan/apts/{id_kategori}/{tahun?}', 'PendidikanAngkaPutusSekolahController@index')->name('apts.index');
+Route::get('/pendidikan/apts/{id_kategori}/{tahun?}/create', 'PendidikanAngkaPutusSekolahController@create')->name('apts.create');
+Route::get('/pendidikan/apts/{id_kategori}/{tahun?}/edit', 'PendidikanAngkaPutusSekolahController@edit')->name('apts.edit');
+Route::post('/pendidikan/apts/{id_kategori}/{tahun?}/update', 'PendidikanAngkaPutusSekolahController@update')->name('apts.update');
+Route::post('/pendidikan/apts/{id_kategori}/{tahun?}/store', 'PendidikanAngkaPutusSekolahController@store')->name('apts.store');
+
+//--------Pendidikan partisipasi
+Route::get('/pendidikan/partisipasi-jenjang-pendidikan/{id_kategori}/{tahun?}', 'PendidikanAngkaPartisipasiSekolahController@index')->name('partisipasi.index');
+Route::get('/pendidikan/partisipasi-jenjang-pendidikan/{id_kategori}/{tahun?}/create', 'PendidikanAngkaPartisipasiSekolahController@create')->name('partisipasi.create');
+Route::get('/pendidikan/partisipasi-jenjang-pendidikan/{id_kategori}/{tahun?}/edit', 'PendidikanAngkaPartisipasiSekolahController@edit')->name('partisipasi.edit');
+Route::post('/pendidikan/partisipasi-jenjang-pendidikan/{id_kategori}/{tahun?}/update', 'PendidikanAngkaPartisipasiSekolahController@update')->name('partisipasi.update');
+Route::post('/pendidikan/partisipasi-jenjang-pendidikan/{id_kategori}/{tahun?}/store', 'PendidikanAngkaPartisipasiSekolahController@store')->name('partisipasi.store');
+
+//--------Pendidikan Baca TUlis 15 tahun
+Route::get('/pendidikan/15-batulis/{id_kategori}/{tahun?}', 'PendidikanBacaTulisController@index')->name('baca-tulis.index');
+Route::get('/pendidikan/15-batulis/{id_kategori}/{tahun?}/create', 'PendidikanBacaTulisController@create')->name('baca-tulis.create');
+Route::get('/pendidikan/15-batulis/{id_kategori}/{tahun?}/edit', 'PendidikanBacaTulisController@edit')->name('baca-tulis.edit');
+Route::post('/pendidikan/15-batulis/{id_kategori}/{tahun?}/update', 'PendidikanBacaTulisController@update')->name('baca-tulis.update');
+Route::post('/pendidikan/15-batulis/{id_kategori}/{tahun?}/store', 'PendidikanBacaTulisController@store')->name('baca-tulis.store');
+
+//--------Pendidikan Jumlah Murid
+Route::get('/pendidikan/murid-jenjang-pendidikan/{id_kategori}/{tahun?}', 'PendidikanJumlahMuridController@index')->name('jumlah-murid.index');
+Route::get('/pendidikan/murid-jenjang-pendidikan/{id_kategori}/{tahun?}/create', 'PendidikanJumlahMuridController@create')->name('jumlah-murid.create');
+Route::get('/pendidikan/murid-jenjang-pendidikan/{id_kategori}/{tahun?}/edit', 'PendidikanJumlahMuridController@edit')->name('jumlah-murid.edit');
+Route::post('/pendidikan/murid-jenjang-pendidikan/{id_kategori}/{tahun?}/update', 'PendidikanJumlahMuridController@update')->name('jumlah-murid.update');
+Route::post('/pendidikan/murid-jenjang-pendidikan/{id_kategori}/{tahun?}/store', 'PendidikanJumlahMuridController@store')->name('jumlah-murid.store');
+
+
 //--------Kesehatan ALH
 Route::get('/kesehatan/alh/{id_kategori}', 'KesehatanAlhController@index')->name('kesehatan-alh.index');
 Route::get('/kesehatan/alh/{id_kategori}/create', 'KesehatanAlhController@create')->name('kesehatan-alh.create');

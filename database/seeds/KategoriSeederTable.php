@@ -90,7 +90,7 @@ class KategoriSeederTable extends Seeder
 
         $kat = new Kategori;
         $kat->id_subyek = 4;
-        $kat->judul = "Angka Parsitipasi Sekolah Menurut Jenjang Pendidikan";
+        $kat->judul = "Angka Partisipasi Sekolah Menurut Jenjang Pendidikan";
         $kat->url_route = "/pendidikan/partisipasi-jenjang-pendidikan"; 
         $kat->save();
 
