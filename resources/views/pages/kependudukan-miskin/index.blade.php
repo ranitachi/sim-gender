@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    <title>Presentase Penduduk Tamat Pendidikan : Sistem Informasi Statistik Kabupaten Tangerang</title>
+    <title>Kependudukan : Sistem Informasi Statistik Kabupaten Tangerang</title>
     <script type="text/javascript" src="{{ asset('/') }}chartjs/Chart.bundle.js"></script>
     <script type="text/javascript" src="{{ asset('/') }}chartjs/util.js"></script>
     <style>
@@ -21,27 +21,34 @@
                             <h5>
                                 <i class="icon-arrow-left52 position-left"></i>
                                 <span class="text-semibold">Subyek: {{ $kategori->subyek->nama_subyek }}</span><br> 
-                                <span class="left-margin-for-header">{{ $kategori->judul }}</span>
-                                <span class="left-margin-for-header">Tahun {{ $kategori->tahun }}</span>
-                                <small class="display-block" style="margin-left:27px;">
-                                    Sumber Data: &nbsp;{{ !is_null($kategori->sumber_data) ? $kategori->sumber_data : 'Informasi Tidak Tersedia' }}
-                                </small>
+                                <span class="left-margin-for-header">{{ $kategori->judul }} Tahun {{ $tahun }}</span>
                             </h5>
                         <a class="heading-elements-toggle"><i class="icon-more"></i></a></div>
-
-                        <div class="heading-elements">
-                            <button class="btn bg-teal-400 btn-icon btn-sm heading-btn legitRipple"><i class="icon-gear"></i></button>
-                        </div>
                     </div>
                     
                     <div class="breadcrumb-line"><a class="breadcrumb-elements-toggle"><i class="icon-menu-open"></i></a>
                         <ul class="breadcrumb">
-                            <li><a href=""><i class="icon-home2 position-left"></i> Dashboard</a></li>
-                            <li><a href="">Pendidikan Sekolah</a></li>
-                            <li class="active">{{ $kategori->judul }}</li>
+                            <li><a href="{{ route('subyek.index', $kategori->subyek->nama_subyek) }}"><<&nbsp; Kembali</a></li>
                         </ul>
 
                         <ul class="breadcrumb-elements">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle legitRipple" data-toggle="dropdown">
+                                    <i class="icon-calendar position-left"></i>
+                                    Tahun {{ $tahun }}
+                                    <span class="caret"></span>
+                                </a>
+                                
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    @if ($tahun_tersedia->count()!=0)
+                                        @foreach ($tahun_tersedia as $item)
+                                            <li><a href="{{ route('kependudukan-miskin.index', [$kategori->id, $item]) }}">{{ $item }}</a></li>
+                                        @endforeach
+                                    @else
+                                        <li><a href="{{ route('kependudukan-miskin.index', [$kategori->id, date('Y')]) }}">{{ date('Y') }}</a></li>
+                                    @endif
+                                </ul>
+                            </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle legitRipple" data-toggle="dropdown">
                                     <i class="icon-cog5 position-left"></i>
@@ -50,11 +57,8 @@
                                 </a>
                                 
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    @if ($data->count()==0)
-                                        <li><a href="{{ route('pendidikan-ditamatkan.create',array($kategori->id)) }}"><i class="icon-googleplus5 pull-right"></i> Tambah Data</a></li>
-                                    @else
-                                        <li><a href="{{ route('pendidikan-ditamatkan.edit',array($kategori->id)) }}"><i class="icon-googleplus5 pull-right"></i> Ubah Data</a></li>
-                                    @endif
+                                    <li><a href="{{ route('kependudukan-miskin.create', [$kategori->id, $tahun]) }}">Tambah Data Baru</a></li>
+                                    <li><a href="{{ route('kependudukan-miskin.edit', [$kategori->id, $tahun]) }}">Ubah Data {{ $tahun }}</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -78,69 +82,67 @@
             </div>
     
             <div class="panel-body">
-               <div class="panel-body">
                 <div class="chart-container">
                     <div id="container" style="width: 100%; height:1000px;">
                         <canvas id="canvas"></canvas>
                     </div>
                 </div>
             </div>
-            
-       
-                <table class="table datatable-basic table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th rowspan="2" class="text-center">#</th>
-                            <th rowspan="2" class="text-center">Kecamatan</th>
-                            <th colspan="6" class="text-center">Pendidikan Yang Ditamatkan</th>
-                            
-                        </tr>
-                        <tr>
-                            @php
-                                $jjg=array('bawah_sd'=>'<SD','sd'=>'SD / Sederajat','smp'=>'SMP','sma'=>'SMA','pt'=>'Perguruan Tinggi');
-                            @endphp
-                            @foreach ($jjg as $item)    
-                                <th class="text-center" style="width:100px">{{$item}}</th>
-                            @endforeach
-                                <th class="text-center" style="width:100px">Jumlah</th>
-                            
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($kecamatan as $key => $item)
-                            <tr>
-                                <td class="text-center">{{ $key = $key + 1 }}</td>
-                                <td>{{$item->nama_kecamatan}}</td>
-                                @php
-                                    $jumlah=0;
-                                    foreach ($jjg as $idx_jg=> $vl)    
-                                    {
-                                        $jlh=(isset($det[$item->id]) ? $det[$item->id][$idx_jg] : 0);
-                                        echo '<td class="text-center">'.$jlh.' %</td>';    
-                                        $jumlah+=$jlh;
-                                    }
-                                @endphp
-                                
-                                <td class="text-center">{{$jumlah}} %</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-        <!-- /basic datatable -->
         </div>
+
+        <div class="panel panel-flat">
+            @php
+                $hampir_miskin = 0;
+                $miskin = 0;
+                $sangat_miskin = 0;
+            @endphp
+            @foreach ($data as $key => $item)
+                @php
+                    $hampir_miskin += $item->hampir_miskin;
+                    $miskin += $item->miskin;
+                    $sangat_miskin += $item->sangat_miskin;
+                @endphp
+            @endforeach
+
+            <div style="margin:20px 0 0 20px;">
+                <h6>Total Jumlah Hampir Miskin : &nbsp;&nbsp;<strong>{{ $hampir_miskin }}</strong></h6>
+                <h6>Total Jumlah Miskin : &nbsp;&nbsp;<strong>{{ $miskin }}</strong></h6>
+                <h6>Total Jumlah Sangat Miskin : &nbsp;&nbsp;<strong>{{ $sangat_miskin }}</strong></h6>
+            </div>
+
+            <table class="table datatable-basic">
+                <thead>
+                    <tr>
+                        <th style="width:30px;">#</th>
+                        <th>Kecamatan</th>
+                        <th>Hampir Miskin</th>
+                        <th>Miskin</th>
+                        <th>Sangat Miskin</th>
+                        <th>Jumlah</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($data as $key => $item)
+                        <tr>
+                            <td>{{ $key = $key + 1 }}</td>
+                            <td>{{ $item->kecamatan->nama_kecamatan }}</td>
+                            <td>{{ $item->hampir_miskin }}</td>
+                            <td>{{ $item->miskin }}</td>
+                            <td>{{ $item->sangat_miskin }}</td>
+                            <td>{{ $item->jumlah }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        <!-- /basic datatable -->
     </div>
 @endsection
 
 @section('footscript')
-     <script type="text/javascript" src="{{asset('assets/js/plugins/tables/datatables/datatables.min.js')}}"></script>
-    <script type="text/javascript" src="{{asset('assets/js/plugins/forms/selects/select2.min.js')}}"></script>
-
     <script>
-    $(document).ready(function(){
         $('.datatable-basic').DataTable({
             autoWidth: false,
-            iDisplayLength: -1,
             dom: '<"datatable-header"fl><"datatable-scroll"t><"datatable-footer"ip>',
             language: {
                 search: '<span>Filter:</span> _INPUT_',
@@ -154,8 +156,8 @@
                 $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
             }
         });
-    });
     </script>
+
     <script>
 		var color = Chart.helpers.color;
 		var horizontalBarChartData = {
@@ -165,15 +167,33 @@
                 @endforeach
             ],
 			datasets: [{
-				label: 'Persentase Penduduk (%)',
+				label: 'Hampir Miskin',
 				backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
 				borderColor: window.chartColors.red,
 				borderWidth: 1,
 				data: [
-                    @foreach($chart_kecamatan as $ix=>$kec)
-                        @foreach($det[$ix] as $item)
-                            {{ $item }},
-                        @endforeach
+					@foreach($chart_hampir_miskin as $item)
+                        {{ $item }},
+                    @endforeach
+				]
+			}, {
+				label: 'Miskin',
+				backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
+				borderColor: window.chartColors.blue,
+				borderWidth: 1,
+				data: [
+					@foreach($chart_miskin as $item)
+                        {{ $item }},
+                    @endforeach
+				]
+			}, {
+				label: 'Sangat Miskin',
+				backgroundColor: color(window.chartColors.orange).alpha(0.5).rgbString(),
+				borderColor: window.chartColors.orange,
+				borderWidth: 1,
+				data: [
+					@foreach($chart_sangat_miskin as $item)
+                        {{ $item }},
                     @endforeach
 				]
 			}]

@@ -4,7 +4,7 @@
     <title>Pendidikan Sekolah : Sistem Informasi Statistik Kabupaten Tangerang</title>
     <script type="text/javascript" src="{{ asset('/') }}chartjs/Chart.bundle.js"></script>
     <script type="text/javascript" src="{{ asset('/') }}chartjs/util.js"></script>
-    <script type="text/javascript" src="{{ asset('/') }}js/datalabel.js"></script>
+    {{-- <script type="text/javascript" src="{{ asset('/') }}js/datalabel.js"></script> --}}
     <style>
         .left-margin-for-header {
             margin-left: 27px;
@@ -239,7 +239,7 @@
     <div class="content">
         <div class="panel panel-flat">
             <div class="panel-heading">
-                <h5 class="panel-title">Basic bar chart</h5>
+                <h5 class="panel-title">Grafik</h5>
                 <div class="heading-elements">
                     <ul class="icons-list">
                         <li><a data-action="collapse"></a></li>

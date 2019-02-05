@@ -3,7 +3,7 @@
 			<a class="navbar-brand" href="{{route('beranda')}}">
 				<span style="color:#fff;">
 					<i class="fa fa-bar-chart"></i>&nbsp;&nbsp;&nbsp;
-					TANGERANG GEMILANG
+					SIGA KAB TANGERANG
 				</span>	
 			</a>
 
@@ -18,14 +18,14 @@
 				<li><a class="sidebar-control sidebar-main-toggle hidden-xs"><i class="icon-paragraph-justify3"></i></a></li>
 			</ul>
 
-			<p class="navbar-text">Selamat Datang, Pengunjung!</p>
+			<p class="navbar-text">Sistem Informasi Gender dan Anak Kabupaten Tangerang</p>
 
 			<ul class="nav navbar-nav navbar-right">
 
 				<li class="dropdown dropdown-user">
 					<a class="dropdown-toggle" data-toggle="dropdown">
 						<img src="{{asset('assets/images/placeholder.jpg')}}" alt="">
-						<span>Victoria</span>
+						<span>Administrator</span>
 						<i class="caret"></i>
 					</a>
 

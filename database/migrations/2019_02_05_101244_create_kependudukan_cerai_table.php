@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTenagakerjaBekerjaTable extends Migration
+class CreateKependudukanCeraiTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreateTenagakerjaBekerjaTable extends Migration
      */
     public function up()
     {
-        Schema::create('tenagakerja_bekerja', function (Blueprint $table) {
+        Schema::create('kependudukan_cerai', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('id_kategori');
-            $table->string('status_pekerjaan_utama')->default(0);
-            $table->integer('laki_laki')->default(0);
-            $table->integer('perempuan')->default(0);
+            $table->integer('id_kecamatan');
+            $table->integer('tahun');
+            $table->integer('talak')->default(0);
+            $table->integer('gugat')->default(0);
+            $table->integer('pengesahan')->default(0);
+            $table->integer('lain_lain')->default(0);
             $table->integer('jumlah')->default(0);
             $table->timestamps();
             $table->softdeletes();
@@ -32,6 +35,6 @@ class CreateTenagakerjaBekerjaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tenagakerja_bekerja');
+        Schema::dropIfExists('kependudukan_cerai');
     }
 }

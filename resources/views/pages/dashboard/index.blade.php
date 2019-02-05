@@ -5,7 +5,7 @@
 @endsection
 
 @section('konten')
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-lg-3">
 
             <!-- Members online -->
@@ -121,7 +121,7 @@
 				</div>			
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection
 
 @section('footscript')
