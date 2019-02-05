@@ -1,8 +1,9 @@
 @extends('layouts.master')
 
 @section('title')
-    <title>Kependudukan : Sistem Informasi Statistik Kabupaten Tangerang</title>
-    <script type="text/javascript" src="{{ asset('/') }}assets/js/pages/datatables_basic.js"></script>
+    <title>Form Edit Data Luas Wilayah : Sistem Informasi Statistik Kabupaten Tangerang</title>
+    <script type="text/javascript" src="{{ asset('/') }}chartjs/Chart.bundle.js"></script>
+    <script type="text/javascript" src="{{ asset('/') }}chartjs/util.js"></script>
     <style>
         .left-margin-for-header {
             margin-left: 27px;
@@ -35,10 +36,11 @@
                     <div class="breadcrumb-line"><a class="breadcrumb-elements-toggle"><i class="icon-menu-open"></i></a>
                         <ul class="breadcrumb">
                             <li><a href=""><i class="icon-home2 position-left"></i> Dashboard</a></li>
-                            <li><a href="">Kependudukan</a></li>
-                            <li><a href="">{{ $kategori->judul }} Tahun {{$tahun}}</a></li>
-                            <li class="active">Tambah Data</li>
+                            <li><a href="{{route('sex-ratio.index',[$id_kategori,$tahun])}}">Kependudukan</a></li>
+                            <li class="active">{{ $kategori->judul }} Tahun {{$tahun}}</li>
                         </ul>
+
+                        <a href="{{route('wilayah-luas-jlh-kecamatan.index',[$id_kategori,$tahun])}}" class="btn btn-xs btn-primary pull-right" style="margin-top:5px;"><i class="icon-arrow-left52"></i> Kembali</a>
                     </div>
                 </div>
             </div>
@@ -46,9 +48,10 @@
     </div>
 
     <div class="content">
+        
         <div class="panel panel-flat">
             <div class="panel-heading">
-                <h5 class="panel-title">Formulir Tambah Data<a class="heading-elements-toggle"><i class="icon-more"></i></a></h5>
+                <h5 class="panel-title">Formulir Edit Data<a class="heading-elements-toggle"><i class="icon-more"></i></a></h5>
                 <div class="heading-elements">
                     <ul class="icons-list">
                         <li><a data-action="collapse"></a></li>
@@ -56,33 +59,37 @@
                     </ul>
                 </div>
             </div>
-            <div class="panel-body">
-                <form action="{{ route('kependudukan-kepadatan.store', [$kategori->id,$tahun]) }}" method="post">
+            <div style="padding:15px;">
+                <form action="{{route('sex-ratio.update',[$id_kategori,$tahun])}}" method="post">
                     @csrf
-                    <table class="table">
+                    <table class="table datatable-basic table-striped table-bordered">
                         <thead>
                             <tr>
                                 <th>#</th>
                                 <th>Kecamatan</th>
-                                <th>Persentase Penduduk (%)</th>
-                                <th>Kepadatan Penduduk Per Km<sup>2</sup></th>
+                                <th>Laki-laki</th>
+                                <th>Perempuan</th>
+                                <th>Jumlah</th>
+                                <th>Sex Ratio</th>
                                 <th>Tahun</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($kecamatan as $key => $item)
+                            @php
+                                $number = 1;
+                            @endphp
+                            @foreach ($kecamatan as $item)
                                 <tr>
-                                    <td>{{ $key = $key + 1 }}</td>
-                                    <td>
-                                        <input type="hidden" class="form-control" name="id_kecamatan[]" value="{{ $item->id }}">
-                                        <input type="text" class="form-control" readonly value="{{ $item->nama_kecamatan }}">
+                                    <td class="text-center">    {{ $number }}
+                                            @php
+                                                $number++;
+                                            @endphp
                                     </td>
-                                    <td>
-                                        <input type="number" max="100" min="0" class="form-control" name="persentase_penduduk[]" value="0">
-                                    </td>
-                                    <td>
-                                        <input type="number" min="0" class="form-control" name="kepadatan_penduduk[]" value="0">
-                                    </td>
+                                    <td>{{ $item->nama_kecamatan }}</td>
+                                    <td class="text-center"><input type="text" class="form-control text-center" style="width:100px;" onkeyup="hitung({{$number}})" id="laki_laki_{{$number}}" name="laki_laki[{{$item->id}}]" value="{{isset($data[$item->id]['laki_laki']) ? $data[$item->id]['laki_laki'] : 0}}"></td>
+                                    <td class="text-center"><input type="text" class="form-control text-center" style="width:100px;" onkeyup="hitung({{$number}})" id="perempuan_{{$number}}" name="perempuan[{{$item->id}}]" value="{{isset($data[$item->id]['perempuan']) ? $data[$item->id]['perempuan'] : 0}}"></td>
+                                    <td class="text-center"><input type="text" class="form-control text-center" style="width:100px;" readonly id="jlh_{{$number}}" name="jumlah[{{$item->id}}]" value="{{isset($data[$item->id]['jumlah']) ? $data[$item->id]['jumlah'] : 0}}"></td>
+                                    <td class="text-center"><input type="text" class="form-control text-center" style="width:100px;" name="sex_ratio[{{$item->id}}]" value="{{isset($data[$item->id]['sex_ratio']) ? $data[$item->id]['sex_ratio'] : 0}}"></td>
                                     <td class="text-center">{{$tahun}}</td>
                                 </tr>
                             @endforeach
@@ -95,9 +102,19 @@
                 </form>
             </div>
         </div>
+        <!-- /basic datatable -->
     </div>
 @endsection
 
 @section('footscript')
+    <script>
+		function hitung(num)
+        {
+            var laki_laki=$('#laki_laki_'+num).val();
+            var perempuan=$('#perempuan_'+num).val();
+            var jlh=parseInt(laki_laki) + parseInt(perempuan);
+            $('#jlh_'+num).val(jlh);
+        }
+    </script>
     
 @endsection

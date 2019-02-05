@@ -21,7 +21,7 @@
                             <h5>
                                 <i class="icon-arrow-left52 position-left"></i>
                                 <span class="text-semibold">Subyek: {{ $kategori->subyek->nama_subyek }}</span><br> 
-                                <span class="left-margin-for-header">{{ $kategori->judul }}</span>
+                                <span class="left-margin-for-header">{{ $kategori->judul }} Tahun {{$tahun}}</span>
                                 <small class="display-block" style="margin-left:27px;">
                                     Sumber Data: &nbsp;{{ !is_null($kategori->sumber_data) ? $kategori->sumber_data : 'Informasi Tidak Tersedia' }}
                                 </small>
@@ -37,7 +37,7 @@
                         <ul class="breadcrumb">
                             <li><a href=""><i class="icon-home2 position-left"></i> Dashboard</a></li>
                             <li><a href="">Kependudukan</a></li>
-                            <li class="active">{{ $kategori->judul }}</li>
+                            <li class="active">{{ $kategori->judul }} Tahun {{$tahun}}</li>
                         </ul>
 
                         <ul class="breadcrumb-elements">
@@ -50,13 +50,30 @@
                                 
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     @if ($data->count()==0)
-                                        <li><a href="{{ route('kependudukan-kepadatan.create', $kategori->id) }}"><i class="icon-googleplus5 pull-right"></i> Tambah Data</a></li>
+                                        <li><a href="{{ route('kependudukan-kepadatan.create', [$kategori->id,$tahun]) }}"><i class="icon-googleplus5 pull-right"></i> Tambah Data</a></li>
                                     @else
-                                        <li><a href="{{ route('kependudukan-kepadatan.edit', $kategori->id) }}"><i class="icon-googleplus5 pull-right"></i> Ubah Data</a></li>
+                                        <li><a href="{{ route('kependudukan-kepadatan.edit', [$kategori->id,$tahun]) }}"><i class="icon-googleplus5 pull-right"></i> Ubah Data</a></li>
                                     @endif
                                 </ul>
                             </li>
                         </ul>
+                        <div class="row pull-right" style="width:30%;float:right;margin-top:2px;">
+                            
+                            <div class="col-md-4 pull-right">
+                                <select class="form-control" name="tahun" id="tahun" data-placeholder="Tahun" placeholder="Tahun" onchange="loaddata(this.value)">
+                                    @for ($i = (date('Y')-5); $i <= date('Y'); $i++)
+                                        @if ($i==$tahun)
+                                            <option value="{{$i}}" selected="selected">{{$i}}</option>
+                                        @else
+                                            <option value="{{$i}}">{{$i}}</option>
+                                        @endif
+                                    @endfor
+                                </select>
+                            </div>
+                            <div class="col-md-3 pull-right">
+                                <h5 class="panel-title" style="margin-top:5px;">Tahun</h5>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -93,6 +110,7 @@
                         <th>Kecamatan</th>
                         <th>Persentase Penduduk (%)</th>
                         <th>Kepadatan Penduduk Per Km<sup>2</sup></th>
+                        <th>Tahun</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -102,6 +120,7 @@
                             <td>{{ $item->kecamatan->nama_kecamatan }}</td>
                             <td>{{ $item->persentase_penduduk }} %</td>
                             <td>{{ $item->kepadatan_penduduk }} Jiwa</td>
+                            <td>{{$tahun}}</td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -131,6 +150,10 @@
     </script>
 
     <script>
+        function loaddata(tahun)
+        {
+            location.href='{{url("/kependudukan/dependency-ratio/".$id_kategori)}}/'+tahun;
+        }
 		var color = Chart.helpers.color;
 		var horizontalBarChartData = {
 			labels: [
