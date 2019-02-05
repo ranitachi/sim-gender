@@ -360,6 +360,13 @@ Route::get('/kesehatan/balita-asi-rata-rata/{id_kategori}/{tahun?}/edit', 'Keseh
 Route::post('/kesehatan/balita-asi-rata-rata/{id_kategori}/{tahun?}/update', 'KesehatanBalitaAsiRatarataController@update')->name('balita-asi.update');
 Route::post('/kesehatan/balita-asi-rata-rata/{id_kategori}/{tahun?}/store', 'KesehatanBalitaAsiRatarataController@store')->name('balita-asi.store');
 
+//--------Kesehatan Penyebab Kematian Ibu
+Route::get('/kesehatan/kematian-ibu/{id_kategori}/{tahun?}', 'KesehatanKematianIbuController@index')->name('kematian-ibu.index');
+Route::get('/kesehatan/kematian-ibu/{id_kategori}/{tahun?}/create', 'KesehatanKematianIbuController@create')->name('kematian-ibu.create');
+Route::get('/kesehatan/kematian-ibu/{id_kategori}/{tahun?}/edit', 'KesehatanKematianIbuController@edit')->name('kematian-ibu.edit');
+Route::post('/kesehatan/kematian-ibu/{id_kategori}/{tahun?}/update', 'KesehatanKematianIbuController@update')->name('kematian-ibu.update');
+Route::post('/kesehatan/kematian-ibu/{id_kategori}/{tahun?}/store', 'KesehatanKematianIbuController@store')->name('kematian-ibu.store');
+
 
 // ----------Kependudukan PMKS
 Route::get('/kependudukan/pmks/{id_kategori}', 'KependudukanPMKSController@index')->name('kependudukan-pmks.index');
