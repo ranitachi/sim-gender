@@ -51,6 +51,27 @@ Route::get('/kependudukan/perkara-pengadilan-agama/{id_kategori}/{tahun}/edit', 
 Route::put('/kependudukan/perkara-pengadilan-agama/{id_kategori}/{tahun}/update', 'KependudukanPerkaraController@update')->name('kependudukan-perkara.update');
 Route::post('/kependudukan/perkara-pengadilan-agama/{id_kategori}/{tahun}/store', 'KependudukanPerkaraController@store')->name('kependudukan-perkara.store');
 
+// -------Kependudukan Cerai
+Route::get('/kependudukan/jumlah-cerai/{id_kategori}/{tahun}', 'KependudukanCeraiController@index')->name('kependudukan-cerai.index');
+Route::get('/kependudukan/jumlah-cerai/{id_kategori}/{tahun}/create', 'KependudukanCeraiController@create')->name('kependudukan-cerai.create');
+Route::get('/kependudukan/jumlah-cerai/{id_kategori}/{tahun}/edit', 'KependudukanCeraiController@edit')->name('kependudukan-cerai.edit');
+Route::put('/kependudukan/jumlah-cerai/{id_kategori}/{tahun}/update', 'KependudukanCeraiController@update')->name('kependudukan-cerai.update');
+Route::post('/kependudukan/jumlah-cerai/{id_kategori}/{tahun}/store', 'KependudukanCeraiController@store')->name('kependudukan-cerai.store');
+
+// -------Kependudukan Rumah Tangga Miskin
+Route::get('/kependudukan/rumah-tangga-miskin/{id_kategori}/{tahun}', 'KependudukanMiskinController@index')->name('kependudukan-miskin.index');
+Route::get('/kependudukan/rumah-tangga-miskin/{id_kategori}/{tahun}/create', 'KependudukanMiskinController@create')->name('kependudukan-miskin.create');
+Route::get('/kependudukan/rumah-tangga-miskin/{id_kategori}/{tahun}/edit', 'KependudukanMiskinController@edit')->name('kependudukan-miskin.edit');
+Route::put('/kependudukan/rumah-tangga-miskin/{id_kategori}/{tahun}/update', 'KependudukanMiskinController@update')->name('kependudukan-miskin.update');
+Route::post('/kependudukan/rumah-tangga-miskin/{id_kategori}/{tahun}/store', 'KependudukanMiskinController@store')->name('kependudukan-miskin.store');
+
+// -------Kependudukan Perempuan Sosial Ekonomi
+Route::get('/kependudukan/perempuan-sosial-ekonomi/{id_kategori}/{tahun}', 'KependudukanPerempuanController@index')->name('kependudukan-perempuan.index');
+Route::get('/kependudukan/perempuan-sosial-ekonomi/{id_kategori}/{tahun}/create', 'KependudukanPerempuanController@create')->name('kependudukan-perempuan.create');
+Route::get('/kependudukan/perempuan-sosial-ekonomi/{id_kategori}/{tahun}/edit', 'KependudukanPerempuanController@edit')->name('kependudukan-perempuan.edit');
+Route::put('/kependudukan/perempuan-sosial-ekonomi/{id_kategori}/{tahun}/update', 'KependudukanPerempuanController@update')->name('kependudukan-perempuan.update');
+Route::post('/kependudukan/perempuan-sosial-ekonomi/{id_kategori}/{tahun}/store', 'KependudukanPerempuanController@store')->name('kependudukan-perempuan.store');
+
 //--------Pendidikan Sekolah
 Route::get('/pendidikan/sekolah/{jenjang}/{id_kategori}', 'PendidikanSekolahController@index')->name('pendidikan-sekolah.index');
 Route::get('/pendidikan/sekolah/{jenjang}/{id_kategori}/create', 'PendidikanSekolahController@create')->name('pendidikan-sekolah.create');

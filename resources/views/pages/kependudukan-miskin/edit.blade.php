@@ -47,30 +47,38 @@
                 </div>
             </div>
             <div class="panel-body">
-                <form action="{{ route('kependudukan-perkara.update', [$kategori->id, $tahun]) }}" method="post">
+                <form action="{{ route('kependudukan-miskin.update', [$kategori->id, $tahun]) }}" method="post">
                     @csrf
                     @method('put')
-                    Tahun: <input type="text" class="form-control" value="{{ $tahun }}">
+                    Tahun: <input type="text" class="form-control" value="{{ $tahun }}" readonly>
                     <hr>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th style="width:30px;">#</th>
                                 <th>Kecamatan</th>
-                                <th>Jumlah Perkara</th>
+                                <th>Hampir Miskin</th>
+                                <th>Miskin</th>
+                                <th>Sangat Miskin</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($data as $key => $item)
                                 <tr>
-                                        <td>{{ $key = $key + 1 }}</td>
-                                        <td>
-                                            <input type="hidden" class="form-control" name="id_kecamatan[]" value="{{ $item->id_kecamatan }}">
-                                            <input type="text" class="form-control" readonly value="{{ $item->kecamatan->nama_kecamatan }}">
-                                        </td>
-                                        <td>
-                                            <input type="number" min="0" class="form-control" name="perkara[]" value="{{ $item->perkara }}">
-                                        </td>
+                                    <td>{{ $key = $key + 1 }}</td>
+                                    <td>
+                                        <input type="hidden" class="form-control" name="id_kecamatan[]" value="{{ $item->id_kecamatan }}">
+                                        <input type="text" class="form-control" readonly value="{{ $item->kecamatan->nama_kecamatan }}">
+                                    </td>
+                                    <td>
+                                        <input type="number" min="0" class="form-control" name="hampir_miskin[]" value="{{ $item->hampir_miskin }}" required>
+                                    </td>
+                                    <td>
+                                        <input type="number" min="0" class="form-control" name="miskin[]" value="{{ $item->miskin }}" required>
+                                    </td>
+                                    <td>
+                                        <input type="number" min="0" class="form-control" name="sangat_miskin[]" value="{{ $item->sangat_miskin }}" required>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

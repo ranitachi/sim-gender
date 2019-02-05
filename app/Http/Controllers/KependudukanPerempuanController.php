@@ -6,45 +6,39 @@ use Illuminate\Http\Request;
 
 use App\Models\Kategori;
 use App\Models\Kecamatan;
-use App\Models\KependudukanCerai;
+use App\Models\KependudukanPerempuan;
 
 use DB;
 
-class KependudukanCeraiController extends Controller
+class KependudukanPerempuanController extends Controller
 {
     public function index($id_kategori, $tahun)
     {
         $kategori = Kategori::with('subyek')->findOrFail($id_kategori);
 
-        $data = KependudukanCerai::where('id_kategori', $id_kategori)
+        $data = KependudukanPerempuan::where('id_kategori', $id_kategori)
             ->where('tahun', $tahun)
             ->with('kecamatan')
             ->get();
 
-        $tahun_tersedia = KependudukanCerai::select('tahun')->groupby('tahun')->get()->pluck('tahun');
+        $tahun_tersedia = KependudukanPerempuan::select('tahun')->groupby('tahun')->get()->pluck('tahun');
 
         $chart_kecamatan = [];
-        $chart_talak = [];
-        $chart_gugat = [];
-        $chart_pengesahan = [];
-        $chart_lain_lain = [];
+        $chart_ekonomi = [];
+        $chart_psikologis = [];
         foreach ($data as $item) {
             $chart_kecamatan[] = ucwords(strtolower($item->kecamatan->nama_kecamatan));
-            $chart_talak[] = $item->talak;
-            $chart_gugat[] = $item->gugat;
-            $chart_pengesahan[] = $item->pengesahan;
-            $chart_lain_lain[] = $item->lain_lain;
+            $chart_ekonomi[] = $item->ekonomi;
+            $chart_psikologis[] = $item->psikologis;
         }
 
-        return view('pages.kependudukan-cerai.index')
+        return view('pages.kependudukan-perempuan.index')
             ->with('data', $data)
             ->with('tahun', $tahun)
             ->with('tahun_tersedia', $tahun_tersedia)
             ->with('chart_kecamatan', $chart_kecamatan)
-            ->with('chart_talak', $chart_talak)
-            ->with('chart_gugat', $chart_gugat)
-            ->with('chart_pengesahan', $chart_pengesahan)
-            ->with('chart_lain_lain', $chart_lain_lain)
+            ->with('chart_ekonomi', $chart_ekonomi)
+            ->with('chart_psikologis', $chart_psikologis)
             ->with('kategori', $kategori);
     }
     
@@ -54,7 +48,7 @@ class KependudukanCeraiController extends Controller
 
         $kecamatan = Kecamatan::all();
 
-        return view('pages.kependudukan-cerai.create')
+        return view('pages.kependudukan-perempuan.create')
             ->with('kecamatan', $kecamatan)
             ->with('tahun', $tahun)
             ->with('kategori', $kategori);
@@ -64,12 +58,12 @@ class KependudukanCeraiController extends Controller
     {
         $kategori = Kategori::with('subyek')->findOrFail($id_kategori);
 
-        $data = KependudukanCerai::where('id_kategori', $id_kategori)
+        $data = KependudukanPerempuan::where('id_kategori', $id_kategori)
             ->where('tahun', $tahun)
             ->with('kecamatan')
             ->get();
 
-        return view('pages.kependudukan-cerai.edit')
+        return view('pages.kependudukan-perempuan.edit')
             ->with('data', $data)
             ->with('tahun', $tahun)
             ->with('kategori', $kategori);
@@ -78,40 +72,34 @@ class KependudukanCeraiController extends Controller
     public function update(Request $request, $id_kategori, $tahun)
     {
         DB::transaction(function () use($request, $id_kategori, $tahun) {
-            KependudukanCerai::where('id_kategori', $id_kategori)->where('tahun', $tahun)->forceDelete();
+            KependudukanPerempuan::where('id_kategori', $id_kategori)->where('tahun', $tahun)->forceDelete();
     
             for ($i=0; $i < count($request->id_kecamatan); $i++) { 
-                $insert = new KependudukanCerai;
+                $insert = new KependudukanPerempuan;
                 $insert->id_kategori = $id_kategori;
                 $insert->id_kecamatan = $request->id_kecamatan[$i];
                 $insert->tahun = $request->tahun;
-                $insert->talak = $request->talak[$i];
-                $insert->gugat = $request->gugat[$i];
-                $insert->pengesahan = $request->pengesahan[$i];
-                $insert->lain_lain = $request->lain_lain[$i];
-                $insert->jumlah = ($request->talak[$i] + $request->gugat[$i] + $request->pengesahan[$i] + $request->lain_lain[$i]);
+                $insert->ekonomi = $request->ekonomi[$i];
+                $insert->psikologis = $request->psikologis[$i];
                 $insert->save();
             }
         });
 
-        return redirect()->route('kependudukan-cerai.index', [$id_kategori, $tahun]);
+        return redirect()->route('kependudukan-perempuan.index', [$id_kategori, $tahun]);
     }
 
     public function store(Request $request, $id_kategori, $tahun)
     {
         for ($i=0; $i < count($request->id_kecamatan); $i++) { 
-            $insert = new KependudukanCerai;
+            $insert = new KependudukanPerempuan;
             $insert->id_kategori = $id_kategori;
             $insert->id_kecamatan = $request->id_kecamatan[$i];
             $insert->tahun = $request->tahun;
-            $insert->talak = $request->talak[$i];
-            $insert->gugat = $request->gugat[$i];
-            $insert->pengesahan = $request->pengesahan[$i];
-            $insert->lain_lain = $request->lain_lain[$i];
-            $insert->jumlah = ($request->talak[$i] + $request->gugat[$i] + $request->pengesahan[$i] + $request->lain_lain[$i]);
+            $insert->ekonomi = $request->ekonomi[$i];
+            $insert->psikologis = $request->psikologis[$i];
             $insert->save();
         }
 
-        return redirect()->route('kependudukan-cerai.index', [$id_kategori, $request->tahun]);
+        return redirect()->route('kependudukan-perempuan.index', [$id_kategori, $request->tahun]);
     }
 }

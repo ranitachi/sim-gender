@@ -20,15 +20,15 @@
                             <h5>
                                 <i class="icon-arrow-left52 position-left"></i>
                                 <span class="text-semibold">Subyek: {{ $kategori->subyek->nama_subyek }}</span><br> 
-                                <span class="left-margin-for-header">{{ $kategori->judul }} Tahun {{ $tahun }}</span>    
+                                <span class="left-margin-for-header">{{ $kategori->judul }}</span>
                             </h5>
-                        </div>
+                        <a class="heading-elements-toggle"><i class="icon-more"></i></a></div>
+                    </div>
                     
-                        <div class="breadcrumb-line"><a class="breadcrumb-elements-toggle"><i class="icon-menu-open"></i></a>
-                            <ul class="breadcrumb">
-                                <li><a href="{{ route('subyek.index', $kategori->subyek->nama_subyek) }}"><<&nbsp; Kembali</a></li>                                
-                            </ul>
-                        </div>
+                    <div class="breadcrumb-line"><a class="breadcrumb-elements-toggle"><i class="icon-menu-open"></i></a>
+                        <ul class="breadcrumb">
+                            <li><a href="{{ route('subyek.index', $kategori->subyek->nama_subyek) }}"><<&nbsp; Kembali</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
     <div class="content">
         <div class="panel panel-flat">
             <div class="panel-heading">
-                <h5 class="panel-title">Formulir Edit Data<a class="heading-elements-toggle"><i class="icon-more"></i></a></h5>
+                <h5 class="panel-title">Formulir Tambah Data<a class="heading-elements-toggle"><i class="icon-more"></i></a></h5>
                 <div class="heading-elements">
                     <ul class="icons-list">
                         <li><a data-action="collapse"></a></li>
@@ -47,30 +47,37 @@
                 </div>
             </div>
             <div class="panel-body">
-                <form action="{{ route('kependudukan-perkara.update', [$kategori->id, $tahun]) }}" method="post">
+                <form action="{{ route('kependudukan-miskin.store', [$kategori->id, $tahun]) }}" method="post">
                     @csrf
-                    @method('put')
-                    Tahun: <input type="text" class="form-control" value="{{ $tahun }}">
+                    Tahun: <input type="number" class="form-control" name="tahun" required autocomplete="off">
                     <hr>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>#</th>
+                                <th style="width:30px;">#</th>
                                 <th>Kecamatan</th>
-                                <th>Jumlah Perkara</th>
+                                <th>Hampir Miskin</th>
+                                <th>Miskin</th>
+                                <th>Sangat Miskin</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($data as $key => $item)
+                            @foreach ($kecamatan as $key => $item)
                                 <tr>
-                                        <td>{{ $key = $key + 1 }}</td>
-                                        <td>
-                                            <input type="hidden" class="form-control" name="id_kecamatan[]" value="{{ $item->id_kecamatan }}">
-                                            <input type="text" class="form-control" readonly value="{{ $item->kecamatan->nama_kecamatan }}">
-                                        </td>
-                                        <td>
-                                            <input type="number" min="0" class="form-control" name="perkara[]" value="{{ $item->perkara }}">
-                                        </td>
+                                    <td>{{ $key = $key + 1 }}</td>
+                                    <td>
+                                        <input type="hidden" class="form-control" name="id_kecamatan[]" value="{{ $item->id }}">
+                                        <input type="text" class="form-control" readonly value="{{ $item->nama_kecamatan }}">
+                                    </td>
+                                    <td>
+                                        <input type="number" min="0" class="form-control" name="hampir_miskin[]" value="123" required>
+                                    </td>
+                                    <td>
+                                        <input type="number" min="0" class="form-control" name="miskin[]" value="123" required>
+                                    </td>
+                                    <td>
+                                        <input type="number" min="0" class="form-control" name="sangat_miskin[]" value="123" required>
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

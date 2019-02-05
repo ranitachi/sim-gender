@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class KependudukanPerkara extends Model
+class KependudukanPerempuan extends Model
 {
     use SoftDeletes;
 
-    protected $table = 'kependudukan_perkara';
+    protected $table = 'kependudukan_perempuan';
 
-    protected $fillable = ['id_kategori', 'id_kecamatan', 'tahun', 'perkara'];
+    protected $fillable = ['id_kategori', 'id_kecamatan', 'tahun', 'ekonomi', 'psikologis'];
 
     public function kecamatan()
     {

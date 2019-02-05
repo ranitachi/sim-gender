@@ -47,34 +47,38 @@
                 </div>
             </div>
             <div class="panel-body">
-                <form action="{{ route('kependudukan-perkara.update', [$kategori->id, $tahun]) }}" method="post">
+                <form action="{{ route('kependudukan-perempuan.update', [$kategori->id, $tahun]) }}" method="post">
                     @csrf
                     @method('put')
-                    Tahun: <input type="text" class="form-control" value="{{ $tahun }}">
+                    Tahun: <input type="text" class="form-control" value="{{ $tahun }}" readonly>
                     <hr>
                     <table class="table">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Kecamatan</th>
-                                <th>Jumlah Perkara</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($data as $key => $item)
+                            <thead>
                                 <tr>
+                                    <th style="width:30px;">#</th>
+                                    <th>Kecamatan</th>
+                                    <th>Perempuan Rawan Sosial Ekonomi</th>
+                                    <th>Keluarga Bermasalah Sosial Psikologis</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($data as $key => $item)
+                                    <tr>
                                         <td>{{ $key = $key + 1 }}</td>
                                         <td>
                                             <input type="hidden" class="form-control" name="id_kecamatan[]" value="{{ $item->id_kecamatan }}">
                                             <input type="text" class="form-control" readonly value="{{ $item->kecamatan->nama_kecamatan }}">
                                         </td>
                                         <td>
-                                            <input type="number" min="0" class="form-control" name="perkara[]" value="{{ $item->perkara }}">
+                                            <input type="number" min="0" class="form-control" name="ekonomi[]" value="{{ $item->ekonomi }}" required>
                                         </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                                        <td>
+                                            <input type="number" min="0" class="form-control" name="psikologis[]" value="{{ $item->psikologis }}" required>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
                     <br>
                     <div class="text-right">
                         <button type="submit" class="btn btn-primary legitRipple">Simpan Data <i class="icon-arrow-right14 position-right"></i></button>

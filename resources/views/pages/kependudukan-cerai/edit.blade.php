@@ -47,17 +47,20 @@
                 </div>
             </div>
             <div class="panel-body">
-                <form action="{{ route('kependudukan-perkara.update', [$kategori->id, $tahun]) }}" method="post">
+                <form action="{{ route('kependudukan-cerai.update', [$kategori->id, $tahun]) }}" method="post">
                     @csrf
                     @method('put')
-                    Tahun: <input type="text" class="form-control" value="{{ $tahun }}">
+                    Tahun: <input type="text" class="form-control" value="{{ $tahun }}" readonly>
                     <hr>
                     <table class="table">
                         <thead>
                             <tr>
                                 <th>#</th>
                                 <th>Kecamatan</th>
-                                <th>Jumlah Perkara</th>
+                                <th>Cerai Talak</th>
+                                <th>Cerai Gugat</th>
+                                <th>Pengesahan Nikah</th>
+                                <th>Lain-Lain</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -69,7 +72,16 @@
                                             <input type="text" class="form-control" readonly value="{{ $item->kecamatan->nama_kecamatan }}">
                                         </td>
                                         <td>
-                                            <input type="number" min="0" class="form-control" name="perkara[]" value="{{ $item->perkara }}">
+                                            <input type="number" min="0" class="form-control" name="talak[]" value="{{ $item->talak }}">
+                                        </td>
+                                        <td>
+                                            <input type="number" min="0" class="form-control" name="gugat[]" value="{{ $item->gugat }}">
+                                        </td>
+                                        <td>
+                                            <input type="number" min="0" class="form-control" name="pengesahan[]" value="{{ $item->pengesahan }}">
+                                        </td>
+                                        <td>
+                                            <input type="number" min="0" class="form-control" name="lain_lain[]" value="{{ $item->lain_lain }}">
                                         </td>
                                 </tr>
                             @endforeach

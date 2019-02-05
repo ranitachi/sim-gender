@@ -25,7 +25,6 @@ class KependudukanPerkaraController extends Controller
 
         $chart_kecamatan = [];
         $chart_perkara = [];
-        $chart_kepadatan = [];
         foreach ($data as $item) {
             $chart_kecamatan[] = ucwords(strtolower($item->kecamatan->nama_kecamatan));
             $chart_perkara[] = $item->perkara;

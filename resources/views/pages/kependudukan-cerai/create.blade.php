@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="panel-body">
-                <form action="{{ route('kependudukan-perkara.store', [$kategori->id, $tahun]) }}" method="post">
+                <form action="{{ route('kependudukan-cerai.store', [$kategori->id, $tahun]) }}" method="post">
                     @csrf
                     Tahun: <input type="number" class="form-control" name="tahun" required autocomplete="off">
                     <hr>
@@ -56,7 +56,10 @@
                             <tr>
                                 <th style="width:30px;">#</th>
                                 <th>Kecamatan</th>
-                                <th>Jumlah Perkara</th>
+                                <th>Cerai Talak</th>
+                                <th>Cerai Gugat</th>
+                                <th>Pengesahan Nikah</th>
+                                <th>Lain-Lain</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -68,7 +71,16 @@
                                         <input type="text" class="form-control" readonly value="{{ $item->nama_kecamatan }}">
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="perkara[]" value="0" required>
+                                        <input type="number" min="0" class="form-control" name="talak[]" value="123" required>
+                                    </td>
+                                    <td>
+                                        <input type="number" min="0" class="form-control" name="gugat[]" value="123" required>
+                                    </td>
+                                    <td>
+                                        <input type="number" min="0" class="form-control" name="pengesahan[]" value="123" required>
+                                    </td>
+                                    <td>
+                                        <input type="number" min="0" class="form-control" name="lain_lain[]" value="123" required>
                                     </td>
                                 </tr>
                             @endforeach
