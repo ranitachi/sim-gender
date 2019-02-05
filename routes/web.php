@@ -107,6 +107,13 @@ Route::get('/politik-dan-keamanan/korban-kekerasan-tempat-kejadian/{id_kategori}
 Route::put('/politik-dan-keamanan/korban-kekerasan-tempat-kejadian/{id_kategori}/{tahun}/update', 'PolitikKejadianController@update')->name('politik-kejadian.update');
 Route::post('/politik-dan-keamanan/korban-kekerasan-tempat-kejadian/{id_kategori}/{tahun}/store', 'PolitikKejadianController@store')->name('politik-kejadian.store');
 
+// -------Politik dan Keamanan Korban Kekerasan Umur
+Route::get('/politik-dan-keamanan/korban-kekerasan-tingkat-pendidikan/{id_kategori}/{tahun}', 'PolitikTingkatController@index')->name('politik-tingkat.index');
+Route::get('/politik-dan-keamanan/korban-kekerasan-tingkat-pendidikan/{id_kategori}/{tahun}/create', 'PolitikTingkatController@create')->name('politik-tingkat.create');
+Route::get('/politik-dan-keamanan/korban-kekerasan-tingkat-pendidikan/{id_kategori}/{tahun}/edit', 'PolitikTingkatController@edit')->name('politik-tingkat.edit');
+Route::put('/politik-dan-keamanan/korban-kekerasan-tingkat-pendidikan/{id_kategori}/{tahun}/update', 'PolitikTingkatController@update')->name('politik-tingkat.update');
+Route::post('/politik-dan-keamanan/korban-kekerasan-tingkat-pendidikan/{id_kategori}/{tahun}/store', 'PolitikTingkatController@store')->name('politik-tingkat.store');
+
 
 
 
