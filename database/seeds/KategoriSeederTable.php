@@ -447,14 +447,80 @@ class KategoriSeederTable extends Seeder
 
         $kat = new Kategori;
         $kat->id_subyek = 1;
-        $kat->judul = "Banyaknya Tindak Kejahatan Yang Terjadi Menurut Jenis Kejahatan di Kab Tangerang";
-        $kat->url_route = "/politik-dan-keamanan/tindak-kejahatan"; 
+        $kat->judul = "Jumlah Anggota DPRD Kabupaten Tangerang Menurut Fraksi";
+        $kat->url_route = "/politik-dan-keamanan/anggota-dprd"; 
         $kat->save();
 
         $kat = new Kategori;
         $kat->id_subyek = 1;
-        $kat->judul = "Jumlah Tahanan di Lembaga Pemasyarakatan (LP) Anak Tanggerang Menurut Jenis Kejahatan di Kab Tangerang (jiwa)";
-        $kat->url_route = "/politik-dan-keamanan/lp"; 
+        $kat->judul = "Persentase Jumlah Anggota Dewan Menurut Jenis Kelamin";
+        $kat->url_route = "/politik-dan-keamanan/anggota-dewan"; 
+        $kat->save();
+
+        $kat = new Kategori;
+        $kat->id_subyek = 1;
+        $kat->judul = "Jumlah Anggota DPRD Kabupaten Tangerang Berdasarkan Jenjang Pendidikan";
+        $kat->url_route = "/politik-dan-keamanan/pendidikan-anggota-dprd"; 
+        $kat->save();
+
+        $kat = new Kategori;
+        $kat->id_subyek = 1;
+        $kat->judul = "Jumlah Anggota DPRD Kabupaten Tangerang Menurut Komisi";
+        $kat->url_route = "/politik-dan-keamanan/anggota-dprd-komisi"; 
+        $kat->save();
+
+        $kat = new Kategori;
+        $kat->id_subyek = 1;
+        $kat->judul = "Jumlah Pegawai Negeri Sipil (PNS) Pemerintah Kabupaten Tangerang Menurut SKPD dan Jenis Kelamin";
+        $kat->url_route = "/politik-dan-keamanan/pns-jenis-kelamin"; 
+        $kat->save();
+
+        $kat = new Kategori;
+        $kat->id_subyek = 1;
+        $kat->judul = "Jumlah Korban Kekerasan Menurut Umur di Kabupaten Tangerang";
+        $kat->url_route = "/politik-dan-keamanan/korban-kekerasan-umur"; 
+        $kat->save();
+
+        $kat = new Kategori;
+        $kat->id_subyek = 1;
+        $kat->judul = "Jumlah Korban Kekerasan Menurut Tempat Kejadian";
+        $kat->url_route = "/politik-dan-keamanan/korban-kekerasan-tempat-kejadian"; 
+        $kat->save();
+
+        $kat = new Kategori;
+        $kat->id_subyek = 1;
+        $kat->judul = "Jumlah Korban Kekerasan Menurut Tingkat Pendidikan dan Jenis Kelamin";
+        $kat->url_route = "/politik-dan-keamanan/korban-kekerasan-tingkat-pendidikan"; 
+        $kat->save();
+
+        $kat = new Kategori;
+        $kat->id_subyek = 1;
+        $kat->judul = "Jumlah Korban Kekerasan Menurut Status Bekerja";
+        $kat->url_route = "/politik-dan-keamanan/korban-kekerasan-status-bekerja"; 
+        $kat->save();
+
+        $kat = new Kategori;
+        $kat->id_subyek = 1;
+        $kat->judul = "Jumlah Kekerasan Menurut Status Perkawinan";
+        $kat->url_route = "/politik-dan-keamanan/korban-kekerasan-status-perkawinan"; 
+        $kat->save();
+
+        $kat = new Kategori;
+        $kat->id_subyek = 1;
+        $kat->judul = "Jumlah Kekerasan Menurut Status Perkawinan";
+        $kat->url_route = "/politik-dan-keamanan/korban-kekerasan-status-perkawinan"; 
+        $kat->save();
+
+        $kat = new Kategori;
+        $kat->id_subyek = 1;
+        $kat->judul = "Jumlah Pelaku Kekerasan Menurut Hubungan Dengan Korban";
+        $kat->url_route = "/politik-dan-keamanan/korban-kekerasan-hubungan-korban"; 
+        $kat->save();
+
+        $kat = new Kategori;
+        $kat->id_subyek = 1;
+        $kat->judul = "Jumlah Pelayanan yang Diberikan Kepada Korban Kekerasan di Kabupaten Tangerang";
+        $kat->url_route = "/politik-dan-keamanan/korban-kekerasan-pelayanan"; 
         $kat->save();
 
         // End of Politik dan Keamanan

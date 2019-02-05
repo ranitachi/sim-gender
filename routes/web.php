@@ -89,7 +89,6 @@ Route::get('/kesehatan/disabilitas/{id_kategori}/edit', 'KesehatanDisabilitasCon
 Route::put('/kesehatan/disabilitas/{id_kategori}/update', 'KesehatanDisabilitasController@update')->name('kesehatan-disabilitas.update');
 Route::post('/kesehatan/disabilitas/{id_kategori}/store', 'KesehatanDisabilitasController@store')->name('kesehatan-disabilitas.store');
 
-
 Route::get('/kependudukan/pmks/{id_kategori}', 'KependudukanPMKSController@index')->name('kependudukan-pmks.index');
 Route::get('/kependudukan/pmks/{id_kategori}/create', 'KependudukanPMKSController@create')->name('kependudukan-pmks.create');
 Route::get('/kependudukan/pmks/{id_kategori}/edit', 'KependudukanPMKSController@edit')->name('kependudukan-pmks.edit');
@@ -97,8 +96,3 @@ Route::put('/kependudukan/pmks/{id_kategori}/update', 'KependudukanPMKSControlle
 Route::post('/kependudukan/pmks/{id_kategori}/store', 'KependudukanPMKSController@store')->name('kependudukan-pmks.store');
 Route::get('/kependudukan/pmks/{id_kategori}', 'KependudukanPMKSController@index')->name('kependudukan-pmks.index');
 
-Route::get('/ketenagakerjaan/indikator/{id_kategori}', 'TenagaKerjaIndikatorController@index')->name('tenagakerja-indikator.index');
-Route::get('/ketenagakerjaan/indikator/{id_kategori}/create', 'TenagaKerjaIndikatorController@create')->name('tenagakerja-indikator.create');
-Route::get('/ketenagakerjaan/indikator/{id_kategori}/edit', 'TenagaKerjaIndikatorController@edit')->name('tenagakerja-indikator.edit');
-Route::put('/ketenagakerjaan/indikator/{id_kategori}/update', 'TenagaKerjaIndikatorController@update')->name('tenagakerja-indikator.update');
-Route::post('/ketenagakerjaan/indikator/{id_kategori}/store', 'TenagaKerjaIndikatorController@store')->name('tenagakerja-indikator.store');
