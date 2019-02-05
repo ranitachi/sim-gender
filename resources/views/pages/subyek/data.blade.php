@@ -71,8 +71,6 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Kategori</th>
-                                        <th>Tahun</th>
-                                        <th>Sumber</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -80,9 +78,6 @@
                                     <tr>
                                         <td class="text-center">{{++$no}}</td>
                                         <td><a href="{{url($item->url_route,$item->id)}}">{{$item->judul}}</a></td>
-                                        <td class="text-center">{{$item->tahun}}</td>
-                                        <td>{{$item->sumber_data}}</td>
-                                        
                                     </tr>   
                                 @endforeach
                                 </tbody>
