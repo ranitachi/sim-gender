@@ -70,6 +70,7 @@ Route::get('/kesehatan/alh/{id_kategori}/create', 'KesehatanAlhController@create
 Route::get('/kesehatan/alh/{id_kategori}/edit', 'KesehatanAlhController@edit')->name('kesehatan-alh.edit');
 Route::put('/kesehatan/alh/{id_kategori}/update', 'KesehatanAlhController@update')->name('kesehatan-alh.update');
 Route::post('/kesehatan/alh/{id_kategori}/store', 'KesehatanAlhController@store')->name('kesehatan-alh.store');
+
 //--------Kesehatan Jumlah Dokter
 Route::get('/kesehatan/jumlah/doktor-spesialis/{id_kategori}', 'KesehatanJumlahDokterController@index')->name('kesehatan-jumlah-dokter.index');
 Route::get('/kesehatan/jumlah/doktor-spesialis/{id_kategori}/create', 'KesehatanJumlahDokterController@create')->name('kesehatan-jumlah-dokter.create');
@@ -102,3 +103,10 @@ Route::get('/ketenagakerjaan/indikator/{id_kategori}/create', 'TenagaKerjaIndika
 Route::get('/ketenagakerjaan/indikator/{id_kategori}/edit', 'TenagaKerjaIndikatorController@edit')->name('tenagakerja-indikator.edit');
 Route::put('/ketenagakerjaan/indikator/{id_kategori}/update', 'TenagaKerjaIndikatorController@update')->name('tenagakerja-indikator.update');
 Route::post('/ketenagakerjaan/indikator/{id_kategori}/store', 'TenagaKerjaIndikatorController@store')->name('tenagakerja-indikator.store');
+
+//wilayah
+Route::get('/wilayah/jumlah-kecamatan-luas-wilayah/{id_kategori}/{tahun?}', 'WilayahJlhKecLuasWilayahController@index')->name('wilayah-luas-jlh-kecamatan.index');
+Route::get('/wilayah/jumlah-kecamatan-luas-wilayah/{id_kategori}/{tahun?}/create', 'WilayahJlhKecLuasWilayahController@create')->name('wilayah-luas-jlh-kecamatan.create');
+Route::get('/wilayah/jumlah-kecamatan-luas-wilayah/{id_kategori}/{tahun?}/edit', 'WilayahJlhKecLuasWilayahController@edit')->name('wilayah-luas-jlh-kecamatan.edit');
+Route::post('/wilayah/jumlah-kecamatan-luas-wilayah/{id_kategori}/{tahun?}/store', 'WilayahJlhKecLuasWilayahController@store')->name('wilayah-luas-jlh-kecamatan.store');
+Route::post('/wilayah/jumlah-kecamatan-luas-wilayah/{id_kategori}/{tahun?}/update', 'WilayahJlhKecLuasWilayahController@update')->name('wilayah-luas-jlh-kecamatan.update');

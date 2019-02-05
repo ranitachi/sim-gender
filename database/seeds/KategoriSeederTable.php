@@ -14,6 +14,7 @@ class KategoriSeederTable extends Seeder
     public function run()
     {
         // Start Seeder Pendidikan
+        Kategori::query()->truncate();
 
         $kat = new Kategori;
         $kat->id_subyek = 4;
@@ -232,5 +233,17 @@ class KategoriSeederTable extends Seeder
         $kat->save();
 
         // End of Politik dan Keamanan
+
+        // Start Wilayah
+
+        $kat = new Kategori;
+        $kat->id_subyek = 6;
+        $kat->judul = "Jumlah Kecamatan, Luas Wilayah, Desa dan Kelurahan Tahun 2017";
+        $kat->tahun = "2017";
+        $kat->sumber_data = null; 
+        $kat->url_route = "/wilayah/jumlah-kecamatan-luas-wilayah"; 
+        $kat->save();
+
+        // End of Wilayah
     }
 }
