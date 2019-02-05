@@ -143,3 +143,10 @@ Route::put('/kependudukan/pmks/{id_kategori}/update', 'KependudukanPMKSControlle
 Route::post('/kependudukan/pmks/{id_kategori}/store', 'KependudukanPMKSController@store')->name('kependudukan-pmks.store');
 Route::get('/kependudukan/pmks/{id_kategori}', 'KependudukanPMKSController@index')->name('kependudukan-pmks.index');
 
+
+//wilayah
+Route::get('/kependudukan/jumlah-kecamatan/{id_kategori}/{tahun?}', 'WilayahJlhKecLuasWilayahController@index')->name('wilayah-luas-jlh-kecamatan.index');
+Route::get('/kependudukan/jumlah-kecamatan/{id_kategori}/{tahun?}/create', 'WilayahJlhKecLuasWilayahController@create')->name('wilayah-luas-jlh-kecamatan.create');
+Route::get('/kependudukan/jumlah-kecamatan/{id_kategori}/{tahun?}/edit', 'WilayahJlhKecLuasWilayahController@edit')->name('wilayah-luas-jlh-kecamatan.edit');
+Route::post('/kependudukan/jumlah-kecamatan/{id_kategori}/{tahun?}/store', 'WilayahJlhKecLuasWilayahController@store')->name('wilayah-luas-jlh-kecamatan.store');
+Route::post('/kependudukan/jumlah-kecamatan/{id_kategori}/{tahun?}/update', 'WilayahJlhKecLuasWilayahController@update')->name('wilayah-luas-jlh-kecamatan.update');

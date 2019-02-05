@@ -12,6 +12,7 @@ class SubyekTableSeeder extends Seeder
      */
     public function run()
     {
+        Subyek::query()->truncate();
         $array = array('Politik Keamanan','Tenaga Kerja','Kesehatan','Pendidikan','Kependudukan');
         
         foreach($array as $item)

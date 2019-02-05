@@ -38,7 +38,7 @@
                 <div class="panel-body"  style="height:100px !important;">
                     <div class="row">
                         <div class="col-sm-6 text-left">    
-                            <h3 class="no-margin pull-right;text-right" style="font-size:50px;">{{max($tahun)}}</h3>
+                            <h3 class="no-margin pull-right;text-right" style="font-size:50px;">{{count($tahun)!=0 ? max($tahun) : ''}}</h3>
                         </div>
                         <div class="col-sm-6 text-right">
                             {{-- <span class="heading-text badge bg-teal-800">Terakhir Kali Di Update</span> --}}
