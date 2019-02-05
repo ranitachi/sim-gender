@@ -93,6 +93,13 @@ Route::get('/kependudukan/balita-terlantar/{id_kategori}/{tahun}/edit', 'Kependu
 Route::put('/kependudukan/balita-terlantar/{id_kategori}/{tahun}/update', 'KependudukanBalitaController@update')->name('kependudukan-balita.update');
 Route::post('/kependudukan/balita-terlantar/{id_kategori}/{tahun}/store', 'KependudukanBalitaController@store')->name('kependudukan-balita.store');
 
+// -------Politik dan Keamanan Korban Kekerasan Umur
+Route::get('/politik-dan-keamanan/korban-kekerasan-umur/{id_kategori}/{tahun}', 'PolitikUmurController@index')->name('politik-umur.index');
+Route::get('/politik-dan-keamanan/korban-kekerasan-umur/{id_kategori}/{tahun}/create', 'PolitikUmurController@create')->name('politik-umur.create');
+Route::get('/politik-dan-keamanan/korban-kekerasan-umur/{id_kategori}/{tahun}/edit', 'PolitikUmurController@edit')->name('politik-umur.edit');
+Route::put('/politik-dan-keamanan/korban-kekerasan-umur/{id_kategori}/{tahun}/update', 'PolitikUmurController@update')->name('politik-umur.update');
+Route::post('/politik-dan-keamanan/korban-kekerasan-umur/{id_kategori}/{tahun}/store', 'PolitikUmurController@store')->name('politik-umur.store');
+
 
 
 
