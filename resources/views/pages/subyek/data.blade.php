@@ -77,7 +77,7 @@
                                 @foreach ($data as $no=> $item)                                
                                     <tr>
                                         <td class="text-center">{{++$no}}</td>
-                                        <td><a href="{{url($item->url_route,$item->id)}}">{{$item->judul}}</a></td>
+                                        <td><a href="{{ url($item->url_route, $item->id) }}/{{ date('Y') }}">{{ $item->judul }}</a></td>
                                     </tr>   
                                 @endforeach
                                 </tbody>

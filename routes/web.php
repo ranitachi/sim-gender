@@ -44,6 +44,13 @@ Route::get('/kependudukan/kepadatan/{id_kategori}/edit', 'KependudukanKepadatanC
 Route::put('/kependudukan/kepadatan/{id_kategori}/update', 'KependudukanKepadatanController@update')->name('kependudukan-kepadatan.update');
 Route::post('/kependudukan/kepadatan/{id_kategori}/store', 'KependudukanKepadatanController@store')->name('kependudukan-kepadatan.store');
 
+// -------Kependudukan Perkara Agama
+Route::get('/kependudukan/perkara-pengadilan-agama/{id_kategori}/{tahun}', 'KependudukanPerkaraController@index')->name('kependudukan-perkara.index');
+Route::get('/kependudukan/perkara-pengadilan-agama/{id_kategori}/{tahun}/create', 'KependudukanPerkaraController@create')->name('kependudukan-perkara.create');
+Route::get('/kependudukan/perkara-pengadilan-agama/{id_kategori}/{tahun}/edit', 'KependudukanPerkaraController@edit')->name('kependudukan-perkara.edit');
+Route::put('/kependudukan/perkara-pengadilan-agama/{id_kategori}/{tahun}/update', 'KependudukanPerkaraController@update')->name('kependudukan-perkara.update');
+Route::post('/kependudukan/perkara-pengadilan-agama/{id_kategori}/{tahun}/store', 'KependudukanPerkaraController@store')->name('kependudukan-perkara.store');
+
 //--------Pendidikan Sekolah
 Route::get('/pendidikan/sekolah/{jenjang}/{id_kategori}', 'PendidikanSekolahController@index')->name('pendidikan-sekolah.index');
 Route::get('/pendidikan/sekolah/{jenjang}/{id_kategori}/create', 'PendidikanSekolahController@create')->name('pendidikan-sekolah.create');
