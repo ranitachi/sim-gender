@@ -38,6 +38,10 @@ return [
    
     'kelompok_usia' => ['5-6','7-12','13-15	','16-18'],
 
+    'jenjang_apm' => ['sd'=>'SD','smp'=>'SMP','sma'=>'SMA'],
+   
+    'jenis_sakit_rata' => ['angka_kesakitan'=>'Angka Kesakitan','rata_rata'=>'Rata-Rata Lama Sakit (Hari)'],
+    
     'jenjang' => ['paud'=>'PAUD','sd_mi'=>'SD/MI','smp_mts'=>'SMP/MTS','sma_smk'=>'SMA/SMK'],
     
     'jenjang2' => ['paud'=>'PAUD','tk_ra'=>'TK/RA','sd_mi'=>'SD/MI','smp_mts'=>'SMP/MTS','sma_smk'=>'SMA/SMK'],

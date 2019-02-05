@@ -289,6 +289,20 @@ Route::get('/pendidikan/aps-5-18-formal-non-formal/{id_kategori}/{tahun?}/edit',
 Route::post('/pendidikan/aps-5-18-formal-non-formal/{id_kategori}/{tahun?}/update', 'PendidikanApsNonFormalController@update')->name('aps-formalnon.update');
 Route::post('/pendidikan/aps-5-18-formal-non-formal/{id_kategori}/{tahun?}/store', 'PendidikanApsNonFormalController@store')->name('aps-formalnon.store');
 
+//--------Pendidikan APM Formal 5-18 tahun
+Route::get('/pendidikan/apm-formal/{id_kategori}/{tahun?}', 'PendidikanApmFormalController@index')->name('apm-formal.index');
+Route::get('/pendidikan/apm-formal/{id_kategori}/{tahun?}/create', 'PendidikanApmFormalController@create')->name('apm-formal.create');
+Route::get('/pendidikan/apm-formal/{id_kategori}/{tahun?}/edit', 'PendidikanApmFormalController@edit')->name('apm-formal.edit');
+Route::post('/pendidikan/apm-formal/{id_kategori}/{tahun?}/update', 'PendidikanApmFormalController@update')->name('apm-formal.update');
+Route::post('/pendidikan/apm-formal/{id_kategori}/{tahun?}/store', 'PendidikanApmFormalController@store')->name('apm-formal.store');
+
+//--------Pendidikan APM Formal NonFormal 5-18 tahun
+Route::get('/pendidikan/apm-formal-non-formal/{id_kategori}/{tahun?}', 'PendidikanApmNonFormalController@index')->name('apm-formalnon.index');
+Route::get('/pendidikan/apm-formal-non-formal/{id_kategori}/{tahun?}/create', 'PendidikanApmNonFormalController@create')->name('apm-formalnon.create');
+Route::get('/pendidikan/apm-formal-non-formal/{id_kategori}/{tahun?}/edit', 'PendidikanApmNonFormalController@edit')->name('apm-formalnon.edit');
+Route::post('/pendidikan/apm-formal-non-formal/{id_kategori}/{tahun?}/update', 'PendidikanApmNonFormalController@update')->name('apm-formalnon.update');
+Route::post('/pendidikan/apm-formal-non-formal/{id_kategori}/{tahun?}/store', 'PendidikanApmNonFormalController@store')->name('apm-formalnon.store');
+
 //--------Pendidikan Jumlah Murid
 Route::get('/pendidikan/murid-jenjang-pendidikan/{id_kategori}/{tahun?}', 'PendidikanJumlahMuridController@index')->name('jumlah-murid.index');
 Route::get('/pendidikan/murid-jenjang-pendidikan/{id_kategori}/{tahun?}/create', 'PendidikanJumlahMuridController@create')->name('jumlah-murid.create');
@@ -324,6 +338,14 @@ Route::get('/kesehatan/disabilitas/{id_kategori}/create', 'KesehatanDisabilitasC
 Route::get('/kesehatan/disabilitas/{id_kategori}/edit', 'KesehatanDisabilitasController@edit')->name('kesehatan-disabilitas.edit');
 Route::put('/kesehatan/disabilitas/{id_kategori}/update', 'KesehatanDisabilitasController@update')->name('kesehatan-disabilitas.update');
 Route::post('/kesehatan/disabilitas/{id_kategori}/store', 'KesehatanDisabilitasController@store')->name('kesehatan-disabilitas.store');
+
+//--------Kesehatan Sakit Rata-rata
+Route::get('/kesehatan/sakit-rata-rata/{id_kategori}/{tahun?}', 'KesehatanSakitRataController@index')->name('sakit-rata-rata.index');
+Route::get('/kesehatan/sakit-rata-rata/{id_kategori}/{tahun?}/create', 'KesehatanSakitRataController@create')->name('sakit-rata-rata.create');
+Route::get('/kesehatan/sakit-rata-rata/{id_kategori}/{tahun?}/edit', 'KesehatanSakitRataController@edit')->name('sakit-rata-rata.edit');
+Route::post('/kesehatan/sakit-rata-rata/{id_kategori}/{tahun?}/update', 'KesehatanSakitRataController@update')->name('sakit-rata-rata.update');
+Route::post('/kesehatan/sakit-rata-rata/{id_kategori}/{tahun?}/store', 'KesehatanSakitRataController@store')->name('sakit-rata-rata.store');
+
 
 // ----------Kependudukan PMKS
 Route::get('/kependudukan/pmks/{id_kategori}', 'KependudukanPMKSController@index')->name('kependudukan-pmks.index');
