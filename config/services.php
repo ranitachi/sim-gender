@@ -40,6 +40,9 @@ return [
 
     'jenjang_apm' => ['sd'=>'SD','smp'=>'SMP','sma'=>'SMA'],
    
+    'balita_asi' => ['persentase'=>'Persentase Balita Pernah diberi ASI','rata_rata'=>'Rata-rata Lama Pemberian ASI (Bulan)'],
+    'jenis_imunisasi' => ['memiliki'=>'Memiliki Kartu Imunisasi','mendapat'=>'Mendapat Imunisasi Lengkap'],
+    
     'jenis_sakit_rata' => ['angka_kesakitan'=>'Angka Kesakitan','rata_rata'=>'Rata-Rata Lama Sakit (Hari)'],
     
     'jenjang' => ['paud'=>'PAUD','sd_mi'=>'SD/MI','smp_mts'=>'SMP/MTS','sma_smk'=>'SMA/SMK'],

@@ -346,6 +346,20 @@ Route::get('/kesehatan/sakit-rata-rata/{id_kategori}/{tahun?}/edit', 'KesehatanS
 Route::post('/kesehatan/sakit-rata-rata/{id_kategori}/{tahun?}/update', 'KesehatanSakitRataController@update')->name('sakit-rata-rata.update');
 Route::post('/kesehatan/sakit-rata-rata/{id_kategori}/{tahun?}/store', 'KesehatanSakitRataController@store')->name('sakit-rata-rata.store');
 
+//--------Kesehatan Balita Kartu Imunisasi
+Route::get('/kesehatan/balita-kartu-imunisasi/{id_kategori}/{tahun?}', 'KesehatanBalitaKartuImunisasiController@index')->name('balita.index');
+Route::get('/kesehatan/balita-kartu-imunisasi/{id_kategori}/{tahun?}/create', 'KesehatanBalitaKartuImunisasiController@create')->name('balita.create');
+Route::get('/kesehatan/balita-kartu-imunisasi/{id_kategori}/{tahun?}/edit', 'KesehatanBalitaKartuImunisasiController@edit')->name('balita.edit');
+Route::post('/kesehatan/balita-kartu-imunisasi/{id_kategori}/{tahun?}/update', 'KesehatanBalitaKartuImunisasiController@update')->name('balita.update');
+Route::post('/kesehatan/balita-kartu-imunisasi/{id_kategori}/{tahun?}/store', 'KesehatanBalitaKartuImunisasiController@store')->name('balita.store');
+
+//--------Kesehatan Balita ASI Rata-rata
+Route::get('/kesehatan/balita-asi-rata-rata/{id_kategori}/{tahun?}', 'KesehatanBalitaAsiRatarataController@index')->name('balita-asi.index');
+Route::get('/kesehatan/balita-asi-rata-rata/{id_kategori}/{tahun?}/create', 'KesehatanBalitaAsiRatarataController@create')->name('balita-asi.create');
+Route::get('/kesehatan/balita-asi-rata-rata/{id_kategori}/{tahun?}/edit', 'KesehatanBalitaAsiRatarataController@edit')->name('balita-asi.edit');
+Route::post('/kesehatan/balita-asi-rata-rata/{id_kategori}/{tahun?}/update', 'KesehatanBalitaAsiRatarataController@update')->name('balita-asi.update');
+Route::post('/kesehatan/balita-asi-rata-rata/{id_kategori}/{tahun?}/store', 'KesehatanBalitaAsiRatarataController@store')->name('balita-asi.store');
+
 
 // ----------Kependudukan PMKS
 Route::get('/kependudukan/pmks/{id_kategori}', 'KependudukanPMKSController@index')->name('kependudukan-pmks.index');
