@@ -79,6 +79,13 @@ Route::get('/kependudukan/lansia-terlantar/{id_kategori}/{tahun}/edit', 'Kependu
 Route::put('/kependudukan/lansia-terlantar/{id_kategori}/{tahun}/update', 'KependudukanLansiaController@update')->name('kependudukan-lansia.update');
 Route::post('/kependudukan/lansia-terlantar/{id_kategori}/{tahun}/store', 'KependudukanLansiaController@store')->name('kependudukan-lansia.store');
 
+// -------Kependudukan Perempuan Sosial Ekonomi
+Route::get('/kependudukan/tuna-susila/{id_kategori}/{tahun}', 'KependudukanSusilaController@index')->name('kependudukan-susila.index');
+Route::get('/kependudukan/tuna-susila/{id_kategori}/{tahun}/create', 'KependudukanSusilaController@create')->name('kependudukan-susila.create');
+Route::get('/kependudukan/tuna-susila/{id_kategori}/{tahun}/edit', 'KependudukanSusilaController@edit')->name('kependudukan-susila.edit');
+Route::put('/kependudukan/tuna-susila/{id_kategori}/{tahun}/update', 'KependudukanSusilaController@update')->name('kependudukan-susila.update');
+Route::post('/kependudukan/tuna-susila/{id_kategori}/{tahun}/store', 'KependudukanSusilaController@store')->name('kependudukan-susila.store');
+
 
 
 
