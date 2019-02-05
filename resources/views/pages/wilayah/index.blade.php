@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    <title>Wilayah : Sistem Informasi Statistik Kabupaten Tangerang</title>
+    <title>Wilayah : Sistem Informasi Statistik Kabupaten Tangerang Tahun {{$tahun}}</title>
     <script type="text/javascript" src="{{ asset('/') }}chartjs/Chart.bundle.js"></script>
     <script type="text/javascript" src="{{ asset('/') }}chartjs/util.js"></script>
     <style>
@@ -21,7 +21,7 @@
                             <h5>
                                 <i class="icon-arrow-left52 position-left"></i>
                                 <span class="text-semibold">Subyek: {{ $kategori->subyek->nama_subyek }}</span><br> 
-                                <span class="left-margin-for-header">{{ $kategori->judul }}</span>
+                                <span class="left-margin-for-header">{{ $kategori->judul }} Tahun {{$tahun}}</span>
                                 <small class="display-block" style="margin-left:27px;">
                                     Sumber Data: &nbsp;{{ !is_null($kategori->sumber_data) ? $kategori->sumber_data : 'Informasi Tidak Tersedia' }}
                                 </small>
@@ -36,8 +36,8 @@
                     <div class="breadcrumb-line"><a class="breadcrumb-elements-toggle"><i class="icon-menu-open"></i></a>
                         <ul class="breadcrumb">
                             <li><a href=""><i class="icon-home2 position-left"></i> Dashboard</a></li>
-                            <li><a href="">Wilayah</a></li>
-                            <li class="active">{{ $kategori->judul }}</li>
+                            <li><a href="">Kependudukan</a></li>
+                            <li class="active">{{ $kategori->judul }} Tahun {{$tahun}}</li>
                         </ul>
 
                         <ul class="breadcrumb-elements">
@@ -66,6 +66,31 @@
     <div class="content">
         
         <div class="panel panel-flat">
+            <div class="panel-heading">
+                <div class="row" style="width:30%;float:left;margin-bottom:10px;">
+                    <div class="col-md-4">
+                        <h5 class="panel-title" style="margin-top:5px;">Pilih Tahun</h5>
+                    </div>
+                    <div class="col-md-4">
+                        <select class="form-control" name="tahun" id="tahun" data-placeholder="Tahun" placeholder="Tahun" onchange="loaddata(this.value)">
+                            @for ($i = (date('Y')-5); $i <= date('Y'); $i++)
+                                @if ($i==$tahun)
+                                    <option value="{{$i}}" selected="selected">{{$i}}</option>
+                                @else
+                                    <option value="{{$i}}">{{$i}}</option>
+                                @endif
+                            @endfor
+                        </select>
+                    </div>
+                </div>
+                <a class="heading-elements-toggle"><i class="icon-more"></i></a>
+                <div class="heading-elements">
+                    <ul class="icons-list">
+                        <li><a data-action="collapse"></a></li>
+                        <li><a data-action="close"></a></li>
+                    </ul>
+                </div>
+            </div>
             <div style="padding:15px;">
                 <table class="table datatable-basic table-striped table-bordered">
                     <thead>
@@ -90,9 +115,9 @@
                                         @endphp
                                 </td>
                                 <td>{{ $item->nama_kecamatan }}</td>
-                                <td>{{isset($data[$item->id]['luas_wilayah']) ? $data[$item->id]['luas_wilayah'] : '-'}}</td>
-                                <td>{{isset($data[$item->id]['jumlah_desa']) ? $data[$item->id]['jumlah_desa'] : '-'}}</td>
-                                <td>{{isset($data[$item->id]['jumlah_kelurahan']) ? $data[$item->id]['jumlah_kelurahan'] : '-'}}</td>
+                                <td class="text-center">{{isset($data[$item->id]['luas_wilayah']) ? $data[$item->id]['luas_wilayah'] : '-'}}</td>
+                                <td class="text-center">{{isset($data[$item->id]['jumlah_desa']) ? $data[$item->id]['jumlah_desa'] : '-'}}</td>
+                                <td class="text-center">{{isset($data[$item->id]['jumlah_kelurahan']) ? $data[$item->id]['jumlah_kelurahan'] : '-'}}</td>
                                 <td class="text-center">{{$tahun}}</td>
                             </tr>
                         @endforeach
@@ -106,7 +131,11 @@
 
 @section('footscript')
     <script>
-		
+        var APP_URL='{{url("/")}}';
+		function loaddata(tahun)
+        {
+            location.href=APP_URL+'/kependudukan/jumlah-kecamatan/{{$kategori->id}}/'+tahun;
+        }
     </script>
     
 @endsection

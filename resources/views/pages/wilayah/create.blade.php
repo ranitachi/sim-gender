@@ -21,7 +21,7 @@
                             <h5>
                                 <i class="icon-arrow-left52 position-left"></i>
                                 <span class="text-semibold">Subyek: {{ $kategori->subyek->nama_subyek }}</span><br> 
-                                <span class="left-margin-for-header">{{ $kategori->judul }}</span>
+                                <span class="left-margin-for-header">{{ $kategori->judul }} Tahun {{$tahun}}</span>
                                 <small class="display-block" style="margin-left:27px;">
                                     Sumber Data: &nbsp;{{ !is_null($kategori->sumber_data) ? $kategori->sumber_data : 'Informasi Tidak Tersedia' }}
                                 </small>
@@ -36,8 +36,8 @@
                     <div class="breadcrumb-line"><a class="breadcrumb-elements-toggle"><i class="icon-menu-open"></i></a>
                         <ul class="breadcrumb">
                             <li><a href=""><i class="icon-home2 position-left"></i> Dashboard</a></li>
-                            <li><a href="{{route('wilayah-luas-jlh-kecamatan.index',[$id_kategori,$tahun])}}">Wilayah</a></li>
-                            <li class="active">{{ $kategori->judul }}</li>
+                            <li><a href="{{route('wilayah-luas-jlh-kecamatan.index',[$id_kategori,$tahun])}}">Kependudukan</a></li>
+                            <li class="active">{{ $kategori->judul }} Tahun {{$tahun}}</li>
                         </ul>
 
                         <a href="{{route('wilayah-luas-jlh-kecamatan.index',[$id_kategori,$tahun])}}" class="btn btn-xs btn-primary pull-right" style="margin-top:5px;"><i class="icon-arrow-left52"></i> Kembali</a>

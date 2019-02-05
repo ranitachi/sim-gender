@@ -528,11 +528,11 @@ class KategoriSeederTable extends Seeder
 
         // Start Wilayah
 
-        $kat = new Kategori;
-        $kat->id_subyek = 6;
-        $kat->judul = "Jumlah Kecamatan, Luas Wilayah, Desa dan Kelurahan Tahun 2017";
-        $kat->url_route = "/wilayah/jumlah-kecamatan-luas-wilayah"; 
-        $kat->save();
+        // $kat = new Kategori;
+        // $kat->id_subyek = 6;
+        // $kat->judul = "Jumlah Kecamatan, Luas Wilayah, Desa dan Kelurahan Tahun 2017";
+        // $kat->url_route = "/wilayah/jumlah-kecamatan-luas-wilayah"; 
+        // $kat->save();
 
         // End of Wilayah
     }
