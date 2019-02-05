@@ -42,10 +42,10 @@
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     @if ($tahun_tersedia->count()!=0)
                                         @foreach ($tahun_tersedia as $item)
-                                            <li><a href="{{ route('politik-tingkat.index', [$kategori->id, $item]) }}">{{ $item }}</a></li>
+                                            <li><a href="{{ route('politik-status.index', [$kategori->id, $item]) }}">{{ $item }}</a></li>
                                         @endforeach
                                     @else
-                                        <li><a href="{{ route('politik-tingkat.index', [$kategori->id, date('Y')]) }}">{{ date('Y') }}</a></li>
+                                        <li><a href="{{ route('politik-status.index', [$kategori->id, date('Y')]) }}">{{ date('Y') }}</a></li>
                                     @endif
                                 </ul>
                             </li>
@@ -57,8 +57,8 @@
                                 </a>
                                 
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a href="{{ route('politik-tingkat.create', [$kategori->id, $tahun]) }}">Tambah Data Baru</a></li>
-                                    <li><a href="{{ route('politik-tingkat.edit', [$kategori->id, $tahun]) }}">Ubah Data {{ $tahun }}</a></li>
+                                    <li><a href="{{ route('politik-status.create', [$kategori->id, $tahun]) }}">Tambah Data Baru</a></li>
+                                    <li><a href="{{ route('politik-status.edit', [$kategori->id, $tahun]) }}">Ubah Data {{ $tahun }}</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -92,28 +92,19 @@
 
         <div class="panel panel-flat">
             @php
-                $ts = 0;
-                $sd = 0;
-                $sltp = 0;
-                $slta = 0;
-                $pt = 0;
+                $tidak_bekerja = 0;
+                $bekerja = 0;
             @endphp
             @foreach ($data as $key => $item)
                 @php
-                    $ts += $item->tidak_sekolah;
-                    $sd += $item->sd;
-                    $sltp += $item->sltp;
-                    $slta += $item->slta;
-                    $pt += $item->pt;
+                    $tidak_bekerja += $item->tidak_bekerja;
+                    $bekerja += $item->bekerja;
                 @endphp
             @endforeach
 
             <div style="margin:20px 0 0 20px;">
-                <h6>Total Jumlah Tidak Sekolah : &nbsp;&nbsp;<strong>{{ $ts }}</strong></h6>
-                <h6>Total Jumlah SD : &nbsp;&nbsp;<strong>{{ $sd }}</strong></h6>
-                <h6>Total Jumlah SLTP : &nbsp;&nbsp;<strong>{{ $sltp }}</strong></h6>
-                <h6>Total Jumlah SLTA : &nbsp;&nbsp;<strong>{{ $slta }}</strong></h6>
-                <h6>Total Jumlah PT : &nbsp;&nbsp;<strong>{{ $pt }}</strong></h6>
+                <h6>Total Jumlah Tidak Bekerja : &nbsp;&nbsp;<strong>{{ $tidak_bekerja }}</strong></h6>
+                <h6>Total Jumlah Bekerja : &nbsp;&nbsp;<strong>{{ $bekerja }}</strong></h6>
             </div>
 
             <table class="table datatable-basic">
@@ -121,11 +112,8 @@
                     <tr>
                         <th style="width:30px;">#</th>
                         <th>Jenis Kelamin</th>
-                        <th>Tidak Sekolah</th>
-                        <th>SD</th>
-                        <th>SLTP</th>
-                        <th>SLTA</th>
-                        <th>PT</th>
+                        <th>Tidak Bekerja</th>
+                        <th>Bekerja</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -133,11 +121,8 @@
                         <tr>
                             <td>{{ $key = $key + 1 }}</td>
                             <td>{{ $item->jenis_kelamin }}</td>
-                            <td>{{ $item->tidak_sekolah }}</td>
-                            <td>{{ $item->sd }}</td>
-                            <td>{{ $item->sltp }}</td>
-                            <td>{{ $item->slta }}</td>
-                            <td>{{ $item->pt }}</td>
+                            <td>{{ $item->tidak_bekerja }}</td>
+                            <td>{{ $item->bekerja }}</td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -180,47 +165,17 @@
 				borderColor: window.chartColors.red,
 				borderWidth: 1,
 				data: [
-					@foreach($chart_ts as $item)
+					@foreach($chart_tidak_bekerja as $item)
                         {{ $item }},
                     @endforeach
 				]
 			}, {
-				label: 'SD',
+				label: 'Bekerja',
 				backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
 				borderColor: window.chartColors.blue,
 				borderWidth: 1,
 				data: [
-					@foreach($chart_sd as $item)
-                        {{ $item }},
-                    @endforeach
-				]
-			}, {
-				label: 'SLTP',
-				backgroundColor: color(window.chartColors.grnee).alpha(0.5).rgbString(),
-				borderColor: window.chartColors.green,
-				borderWidth: 1,
-				data: [
-					@foreach($chart_sltp as $item)
-                        {{ $item }},
-                    @endforeach
-				]
-			}, {
-				label: 'SLTA',
-				backgroundColor: color(window.chartColors.yellow).alpha(0.5).rgbString(),
-				borderColor: window.chartColors.yellow,
-				borderWidth: 1,
-				data: [
-					@foreach($chart_slta as $item)
-                        {{ $item }},
-                    @endforeach
-				]
-			}, {
-				label: 'PT',
-				backgroundColor: color(window.chartColors.orange).alpha(0.5).rgbString(),
-				borderColor: window.chartColors.orange,
-				borderWidth: 1,
-				data: [
-					@foreach($chart_pt as $item)
+					@foreach($chart_bekerja as $item)
                         {{ $item }},
                     @endforeach
 				]
