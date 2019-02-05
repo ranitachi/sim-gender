@@ -38,11 +38,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('subyek/{jenis}','SubyekController@index')->name('subyek.index');
 
 // -------Kependudukan
-Route::get('/kependudukan/kepadatan/{id_kategori}', 'KependudukanKepadatanController@index')->name('kependudukan-kepadatan.index');
-Route::get('/kependudukan/kepadatan/{id_kategori}/create', 'KependudukanKepadatanController@create')->name('kependudukan-kepadatan.create');
-Route::get('/kependudukan/kepadatan/{id_kategori}/edit', 'KependudukanKepadatanController@edit')->name('kependudukan-kepadatan.edit');
-Route::put('/kependudukan/kepadatan/{id_kategori}/update', 'KependudukanKepadatanController@update')->name('kependudukan-kepadatan.update');
-Route::post('/kependudukan/kepadatan/{id_kategori}/store', 'KependudukanKepadatanController@store')->name('kependudukan-kepadatan.store');
+Route::get('/kependudukan/dependency-ratio/{id_kategori}/{tahun?}', 'KependudukanKepadatanController@index')->name('kependudukan-kepadatan.index');
+Route::get('/kependudukan/dependency-ratio/{id_kategori}/{tahun?}/create', 'KependudukanKepadatanController@create')->name('kependudukan-kepadatan.create');
+Route::get('/kependudukan/dependency-ratio/{id_kategori}/{tahun?}/edit', 'KependudukanKepadatanController@edit')->name('kependudukan-kepadatan.edit');
+Route::put('/kependudukan/dependency-ratio/{id_kategori}/{tahun?}/update', 'KependudukanKepadatanController@update')->name('kependudukan-kepadatan.update');
+Route::post('/kependudukan/dependency-ratio/{id_kategori}/{tahun?}/store', 'KependudukanKepadatanController@store')->name('kependudukan-kepadatan.store');
 
 // -------Kependudukan Perkara Agama
 Route::get('/kependudukan/perkara-pengadilan-agama/{id_kategori}/{tahun}', 'KependudukanPerkaraController@index')->name('kependudukan-perkara.index');
@@ -130,9 +130,37 @@ Route::post('/kependudukan/pmks/{id_kategori}/store', 'KependudukanPMKSControlle
 Route::get('/kependudukan/pmks/{id_kategori}', 'KependudukanPMKSController@index')->name('kependudukan-pmks.index');
 
 
-//wilayah
+//Kependudukan jumlah kecamatan
 Route::get('/kependudukan/jumlah-kecamatan/{id_kategori}/{tahun?}', 'WilayahJlhKecLuasWilayahController@index')->name('wilayah-luas-jlh-kecamatan.index');
 Route::get('/kependudukan/jumlah-kecamatan/{id_kategori}/{tahun?}/create', 'WilayahJlhKecLuasWilayahController@create')->name('wilayah-luas-jlh-kecamatan.create');
 Route::get('/kependudukan/jumlah-kecamatan/{id_kategori}/{tahun?}/edit', 'WilayahJlhKecLuasWilayahController@edit')->name('wilayah-luas-jlh-kecamatan.edit');
 Route::post('/kependudukan/jumlah-kecamatan/{id_kategori}/{tahun?}/store', 'WilayahJlhKecLuasWilayahController@store')->name('wilayah-luas-jlh-kecamatan.store');
 Route::post('/kependudukan/jumlah-kecamatan/{id_kategori}/{tahun?}/update', 'WilayahJlhKecLuasWilayahController@update')->name('wilayah-luas-jlh-kecamatan.update');
+
+//Kependudukan Sex Ratio
+Route::get('/kependudukan/sex-ratio/{id_kategori}/{tahun?}', 'SexRatioController@index')->name('sex-ratio.index');
+Route::get('/kependudukan/sex-ratio/{id_kategori}/{tahun?}/create', 'SexRatioController@create')->name('sex-ratio.create');
+Route::get('/kependudukan/sex-ratio/{id_kategori}/{tahun?}/edit', 'SexRatioController@edit')->name('sex-ratio.edit');
+Route::post('/kependudukan/sex-ratio/{id_kategori}/{tahun?}/store', 'SexRatioController@store')->name('sex-ratio.store');
+Route::post('/kependudukan/sex-ratio/{id_kategori}/{tahun?}/update', 'SexRatioController@update')->name('sex-ratio.update');
+
+//Kependudukan Kelompok Umur
+Route::get('/kependudukan/kelompok-umur/{id_kategori}/{tahun?}', 'KependudukanKelompokUmurController@index')->name('kelompok-umur.index');
+Route::get('/kependudukan/kelompok-umur/{id_kategori}/{tahun?}/create', 'KependudukanKelompokUmurController@create')->name('kelompok-umur.create');
+Route::get('/kependudukan/kelompok-umur/{id_kategori}/{tahun?}/edit', 'KependudukanKelompokUmurController@edit')->name('kelompok-umur.edit');
+Route::post('/kependudukan/kelompok-umur/{id_kategori}/{tahun?}/store', 'KependudukanKelompokUmurController@store')->name('kelompok-umur.store');
+Route::post('/kependudukan/kelompok-umur/{id_kategori}/{tahun?}/update', 'KependudukanKelompokUmurController@update')->name('kelompok-umur.update');
+
+//Kependudukan Status Perkawinan
+Route::get('/kependudukan/status-perkawinan/{id_kategori}/{tahun?}', 'KependudukanStatusPerkawinanController@index')->name('status-perkawinan.index');
+Route::get('/kependudukan/status-perkawinan/{id_kategori}/{tahun?}/create', 'KependudukanStatusPerkawinanController@create')->name('status-perkawinan.create');
+Route::get('/kependudukan/status-perkawinan/{id_kategori}/{tahun?}/edit', 'KependudukanStatusPerkawinanController@edit')->name('status-perkawinan.edit');
+Route::post('/kependudukan/status-perkawinan/{id_kategori}/{tahun?}/store', 'KependudukanStatusPerkawinanController@store')->name('status-perkawinan.store');
+Route::post('/kependudukan/status-perkawinan/{id_kategori}/{tahun?}/update', 'KependudukanStatusPerkawinanController@update')->name('status-perkawinan.update');
+
+//Kependudukan Angka Index
+Route::get('/kependudukan/angka-index/{id_kategori}/{tahun?}', 'KependudukanAngkaIndexController@index')->name('angka-index.index');
+Route::get('/kependudukan/angka-index/{id_kategori}/{tahun?}/create', 'KependudukanAngkaIndexController@create')->name('angka-index.create');
+Route::get('/kependudukan/angka-index/{id_kategori}/{tahun?}/edit', 'KependudukanAngkaIndexController@edit')->name('angka-index.edit');
+Route::post('/kependudukan/angka-index/{id_kategori}/{tahun?}/store', 'KependudukanAngkaIndexController@store')->name('angka-index.store');
+Route::post('/kependudukan/angka-index/{id_kategori}/{tahun?}/update', 'KependudukanAngkaIndexController@update')->name('angka-index.update');

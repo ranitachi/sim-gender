@@ -20,7 +20,7 @@
                             <h5>
                                 <i class="icon-arrow-left52 position-left"></i>
                                 <span class="text-semibold">Subyek: {{ $kategori->subyek->nama_subyek }}</span><br> 
-                                <span class="left-margin-for-header">{{ $kategori->judul }}</span>
+                                <span class="left-margin-for-header">{{ $kategori->judul }} Tahun {{$tahun}}</span>
                                 <small class="display-block" style="margin-left:27px;">
                                     Sumber Data: &nbsp;{{ !is_null($kategori->sumber_data) ? $kategori->sumber_data : 'Informasi Tidak Tersedia' }}
                                 </small>
@@ -36,7 +36,7 @@
                         <ul class="breadcrumb">
                             <li><a href=""><i class="icon-home2 position-left"></i> Dashboard</a></li>
                             <li><a href="">Kependudukan</a></li>
-                            <li><a href="">{{ $kategori->judul }}</a></li>
+                            <li><a href="">{{ $kategori->judul }} Tahun {{$tahun}}</a></li>
                             <li class="active">Ubah Data</li>
                         </ul>
                     </div>
@@ -48,7 +48,7 @@
     <div class="content">
         <div class="panel panel-flat">
             <div class="panel-heading">
-                <h5 class="panel-title">Formulir Tambah Data<a class="heading-elements-toggle"><i class="icon-more"></i></a></h5>
+                <h5 class="panel-title">Formulir Edit Data<a class="heading-elements-toggle"><i class="icon-more"></i></a></h5>
                 <div class="heading-elements">
                     <ul class="icons-list">
                         <li><a data-action="collapse"></a></li>
@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div class="panel-body">
-                <form action="{{ route('kependudukan-kepadatan.update', $kategori->id) }}" method="post">
+                <form action="{{ route('kependudukan-kepadatan.update', [$kategori->id,$tahun]) }}" method="post">
                     @csrf
                     @method('put')
                     <table class="table">
@@ -67,6 +67,7 @@
                                 <th>Kecamatan</th>
                                 <th>Persentase Penduduk (%)</th>
                                 <th>Kepadatan Penduduk Per Km<sup>2</sup></th>
+                                <th>Tahun</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -78,10 +79,13 @@
                                             <input type="text" class="form-control" readonly value="{{ $item->kecamatan->nama_kecamatan }}">
                                         </td>
                                         <td>
-                                            <input type="number" max="100" min="0" class="form-control" name="persentase_penduduk[]" value="{{ $item->persentase_penduduk }}">
+                                            <input type="text" max="100" min="0" class="form-control" name="persentase_penduduk[]" value="{{ $item->persentase_penduduk }}">
                                         </td>
                                         <td>
-                                            <input type="number" min="0" class="form-control" name="kepadatan_penduduk[]" value="{{ $item->kepadatan_penduduk }}">
+                                            <input type="text" min="0" class="form-control" name="kepadatan_penduduk[]" value="{{ $item->kepadatan_penduduk }}">
+                                        </td>
+                                        <td>
+                                            {{$tahun}}
                                         </td>
                                 </tr>
                             @endforeach
