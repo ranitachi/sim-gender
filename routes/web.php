@@ -93,6 +93,55 @@ Route::get('/kependudukan/balita-terlantar/{id_kategori}/{tahun}/edit', 'Kependu
 Route::put('/kependudukan/balita-terlantar/{id_kategori}/{tahun}/update', 'KependudukanBalitaController@update')->name('kependudukan-balita.update');
 Route::post('/kependudukan/balita-terlantar/{id_kategori}/{tahun}/store', 'KependudukanBalitaController@store')->name('kependudukan-balita.store');
 
+// -------Kependudukan Balita Terlantar
+Route::get('/kependudukan/penyebab-perceraian/{id_kategori}/{tahun}', 'KependudukanPerceraianController@index')->name('kependudukan-perceraian.index');
+Route::get('/kependudukan/penyebab-perceraian/{id_kategori}/{tahun}/create', 'KependudukanPerceraianController@create')->name('kependudukan-perceraian.create');
+Route::get('/kependudukan/penyebab-perceraian/{id_kategori}/{tahun}/edit', 'KependudukanPerceraianController@edit')->name('kependudukan-perceraian.edit');
+Route::put('/kependudukan/penyebab-perceraian/{id_kategori}/{tahun}/update', 'KependudukanPerceraianController@update')->name('kependudukan-perceraian.update');
+Route::post('/kependudukan/penyebab-perceraian/{id_kategori}/{tahun}/store', 'KependudukanPerceraianController@store')->name('kependudukan-perceraian.store');
+
+// -------Kependudukan Balita Terlantar
+Route::get('/kependudukan/kepemilikan-akte/{id_kategori}/{tahun}', 'KependudukanAkteController@index')->name('kependudukan-akte.index');
+Route::get('/kependudukan/kepemilikan-akte/{id_kategori}/{tahun}/create', 'KependudukanAkteController@create')->name('kependudukan-akte.create');
+Route::get('/kependudukan/kepemilikan-akte/{id_kategori}/{tahun}/edit', 'KependudukanAkteController@edit')->name('kependudukan-akte.edit');
+Route::put('/kependudukan/kepemilikan-akte/{id_kategori}/{tahun}/update', 'KependudukanAkteController@update')->name('kependudukan-akte.update');
+Route::post('/kependudukan/kepemilikan-akte/{id_kategori}/{tahun}/store', 'KependudukanAkteController@store')->name('kependudukan-akte.store');
+
+// -------Kependudukan Balita Terlantar
+Route::get('/kependudukan/status-kepemilikan-bangunan/{id_kategori}/{tahun}', 'KependudukanDitempatiController@index')->name('kependudukan-ditempati.index');
+Route::get('/kependudukan/status-kepemilikan-bangunan/{id_kategori}/{tahun}/create', 'KependudukanDitempatiController@create')->name('kependudukan-ditempati.create');
+Route::get('/kependudukan/status-kepemilikan-bangunan/{id_kategori}/{tahun}/edit', 'KependudukanDitempatiController@edit')->name('kependudukan-ditempati.edit');
+Route::put('/kependudukan/status-kepemilikan-bangunan/{id_kategori}/{tahun}/update', 'KependudukanDitempatiController@update')->name('kependudukan-ditempati.update');
+Route::post('/kependudukan/status-kepemilikan-bangunan/{id_kategori}/{tahun}/store', 'KependudukanDitempatiController@store')->name('kependudukan-ditempati.store');
+
+// -------Kependudukan Balita Terlantar
+Route::get('/kependudukan/status-kepemilikan-milik-sendiri/{id_kategori}/{tahun}', 'KependudukanMilikSendiriController@index')->name('kependudukan-milik-sendiri.index');
+Route::get('/kependudukan/status-kepemilikan-milik-sendiri/{id_kategori}/{tahun}/create', 'KependudukanMilikSendiriController@create')->name('kependudukan-milik-sendiri.create');
+Route::get('/kependudukan/status-kepemilikan-milik-sendiri/{id_kategori}/{tahun}/edit', 'KependudukanMilikSendiriController@edit')->name('kependudukan-milik-sendiri.edit');
+Route::put('/kependudukan/status-kepemilikan-milik-sendiri/{id_kategori}/{tahun}/update', 'KependudukanMilikSendiriController@update')->name('kependudukan-milik-sendiri.update');
+Route::post('/kependudukan/status-kepemilikan-milik-sendiri/{id_kategori}/{tahun}/store', 'KependudukanMilikSendiriController@store')->name('kependudukan-milik-sendiri.store');
+
+// -------Kependudukan Balita Terlantar
+Route::get('/kependudukan/sumber-air-minum/{id_kategori}/{tahun}', 'KependudukanAirMinumController@index')->name('kependudukan-air-minum.index');
+Route::get('/kependudukan/sumber-air-minum/{id_kategori}/{tahun}/create', 'KependudukanAirMinumController@create')->name('kependudukan-air-minum.create');
+Route::get('/kependudukan/sumber-air-minum/{id_kategori}/{tahun}/edit', 'KependudukanAirMinumController@edit')->name('kependudukan-air-minum.edit');
+Route::put('/kependudukan/sumber-air-minum/{id_kategori}/{tahun}/update', 'KependudukanAirMinumController@update')->name('kependudukan-air-minum.update');
+Route::post('/kependudukan/sumber-air-minum/{id_kategori}/{tahun}/store', 'KependudukanAirMinumController@store')->name('kependudukan-air-minum.store');
+
+// -------Kependudukan Balita Terlantar
+Route::get('/kependudukan/sumber-air-mandi/{id_kategori}/{tahun}', 'KependudukanAirMandiController@index')->name('kependudukan-air-mandi.index');
+Route::get('/kependudukan/sumber-air-mandi/{id_kategori}/{tahun}/create', 'KependudukanAirMandiController@create')->name('kependudukan-air-mandi.create');
+Route::get('/kependudukan/sumber-air-mandi/{id_kategori}/{tahun}/edit', 'KependudukanAirMandiController@edit')->name('kependudukan-air-mandi.edit');
+Route::put('/kependudukan/sumber-air-mandi/{id_kategori}/{tahun}/update', 'KependudukanAirMandiController@update')->name('kependudukan-air-mandi.update');
+Route::post('/kependudukan/sumber-air-mandi/{id_kategori}/{tahun}/store', 'KependudukanAirMandiController@store')->name('kependudukan-air-mandi.store');
+
+// -------Kependudukan Balita Terlantar
+Route::get('/kependudukan/akta-kelompok-umur/{id_kategori}/{tahun}', 'KependudukanSamplingController@index')->name('kependudukan-sampling.index');
+Route::get('/kependudukan/akta-kelompok-umur/{id_kategori}/{tahun}/create', 'KependudukanSamplingController@create')->name('kependudukan-sampling.create');
+Route::get('/kependudukan/akta-kelompok-umur/{id_kategori}/{tahun}/edit', 'KependudukanSamplingController@edit')->name('kependudukan-sampling.edit');
+Route::put('/kependudukan/akta-kelompok-umur/{id_kategori}/{tahun}/update', 'KependudukanSamplingController@update')->name('kependudukan-sampling.update');
+Route::post('/kependudukan/akta-kelompok-umur/{id_kategori}/{tahun}/store', 'KependudukanSamplingController@store')->name('kependudukan-sampling.store');
+
 // -------Politik dan Keamanan Korban Kekerasan Umur
 Route::get('/politik-dan-keamanan/korban-kekerasan-umur/{id_kategori}/{tahun}', 'PolitikUmurController@index')->name('politik-umur.index');
 Route::get('/politik-dan-keamanan/korban-kekerasan-umur/{id_kategori}/{tahun}/create', 'PolitikUmurController@create')->name('politik-umur.create');
@@ -113,6 +162,55 @@ Route::get('/politik-dan-keamanan/korban-kekerasan-tingkat-pendidikan/{id_katego
 Route::get('/politik-dan-keamanan/korban-kekerasan-tingkat-pendidikan/{id_kategori}/{tahun}/edit', 'PolitikTingkatController@edit')->name('politik-tingkat.edit');
 Route::put('/politik-dan-keamanan/korban-kekerasan-tingkat-pendidikan/{id_kategori}/{tahun}/update', 'PolitikTingkatController@update')->name('politik-tingkat.update');
 Route::post('/politik-dan-keamanan/korban-kekerasan-tingkat-pendidikan/{id_kategori}/{tahun}/store', 'PolitikTingkatController@store')->name('politik-tingkat.store');
+
+// -------Politik dan Keamanan Korban Kekerasan Umur
+Route::get('/politik-dan-keamanan/korban-kekerasan-status-bekerja/{id_kategori}/{tahun}', 'PolitikStatusController@index')->name('politik-status.index');
+Route::get('/politik-dan-keamanan/korban-kekerasan-status-bekerja/{id_kategori}/{tahun}/create', 'PolitikStatusController@create')->name('politik-status.create');
+Route::get('/politik-dan-keamanan/korban-kekerasan-status-bekerja/{id_kategori}/{tahun}/edit', 'PolitikStatusController@edit')->name('politik-status.edit');
+Route::put('/politik-dan-keamanan/korban-kekerasan-status-bekerja/{id_kategori}/{tahun}/update', 'PolitikStatusController@update')->name('politik-status.update');
+Route::post('/politik-dan-keamanan/korban-kekerasan-status-bekerja/{id_kategori}/{tahun}/store', 'PolitikStatusController@store')->name('politik-status.store');
+
+// -------Politik dan Keamanan Korban Kekerasan Umur
+Route::get('/politik-dan-keamanan/korban-kekerasan-status-perkawinan/{id_kategori}/{tahun}', 'PolitikKawinController@index')->name('politik-kawin.index');
+Route::get('/politik-dan-keamanan/korban-kekerasan-status-perkawinan/{id_kategori}/{tahun}/create', 'PolitikKawinController@create')->name('politik-kawin.create');
+Route::get('/politik-dan-keamanan/korban-kekerasan-status-perkawinan/{id_kategori}/{tahun}/edit', 'PolitikKawinController@edit')->name('politik-kawin.edit');
+Route::put('/politik-dan-keamanan/korban-kekerasan-status-perkawinan/{id_kategori}/{tahun}/update', 'PolitikKawinController@update')->name('politik-kawin.update');
+Route::post('/politik-dan-keamanan/korban-kekerasan-status-perkawinan/{id_kategori}/{tahun}/store', 'PolitikKawinController@store')->name('politik-kawin.store');
+
+// -------Politik dan Keamanan Korban Kekerasan Umur
+Route::get('/politik-dan-keamanan/korban-kekerasan-hubungan-korban/{id_kategori}/{tahun}', 'PolitikKorbanController@index')->name('politik-korban.index');
+Route::get('/politik-dan-keamanan/korban-kekerasan-hubungan-korban/{id_kategori}/{tahun}/create', 'PolitikKorbanController@create')->name('politik-korban.create');
+Route::get('/politik-dan-keamanan/korban-kekerasan-hubungan-korban/{id_kategori}/{tahun}/edit', 'PolitikKorbanController@edit')->name('politik-korban.edit');
+Route::put('/politik-dan-keamanan/korban-kekerasan-hubungan-korban/{id_kategori}/{tahun}/update', 'PolitikKorbanController@update')->name('politik-korban.update');
+Route::post('/politik-dan-keamanan/korban-kekerasan-hubungan-korban/{id_kategori}/{tahun}/store', 'PolitikKorbanController@store')->name('politik-korban.store');
+
+// -------Politik dan Keamanan Korban Kekerasan Umur
+Route::get('/politik-dan-keamanan/korban-kekerasan-pelayanan/{id_kategori}/{tahun}', 'PolitikPelayananController@index')->name('politik-pelayanan.index');
+Route::get('/politik-dan-keamanan/korban-kekerasan-pelayanan/{id_kategori}/{tahun}/create', 'PolitikPelayananController@create')->name('politik-pelayanan.create');
+Route::get('/politik-dan-keamanan/korban-kekerasan-pelayanan/{id_kategori}/{tahun}/edit', 'PolitikPelayananController@edit')->name('politik-pelayanan.edit');
+Route::put('/politik-dan-keamanan/korban-kekerasan-pelayanan/{id_kategori}/{tahun}/update', 'PolitikPelayananController@update')->name('politik-pelayanan.update');
+Route::post('/politik-dan-keamanan/korban-kekerasan-pelayanan/{id_kategori}/{tahun}/store', 'PolitikPelayananController@store')->name('politik-pelayanan.store');
+
+// -------Politik dan Keamanan Korban Kekerasan Umur
+Route::get('/politik-dan-keamanan/anggota-dprd/{id_kategori}/{tahun}', 'PolitikFraksiController@index')->name('politik-fraksi.index');
+Route::get('/politik-dan-keamanan/anggota-dprd/{id_kategori}/{tahun}/create', 'PolitikFraksiController@create')->name('politik-fraksi.create');
+Route::get('/politik-dan-keamanan/anggota-dprd/{id_kategori}/{tahun}/edit', 'PolitikFraksiController@edit')->name('politik-fraksi.edit');
+Route::put('/politik-dan-keamanan/anggota-dprd/{id_kategori}/{tahun}/update', 'PolitikFraksiController@update')->name('politik-fraksi.update');
+Route::post('/politik-dan-keamanan/anggota-dprd/{id_kategori}/{tahun}/store', 'PolitikFraksiController@store')->name('politik-fraksi.store');
+
+// -------Politik dan Keamanan Korban Kekerasan Umur
+Route::get('/politik-dan-keamanan/anggota-dewan/{id_kategori}/{tahun}', 'PolitikDewanController@index')->name('politik-dewan.index');
+Route::get('/politik-dan-keamanan/anggota-dewan/{id_kategori}/{tahun}/create', 'PolitikDewanController@create')->name('politik-dewan.create');
+Route::get('/politik-dan-keamanan/anggota-dewan/{id_kategori}/{tahun}/edit', 'PolitikDewanController@edit')->name('politik-dewan.edit');
+Route::put('/politik-dan-keamanan/anggota-dewan/{id_kategori}/{tahun}/update', 'PolitikDewanController@update')->name('politik-dewan.update');
+Route::post('/politik-dan-keamanan/anggota-dewan/{id_kategori}/{tahun}/store', 'PolitikDewanController@store')->name('politik-dewan.store');
+
+// -------Politik dan Keamanan Korban Kekerasan Umur
+Route::get('/politik-dan-keamanan/pendidikan-anggota-dprd/{id_kategori}/{tahun}', 'PolitikPendidikanController@index')->name('politik-pendidikan.index');
+Route::get('/politik-dan-keamanan/pendidikan-anggota-dprd/{id_kategori}/{tahun}/create', 'PolitikPendidikanController@create')->name('politik-pendidikan.create');
+Route::get('/politik-dan-keamanan/pendidikan-anggota-dprd/{id_kategori}/{tahun}/edit', 'PolitikPendidikanController@edit')->name('politik-pendidikan.edit');
+Route::put('/politik-dan-keamanan/pendidikan-anggota-dprd/{id_kategori}/{tahun}/update', 'PolitikPendidikanController@update')->name('politik-pendidikan.update');
+Route::post('/politik-dan-keamanan/pendidikan-anggota-dprd/{id_kategori}/{tahun}/store', 'PolitikPendidikanController@store')->name('politik-pendidikan.store');
 
 
 

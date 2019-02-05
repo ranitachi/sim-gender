@@ -357,12 +357,6 @@ class KategoriSeederTable extends Seeder
         $kat = new Kategori;
         $kat->id_subyek = 5;
         $kat->judul = "Persentase Rumah Tangga menurut Karakteristik dan Status Kepemilikan Bangunan Tempat Tinggal yang Ditempati";
-        $kat->url_route = "/kependudukan/status-kepemilikan-bangunan"; 
-        $kat->save();
-
-        $kat = new Kategori;
-        $kat->id_subyek = 5;
-        $kat->judul = "Persentase Rumah Tangga menurut Karakteristik dan Status Kepemilikan Bangunan Tempat Tinggal yang Ditempati";
         $kat->url_route = "/kependudukan/status-kepemilikan-ditempati"; 
         $kat->save();
 
@@ -453,12 +447,6 @@ class KategoriSeederTable extends Seeder
         $kat->id_subyek = 1;
         $kat->judul = "Jumlah Korban Kekerasan Menurut Status Bekerja";
         $kat->url_route = "/politik-dan-keamanan/korban-kekerasan-status-bekerja"; 
-        $kat->save();
-
-        $kat = new Kategori;
-        $kat->id_subyek = 1;
-        $kat->judul = "Jumlah Kekerasan Menurut Status Perkawinan";
-        $kat->url_route = "/politik-dan-keamanan/korban-kekerasan-status-perkawinan"; 
         $kat->save();
 
         $kat = new Kategori;

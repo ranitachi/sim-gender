@@ -42,10 +42,10 @@
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     @if ($tahun_tersedia->count()!=0)
                                         @foreach ($tahun_tersedia as $item)
-                                            <li><a href="{{ route('politik-tingkat.index', [$kategori->id, $item]) }}">{{ $item }}</a></li>
+                                            <li><a href="{{ route('politik-kawin.index', [$kategori->id, $item]) }}">{{ $item }}</a></li>
                                         @endforeach
                                     @else
-                                        <li><a href="{{ route('politik-tingkat.index', [$kategori->id, date('Y')]) }}">{{ date('Y') }}</a></li>
+                                        <li><a href="{{ route('politik-kawin.index', [$kategori->id, date('Y')]) }}">{{ date('Y') }}</a></li>
                                     @endif
                                 </ul>
                             </li>
@@ -57,8 +57,8 @@
                                 </a>
                                 
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a href="{{ route('politik-tingkat.create', [$kategori->id, $tahun]) }}">Tambah Data Baru</a></li>
-                                    <li><a href="{{ route('politik-tingkat.edit', [$kategori->id, $tahun]) }}">Ubah Data {{ $tahun }}</a></li>
+                                    <li><a href="{{ route('politik-kawin.create', [$kategori->id, $tahun]) }}">Tambah Data Baru</a></li>
+                                    <li><a href="{{ route('politik-kawin.edit', [$kategori->id, $tahun]) }}">Ubah Data {{ $tahun }}</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -92,28 +92,22 @@
 
         <div class="panel panel-flat">
             @php
-                $ts = 0;
-                $sd = 0;
-                $sltp = 0;
-                $slta = 0;
-                $pt = 0;
+                $belum_kawin = 0;
+                $kawin = 0;
+                $cerai = 0;
             @endphp
             @foreach ($data as $key => $item)
                 @php
-                    $ts += $item->tidak_sekolah;
-                    $sd += $item->sd;
-                    $sltp += $item->sltp;
-                    $slta += $item->slta;
-                    $pt += $item->pt;
+                    $belum_kawin += $item->belum_kawin;
+                    $kawin += $item->kawin;
+                    $cerai += $item->cerai;
                 @endphp
             @endforeach
 
             <div style="margin:20px 0 0 20px;">
-                <h6>Total Jumlah Tidak Sekolah : &nbsp;&nbsp;<strong>{{ $ts }}</strong></h6>
-                <h6>Total Jumlah SD : &nbsp;&nbsp;<strong>{{ $sd }}</strong></h6>
-                <h6>Total Jumlah SLTP : &nbsp;&nbsp;<strong>{{ $sltp }}</strong></h6>
-                <h6>Total Jumlah SLTA : &nbsp;&nbsp;<strong>{{ $slta }}</strong></h6>
-                <h6>Total Jumlah PT : &nbsp;&nbsp;<strong>{{ $pt }}</strong></h6>
+                <h6>Total Jumlah Belum Kawin : &nbsp;&nbsp;<strong>{{ $belum_kawin }}</strong></h6>
+                <h6>Total Jumlah Kawin : &nbsp;&nbsp;<strong>{{ $kawin }}</strong></h6>
+                <h6>Total Jumlah Cerai : &nbsp;&nbsp;<strong>{{ $cerai }}</strong></h6>
             </div>
 
             <table class="table datatable-basic">
@@ -121,11 +115,9 @@
                     <tr>
                         <th style="width:30px;">#</th>
                         <th>Jenis Kelamin</th>
-                        <th>Tidak Sekolah</th>
-                        <th>SD</th>
-                        <th>SLTP</th>
-                        <th>SLTA</th>
-                        <th>PT</th>
+                        <th>Belum Kawin</th>
+                        <th>Kawin</th>
+                        <th>Cerai</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -133,11 +125,9 @@
                         <tr>
                             <td>{{ $key = $key + 1 }}</td>
                             <td>{{ $item->jenis_kelamin }}</td>
-                            <td>{{ $item->tidak_sekolah }}</td>
-                            <td>{{ $item->sd }}</td>
-                            <td>{{ $item->sltp }}</td>
-                            <td>{{ $item->slta }}</td>
-                            <td>{{ $item->pt }}</td>
+                            <td>{{ $item->belum_kawin }}</td>
+                            <td>{{ $item->kawin }}</td>
+                            <td>{{ $item->cerai }}</td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -175,52 +165,32 @@
                 @endforeach
             ],
 			datasets: [{
-				label: 'Tidak Sekolah',
+				label: 'Belum Kawin',
 				backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
 				borderColor: window.chartColors.red,
 				borderWidth: 1,
 				data: [
-					@foreach($chart_ts as $item)
+					@foreach($chart_belum_kawin as $item)
                         {{ $item }},
                     @endforeach
 				]
 			}, {
-				label: 'SD',
+				label: 'Kawin',
 				backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
 				borderColor: window.chartColors.blue,
 				borderWidth: 1,
 				data: [
-					@foreach($chart_sd as $item)
+					@foreach($chart_kawin as $item)
                         {{ $item }},
                     @endforeach
 				]
 			}, {
-				label: 'SLTP',
-				backgroundColor: color(window.chartColors.grnee).alpha(0.5).rgbString(),
+				label: 'Cerai',
+				backgroundColor: color(window.chartColors.green).alpha(0.5).rgbString(),
 				borderColor: window.chartColors.green,
 				borderWidth: 1,
 				data: [
-					@foreach($chart_sltp as $item)
-                        {{ $item }},
-                    @endforeach
-				]
-			}, {
-				label: 'SLTA',
-				backgroundColor: color(window.chartColors.yellow).alpha(0.5).rgbString(),
-				borderColor: window.chartColors.yellow,
-				borderWidth: 1,
-				data: [
-					@foreach($chart_slta as $item)
-                        {{ $item }},
-                    @endforeach
-				]
-			}, {
-				label: 'PT',
-				backgroundColor: color(window.chartColors.orange).alpha(0.5).rgbString(),
-				borderColor: window.chartColors.orange,
-				borderWidth: 1,
-				data: [
-					@foreach($chart_pt as $item)
+					@foreach($chart_cerai as $item)
                         {{ $item }},
                     @endforeach
 				]

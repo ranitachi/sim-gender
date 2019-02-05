@@ -42,10 +42,10 @@
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     @if ($tahun_tersedia->count()!=0)
                                         @foreach ($tahun_tersedia as $item)
-                                            <li><a href="{{ route('politik-tingkat.index', [$kategori->id, $item]) }}">{{ $item }}</a></li>
+                                            <li><a href="{{ route('kependudukan-air-mandi.index', [$kategori->id, $item]) }}">{{ $item }}</a></li>
                                         @endforeach
                                     @else
-                                        <li><a href="{{ route('politik-tingkat.index', [$kategori->id, date('Y')]) }}">{{ date('Y') }}</a></li>
+                                        <li><a href="{{ route('kependudukan-air-mandi.index', [$kategori->id, date('Y')]) }}">{{ date('Y') }}</a></li>
                                     @endif
                                 </ul>
                             </li>
@@ -57,8 +57,8 @@
                                 </a>
                                 
                                 <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a href="{{ route('politik-tingkat.create', [$kategori->id, $tahun]) }}">Tambah Data Baru</a></li>
-                                    <li><a href="{{ route('politik-tingkat.edit', [$kategori->id, $tahun]) }}">Ubah Data {{ $tahun }}</a></li>
+                                    <li><a href="{{ route('kependudukan-air-mandi.create', [$kategori->id, $tahun]) }}">Tambah Data Baru</a></li>
+                                    <li><a href="{{ route('kependudukan-air-mandi.edit', [$kategori->id, $tahun]) }}">Ubah Data {{ $tahun }}</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -83,7 +83,7 @@
     
             <div class="panel-body">
                 <div class="chart-container">
-                    <div id="container" style="width: 100%; height:300px;">
+                    <div id="container" style="width: 100%; height:600px;">
                         <canvas id="canvas"></canvas>
                     </div>
                 </div>
@@ -91,53 +91,28 @@
         </div>
 
         <div class="panel panel-flat">
-            @php
-                $ts = 0;
-                $sd = 0;
-                $sltp = 0;
-                $slta = 0;
-                $pt = 0;
-            @endphp
-            @foreach ($data as $key => $item)
-                @php
-                    $ts += $item->tidak_sekolah;
-                    $sd += $item->sd;
-                    $sltp += $item->sltp;
-                    $slta += $item->slta;
-                    $pt += $item->pt;
-                @endphp
-            @endforeach
-
-            <div style="margin:20px 0 0 20px;">
-                <h6>Total Jumlah Tidak Sekolah : &nbsp;&nbsp;<strong>{{ $ts }}</strong></h6>
-                <h6>Total Jumlah SD : &nbsp;&nbsp;<strong>{{ $sd }}</strong></h6>
-                <h6>Total Jumlah SLTP : &nbsp;&nbsp;<strong>{{ $sltp }}</strong></h6>
-                <h6>Total Jumlah SLTA : &nbsp;&nbsp;<strong>{{ $slta }}</strong></h6>
-                <h6>Total Jumlah PT : &nbsp;&nbsp;<strong>{{ $pt }}</strong></h6>
-            </div>
-
             <table class="table datatable-basic">
                 <thead>
                     <tr>
                         <th style="width:30px;">#</th>
-                        <th>Jenis Kelamin</th>
-                        <th>Tidak Sekolah</th>
-                        <th>SD</th>
-                        <th>SLTP</th>
-                        <th>SLTA</th>
-                        <th>PT</th>
+                        <th>Karateristik</th>
+                        <th>Isi Ulang</th>
+                        <th>Leding</th>
+                        <th>Sumur/Pompa</th>
+                        <th>Matar Air Terlindungi</th>
+                        <th>Matar Air Tidak Terlindungi</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($data as $key => $item)
                         <tr>
                             <td>{{ $key = $key + 1 }}</td>
-                            <td>{{ $item->jenis_kelamin }}</td>
-                            <td>{{ $item->tidak_sekolah }}</td>
-                            <td>{{ $item->sd }}</td>
-                            <td>{{ $item->sltp }}</td>
-                            <td>{{ $item->slta }}</td>
-                            <td>{{ $item->pt }}</td>
+                            <td>{{ $item->karakteristik }}</td>
+                            <td>{{ $item->isi_ulang }}</td>
+                            <td>{{ $item->leding }}</td>
+                            <td>{{ $item->sumur_pompa }}</td>
+                            <td>{{ $item->mata_air_terlindungi }}</td>
+                            <td>{{ $item->mata_air_tidak_terlindungi }}</td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -170,57 +145,57 @@
 		var color = Chart.helpers.color;
 		var horizontalBarChartData = {
 			labels: [
-                @foreach($chart_jk as $item)
+                @foreach($chart_karakteristik as $item)
                     '{{ $item }}',
                 @endforeach
             ],
 			datasets: [{
-				label: 'Tidak Sekolah',
+				label: 'Isi Ulang',
 				backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
 				borderColor: window.chartColors.red,
 				borderWidth: 1,
 				data: [
-					@foreach($chart_ts as $item)
+					@foreach($chart_isi_ulang as $item)
                         {{ $item }},
                     @endforeach
 				]
 			}, {
-				label: 'SD',
+				label: 'Leding',
 				backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
 				borderColor: window.chartColors.blue,
 				borderWidth: 1,
 				data: [
-					@foreach($chart_sd as $item)
+					@foreach($chart_leding as $item)
                         {{ $item }},
                     @endforeach
 				]
 			}, {
-				label: 'SLTP',
-				backgroundColor: color(window.chartColors.grnee).alpha(0.5).rgbString(),
+				label: 'Sumur/Pompa',
+				backgroundColor: color(window.chartColors.green).alpha(0.5).rgbString(),
 				borderColor: window.chartColors.green,
 				borderWidth: 1,
 				data: [
-					@foreach($chart_sltp as $item)
+					@foreach($chart_sumur_pompa as $item)
                         {{ $item }},
                     @endforeach
 				]
 			}, {
-				label: 'SLTA',
-				backgroundColor: color(window.chartColors.yellow).alpha(0.5).rgbString(),
-				borderColor: window.chartColors.yellow,
+				label: 'Mata Air Terlindungi',
+				backgroundColor: color(window.chartColors.purple).alpha(0.5).rgbString(),
+				borderColor: window.chartColors.purple,
 				borderWidth: 1,
 				data: [
-					@foreach($chart_slta as $item)
+					@foreach($chart_mata_air_terlindungi as $item)
                         {{ $item }},
                     @endforeach
 				]
 			}, {
-				label: 'PT',
-				backgroundColor: color(window.chartColors.orange).alpha(0.5).rgbString(),
-				borderColor: window.chartColors.orange,
+				label: 'Mata Air Tidak Terlindungi',
+				backgroundColor: color(window.chartColors.purple).alpha(0.5).rgbString(),
+				borderColor: window.chartColors.purple,
 				borderWidth: 1,
 				data: [
-					@foreach($chart_pt as $item)
+					@foreach($chart_mata_air_terlindungi as $item)
                         {{ $item }},
                     @endforeach
 				]
