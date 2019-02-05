@@ -156,6 +156,27 @@ Route::get('/politik-dan-keamanan/korban-kekerasan-pelayanan/{id_kategori}/{tahu
 Route::put('/politik-dan-keamanan/korban-kekerasan-pelayanan/{id_kategori}/{tahun}/update', 'PolitikPelayananController@update')->name('politik-pelayanan.update');
 Route::post('/politik-dan-keamanan/korban-kekerasan-pelayanan/{id_kategori}/{tahun}/store', 'PolitikPelayananController@store')->name('politik-pelayanan.store');
 
+// -------Politik dan Keamanan Korban Kekerasan Umur
+Route::get('/politik-dan-keamanan/anggota-dprd/{id_kategori}/{tahun}', 'PolitikFraksiController@index')->name('politik-fraksi.index');
+Route::get('/politik-dan-keamanan/anggota-dprd/{id_kategori}/{tahun}/create', 'PolitikFraksiController@create')->name('politik-fraksi.create');
+Route::get('/politik-dan-keamanan/anggota-dprd/{id_kategori}/{tahun}/edit', 'PolitikFraksiController@edit')->name('politik-fraksi.edit');
+Route::put('/politik-dan-keamanan/anggota-dprd/{id_kategori}/{tahun}/update', 'PolitikFraksiController@update')->name('politik-fraksi.update');
+Route::post('/politik-dan-keamanan/anggota-dprd/{id_kategori}/{tahun}/store', 'PolitikFraksiController@store')->name('politik-fraksi.store');
+
+// -------Politik dan Keamanan Korban Kekerasan Umur
+Route::get('/politik-dan-keamanan/anggota-dewan/{id_kategori}/{tahun}', 'PolitikDewanController@index')->name('politik-dewan.index');
+Route::get('/politik-dan-keamanan/anggota-dewan/{id_kategori}/{tahun}/create', 'PolitikDewanController@create')->name('politik-dewan.create');
+Route::get('/politik-dan-keamanan/anggota-dewan/{id_kategori}/{tahun}/edit', 'PolitikDewanController@edit')->name('politik-dewan.edit');
+Route::put('/politik-dan-keamanan/anggota-dewan/{id_kategori}/{tahun}/update', 'PolitikDewanController@update')->name('politik-dewan.update');
+Route::post('/politik-dan-keamanan/anggota-dewan/{id_kategori}/{tahun}/store', 'PolitikDewanController@store')->name('politik-dewan.store');
+
+// -------Politik dan Keamanan Korban Kekerasan Umur
+Route::get('/politik-dan-keamanan/pendidikan-anggota-dprd/{id_kategori}/{tahun}', 'PolitikPendidikanController@index')->name('politik-pendidikan.index');
+Route::get('/politik-dan-keamanan/pendidikan-anggota-dprd/{id_kategori}/{tahun}/create', 'PolitikPendidikanController@create')->name('politik-pendidikan.create');
+Route::get('/politik-dan-keamanan/pendidikan-anggota-dprd/{id_kategori}/{tahun}/edit', 'PolitikPendidikanController@edit')->name('politik-pendidikan.edit');
+Route::put('/politik-dan-keamanan/pendidikan-anggota-dprd/{id_kategori}/{tahun}/update', 'PolitikPendidikanController@update')->name('politik-pendidikan.update');
+Route::post('/politik-dan-keamanan/pendidikan-anggota-dprd/{id_kategori}/{tahun}/store', 'PolitikPendidikanController@store')->name('politik-pendidikan.store');
+
 
 
 
