@@ -72,6 +72,55 @@ Route::get('/kependudukan/perempuan-sosial-ekonomi/{id_kategori}/{tahun}/edit', 
 Route::put('/kependudukan/perempuan-sosial-ekonomi/{id_kategori}/{tahun}/update', 'KependudukanPerempuanController@update')->name('kependudukan-perempuan.update');
 Route::post('/kependudukan/perempuan-sosial-ekonomi/{id_kategori}/{tahun}/store', 'KependudukanPerempuanController@store')->name('kependudukan-perempuan.store');
 
+// -------Kependudukan Lansia
+Route::get('/kependudukan/lansia-terlantar/{id_kategori}/{tahun}', 'KependudukanLansiaController@index')->name('kependudukan-lansia.index');
+Route::get('/kependudukan/lansia-terlantar/{id_kategori}/{tahun}/create', 'KependudukanLansiaController@create')->name('kependudukan-lansia.create');
+Route::get('/kependudukan/lansia-terlantar/{id_kategori}/{tahun}/edit', 'KependudukanLansiaController@edit')->name('kependudukan-lansia.edit');
+Route::put('/kependudukan/lansia-terlantar/{id_kategori}/{tahun}/update', 'KependudukanLansiaController@update')->name('kependudukan-lansia.update');
+Route::post('/kependudukan/lansia-terlantar/{id_kategori}/{tahun}/store', 'KependudukanLansiaController@store')->name('kependudukan-lansia.store');
+
+// -------Kependudukan Tuna Susila
+Route::get('/kependudukan/tuna-susila/{id_kategori}/{tahun}', 'KependudukanSusilaController@index')->name('kependudukan-susila.index');
+Route::get('/kependudukan/tuna-susila/{id_kategori}/{tahun}/create', 'KependudukanSusilaController@create')->name('kependudukan-susila.create');
+Route::get('/kependudukan/tuna-susila/{id_kategori}/{tahun}/edit', 'KependudukanSusilaController@edit')->name('kependudukan-susila.edit');
+Route::put('/kependudukan/tuna-susila/{id_kategori}/{tahun}/update', 'KependudukanSusilaController@update')->name('kependudukan-susila.update');
+Route::post('/kependudukan/tuna-susila/{id_kategori}/{tahun}/store', 'KependudukanSusilaController@store')->name('kependudukan-susila.store');
+
+// -------Kependudukan Balita Terlantar
+Route::get('/kependudukan/balita-terlantar/{id_kategori}/{tahun}', 'KependudukanBalitaController@index')->name('kependudukan-balita.index');
+Route::get('/kependudukan/balita-terlantar/{id_kategori}/{tahun}/create', 'KependudukanBalitaController@create')->name('kependudukan-balita.create');
+Route::get('/kependudukan/balita-terlantar/{id_kategori}/{tahun}/edit', 'KependudukanBalitaController@edit')->name('kependudukan-balita.edit');
+Route::put('/kependudukan/balita-terlantar/{id_kategori}/{tahun}/update', 'KependudukanBalitaController@update')->name('kependudukan-balita.update');
+Route::post('/kependudukan/balita-terlantar/{id_kategori}/{tahun}/store', 'KependudukanBalitaController@store')->name('kependudukan-balita.store');
+
+// -------Politik dan Keamanan Korban Kekerasan Umur
+Route::get('/politik-dan-keamanan/korban-kekerasan-umur/{id_kategori}/{tahun}', 'PolitikUmurController@index')->name('politik-umur.index');
+Route::get('/politik-dan-keamanan/korban-kekerasan-umur/{id_kategori}/{tahun}/create', 'PolitikUmurController@create')->name('politik-umur.create');
+Route::get('/politik-dan-keamanan/korban-kekerasan-umur/{id_kategori}/{tahun}/edit', 'PolitikUmurController@edit')->name('politik-umur.edit');
+Route::put('/politik-dan-keamanan/korban-kekerasan-umur/{id_kategori}/{tahun}/update', 'PolitikUmurController@update')->name('politik-umur.update');
+Route::post('/politik-dan-keamanan/korban-kekerasan-umur/{id_kategori}/{tahun}/store', 'PolitikUmurController@store')->name('politik-umur.store');
+
+// -------Politik dan Keamanan Korban Kekerasan Umur
+Route::get('/politik-dan-keamanan/korban-kekerasan-tempat-kejadian/{id_kategori}/{tahun}', 'PolitikKejadianController@index')->name('politik-kejadian.index');
+Route::get('/politik-dan-keamanan/korban-kekerasan-tempat-kejadian/{id_kategori}/{tahun}/create', 'PolitikKejadianController@create')->name('politik-kejadian.create');
+Route::get('/politik-dan-keamanan/korban-kekerasan-tempat-kejadian/{id_kategori}/{tahun}/edit', 'PolitikKejadianController@edit')->name('politik-kejadian.edit');
+Route::put('/politik-dan-keamanan/korban-kekerasan-tempat-kejadian/{id_kategori}/{tahun}/update', 'PolitikKejadianController@update')->name('politik-kejadian.update');
+Route::post('/politik-dan-keamanan/korban-kekerasan-tempat-kejadian/{id_kategori}/{tahun}/store', 'PolitikKejadianController@store')->name('politik-kejadian.store');
+
+// -------Politik dan Keamanan Korban Kekerasan Umur
+Route::get('/politik-dan-keamanan/korban-kekerasan-tingkat-pendidikan/{id_kategori}/{tahun}', 'PolitikTingkatController@index')->name('politik-tingkat.index');
+Route::get('/politik-dan-keamanan/korban-kekerasan-tingkat-pendidikan/{id_kategori}/{tahun}/create', 'PolitikTingkatController@create')->name('politik-tingkat.create');
+Route::get('/politik-dan-keamanan/korban-kekerasan-tingkat-pendidikan/{id_kategori}/{tahun}/edit', 'PolitikTingkatController@edit')->name('politik-tingkat.edit');
+Route::put('/politik-dan-keamanan/korban-kekerasan-tingkat-pendidikan/{id_kategori}/{tahun}/update', 'PolitikTingkatController@update')->name('politik-tingkat.update');
+Route::post('/politik-dan-keamanan/korban-kekerasan-tingkat-pendidikan/{id_kategori}/{tahun}/store', 'PolitikTingkatController@store')->name('politik-tingkat.store');
+
+
+
+
+
+
+
+
 //--------Pendidikan Sekolah
 Route::get('/pendidikan/sekolah/{jenjang}/{id_kategori}', 'PendidikanSekolahController@index')->name('pendidikan-sekolah.index');
 Route::get('/pendidikan/sekolah/{jenjang}/{id_kategori}/create', 'PendidikanSekolahController@create')->name('pendidikan-sekolah.create');
@@ -86,7 +135,7 @@ Route::get('/pendidikan/penduduk/kecamatan/{id_kategori}/edit', 'PendidikanDitam
 Route::put('/pendidikan/penduduk/kecamatan/{id_kategori}/update', 'PendidikanDitamatkanController@update')->name('pendidikan-ditamatkan.update');
 Route::post('/pendidikan/penduduk/kecamatan/{id_kategori}/store', 'PendidikanDitamatkanController@store')->name('pendidikan-ditamatkan.store');
 
-//--------Pendidikan Rasion
+//--------Pendidikan Rasio
 Route::get('/pendidikan/rasio/{jenjang}/{id_kategori}', 'PendidikanRasioController@index')->name('pendidikan-rasio.index');
 Route::get('/pendidikan/rasio/{jenjang}/{id_kategori}/create', 'PendidikanRasioController@create')->name('pendidikan-rasio.create');
 Route::get('/pendidikan/rasio/{jenjang}/{id_kategori}/edit', 'PendidikanRasioController@edit')->name('pendidikan-rasio.edit');

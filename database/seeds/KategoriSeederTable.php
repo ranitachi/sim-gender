@@ -398,52 +398,7 @@ class KategoriSeederTable extends Seeder
 
         // End of Seeder Kependudukan
 
-        // Start Seeder Ketenagakerjaan
-
-        $kat = new Kategori;
-        $kat->id_subyek = 2;
-        $kat->judul = "Indikator Ketenagakerjaan di Kabupaten Tangerang";
-        $kat->url_route = "/ketenagakerjaan/indikator"; 
-        $kat->save();
-
-        $kat = new Kategori;
-        $kat->id_subyek = 2;
-        $kat->judul = "Jumlah Penduduk Berumur 15 Tahun Keatas Menurut Kecamatan dan Jenis Kegiatan Selama Seminggu yang Lalu di Kabupaten Tangerang";
-        $kat->url_route = "/ketenagakerjaan/kecamatan"; 
-        $kat->save();
-
-        $kat = new Kategori;
-        $kat->id_subyek = 2;
-        $kat->judul = "Jumlah Penduduk Berumur 15 Tahun Ke Atas Menurut Pendidikan Tertinggi yang Ditamatkan dan Jenis Kegiatan Selama Seminggu yang Lalu di Kab Tangerang";
-        $kat->url_route = "/ketenagakerjaan/pendidikan"; 
-        $kat->save();
-
-        $kat = new Kategori;
-        $kat->id_subyek = 2;
-        $kat->judul = "Jumlah Penduduk Berumur 15 Tahun Ke Atas yang Bekerja Selama Seminggu yang Lalu Menurut Status Pekerjaan Utama dan Jenis Kelamin di Kab Tangerang";
-        $kat->url_route = "/ketenagakerjaan/status-pekerjaan"; 
-        $kat->save();
-
-        $kat = new Kategori;
-        $kat->id_subyek = 2;
-        $kat->judul = "Jumlah Penduduk Berumur 15 Tahun Ke Atas yang Bekerja Selama Seminggu yang Lalu Menurut Lapangan Pekerjaan Utama dan Jenis Kelamin di Kab Tangerang";
-        $kat->url_route = "/ketenagakerjaan/lapangan-pekerjaan"; 
-        $kat->save();
-
-        $kat = new Kategori;
-        $kat->id_subyek = 2;
-        $kat->judul = "Tingkat Pengangguran Terbuka (TPT) menurut Kecamatan di Kab Tangerang";
-        $kat->url_route = "/ketenagakerjaan/tpt"; 
-        $kat->save();
-
-        $kat = new Kategori;
-        $kat->id_subyek = 2;
-        $kat->judul = "Jumlah Pencari Kerja Terdaftar Menurut Tingkat Pendidikan Tertinggi yang Ditamatkan dan Jenis Kelamin di Kab Tangerang";
-        $kat->url_route = "/ketenagakerjaan/pencari-kerja/pendidikan-tertinggi"; 
-        $kat->save();
-
-        // End of Seeder Ketenagakerjaan
-
+        
         // Start Politik dan Keamanan
 
         $kat = new Kategori;
