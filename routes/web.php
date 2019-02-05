@@ -268,6 +268,27 @@ Route::get('/pendidikan/15-batulis/{id_kategori}/{tahun?}/edit', 'PendidikanBaca
 Route::post('/pendidikan/15-batulis/{id_kategori}/{tahun?}/update', 'PendidikanBacaTulisController@update')->name('baca-tulis.update');
 Route::post('/pendidikan/15-batulis/{id_kategori}/{tahun?}/store', 'PendidikanBacaTulisController@store')->name('baca-tulis.store');
 
+//--------Pendidikan Status Pendidikan 7-24 tahun
+Route::get('/pendidikan/7-24-status-pendidikan/{id_kategori}/{tahun?}', 'PendidikanStatusPendidikanController@index')->name('status-pendidikan.index');
+Route::get('/pendidikan/7-24-status-pendidikan/{id_kategori}/{tahun?}/create', 'PendidikanStatusPendidikanController@create')->name('status-pendidikan.create');
+Route::get('/pendidikan/7-24-status-pendidikan/{id_kategori}/{tahun?}/edit', 'PendidikanStatusPendidikanController@edit')->name('status-pendidikan.edit');
+Route::post('/pendidikan/7-24-status-pendidikan/{id_kategori}/{tahun?}/update', 'PendidikanStatusPendidikanController@update')->name('status-pendidikan.update');
+Route::post('/pendidikan/7-24-status-pendidikan/{id_kategori}/{tahun?}/store', 'PendidikanStatusPendidikanController@store')->name('status-pendidikan.store');
+
+//--------Pendidikan APS Formal 5-18 tahun
+Route::get('/pendidikan/aps-5-18-formal/{id_kategori}/{tahun?}', 'PendidikanApsFormalController@index')->name('aps-formal.index');
+Route::get('/pendidikan/aps-5-18-formal/{id_kategori}/{tahun?}/create', 'PendidikanApsFormalController@create')->name('aps-formal.create');
+Route::get('/pendidikan/aps-5-18-formal/{id_kategori}/{tahun?}/edit', 'PendidikanApsFormalController@edit')->name('aps-formal.edit');
+Route::post('/pendidikan/aps-5-18-formal/{id_kategori}/{tahun?}/update', 'PendidikanApsFormalController@update')->name('aps-formal.update');
+Route::post('/pendidikan/aps-5-18-formal/{id_kategori}/{tahun?}/store', 'PendidikanApsFormalController@store')->name('aps-formal.store');
+
+//--------Pendidikan APS Formal NonFormal 5-18 tahun
+Route::get('/pendidikan/aps-5-18-formal-non-formal/{id_kategori}/{tahun?}', 'PendidikanApsNonFormalController@index')->name('aps-formalnon.index');
+Route::get('/pendidikan/aps-5-18-formal-non-formal/{id_kategori}/{tahun?}/create', 'PendidikanApsNonFormalController@create')->name('aps-formalnon.create');
+Route::get('/pendidikan/aps-5-18-formal-non-formal/{id_kategori}/{tahun?}/edit', 'PendidikanApsNonFormalController@edit')->name('aps-formalnon.edit');
+Route::post('/pendidikan/aps-5-18-formal-non-formal/{id_kategori}/{tahun?}/update', 'PendidikanApsNonFormalController@update')->name('aps-formalnon.update');
+Route::post('/pendidikan/aps-5-18-formal-non-formal/{id_kategori}/{tahun?}/store', 'PendidikanApsNonFormalController@store')->name('aps-formalnon.store');
+
 //--------Pendidikan Jumlah Murid
 Route::get('/pendidikan/murid-jenjang-pendidikan/{id_kategori}/{tahun?}', 'PendidikanJumlahMuridController@index')->name('jumlah-murid.index');
 Route::get('/pendidikan/murid-jenjang-pendidikan/{id_kategori}/{tahun?}/create', 'PendidikanJumlahMuridController@create')->name('jumlah-murid.create');

@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Kategori;
 use App\Models\Kecamatan;
-use App\Models\PendidikanBacaTulis;
+use App\Models\PendidikanStatusPendidikan;
 use Config;
 
-class PendidikanBacaTulisController extends Controller
+class PendidikanStatusPendidikanController extends Controller
 {
     public function index($id_kategori,$tahun=null)
     {
@@ -20,20 +20,22 @@ class PendidikanBacaTulisController extends Controller
         else
             $tahun=$tahun;
 
-        $jumlah = PendidikanBacaTulis::where('id_kategori', $id_kategori)->where('tahun',$tahun)->get();
+        $jumlah = PendidikanStatusPendidikan::where('id_kategori', $id_kategori)->where('tahun',$tahun)->get();
 
-        $jenis=Config::get('services.jenis_huruf');
+        $status=Config::get('services.status_sekolah');
 
         $data=array();
         foreach($jumlah as $d)
         {
-            $data[$d->jenis]['laki_laki']=$d->laki_laki;
-            $data[$d->jenis]['perempuan']=$d->perempuan;
-            $data[$d->jenis]['kuantal_1']=$d->kuintil_1;
-            $data[$d->jenis]['kuantal_2']=$d->kuintil_2;
-            $data[$d->jenis]['kuantal_3']=$d->kuintil_3;
-            $data[$d->jenis]['kuantal_4']=$d->kuintil_4;
-            $data[$d->jenis]['kuantal_5']=$d->kuintil_5;
+            $data[$d->status_pendidikan]['laki_laki']=$d->laki_laki;
+            $data[$d->status_pendidikan]['perempuan']=$d->perempuan;
+            $data[$d->status_pendidikan]['kuantal_1']=$d->kuintil_1;
+            $data[$d->status_pendidikan]['kuantal_2']=$d->kuintil_2;
+            $data[$d->status_pendidikan]['kuantal_3']=$d->kuintil_3;
+            $data[$d->status_pendidikan]['kuantal_4']=$d->kuintil_4;
+            $data[$d->status_pendidikan]['kuantal_5']=$d->kuintil_5;
+            $data[$d->status_pendidikan]['kuantal_5']=$d->kuintil_5;
+            $data[$d->status_pendidikan]['kab_tangerang']=$d->kab_tangerang;
         }
 
         $chart_puk = array();
@@ -41,10 +43,10 @@ class PendidikanBacaTulisController extends Controller
         $chart_tkk = array();
         $chart_tpt = array();
         // return $data;
-        return view('pages.pendidikan-bacatulis.index')
+        return view('pages.pendidikan-status.index')
             ->with('kecamatan', $kecamatan)
             ->with('data', $data)
-            ->with('jenis', $jenis)
+            ->with('status', $status)
             ->with('id_kategori', $id_kategori)
             ->with('tahun', $tahun)
             ->with('chart_kecamatan', $chart_puk)
@@ -63,12 +65,12 @@ class PendidikanBacaTulisController extends Controller
         else
             $tahun=$tahun;
 
-        $jenis=Config::get('services.jenis_huruf');
+        $status=Config::get('services.status_sekolah');
 
-        return view('pages.pendidikan-bacatulis.create')
+        return view('pages.pendidikan-status.create')
             ->with('kecamatan', $kecamatan)
             ->with('kategori', $kategori)
-            ->with('jenis', $jenis)
+            ->with('status', $status)
             ->with('id_kategori', $id_kategori)
             ->with('tahun', $tahun);
     }
@@ -83,13 +85,14 @@ class PendidikanBacaTulisController extends Controller
         $kuantal_3=$request->kuantal_3;
         $kuantal_4=$request->kuantal_4;
         $kuantal_5=$request->kuantal_5;
+        $kab_tangerang=$request->kab_tangerang;
         
         foreach($laki_laki as $id_jen=>$val)
         {
-            $ins=new PendidikanBacaTulis;
+            $ins=new PendidikanStatusPendidikan;
             $ins->id_kategori = $id_kategori;
             $ins->tahun = $tahun;
-            $ins->jenis = $id_jen;
+            $ins->status_pendidikan = $id_jen;
             $ins->laki_laki = str_replace(array(',','.'),'.',$val);
             $ins->perempuan = str_replace(array(',','.'),'.',$perempuan[$id_jen]);
             $ins->kuintil_1 = str_replace(array(',','.'),'.',$kuantal_1[$id_jen]);
@@ -97,10 +100,11 @@ class PendidikanBacaTulisController extends Controller
             $ins->kuintil_3 = str_replace(array(',','.'),'.',$kuantal_3[$id_jen]);
             $ins->kuintil_4 = str_replace(array(',','.'),'.',$kuantal_4[$id_jen]);
             $ins->kuintil_5 = str_replace(array(',','.'),'.',$kuantal_5[$id_jen]);
+            $ins->kab_tangerang = str_replace(array(',','.'),'.',$kab_tangerang[$id_jen]);
             
             $ins->save();
         }
-        return redirect()->route('baca-tulis.index',[$id_kategori,$tahun])->with('Data  Berhasil Disimpan');
+        return redirect()->route('status-pendidikan.index',[$id_kategori,$tahun])->with('Data Berhasil Disimpan');
     }
 
     public function edit($id_kategori,$tahun)
@@ -112,26 +116,27 @@ class PendidikanBacaTulisController extends Controller
         else
             $tahun=$tahun;
 
-        $jumlah = PendidikanBacaTulis::where('id_kategori', $id_kategori)->where('tahun',$tahun)->get();
-        $jenis=Config::get('services.jenis_huruf');
-        
+        $jumlah = PendidikanStatusPendidikan::where('id_kategori', $id_kategori)->where('tahun',$tahun)->get();
+        $status=Config::get('services.status_sekolah');
+
         $data=array();
         foreach($jumlah as $d)
         {
-            $data[$d->jenis]['laki_laki']=$d->laki_laki;
-            $data[$d->jenis]['perempuan']=$d->perempuan;
-            $data[$d->jenis]['kuantal_1']=$d->kuintil_1;
-            $data[$d->jenis]['kuantal_2']=$d->kuintil_2;
-            $data[$d->jenis]['kuantal_3']=$d->kuintil_3;
-            $data[$d->jenis]['kuantal_4']=$d->kuintil_4;
-            $data[$d->jenis]['kuantal_5']=$d->kuintil_5;
+            $data[$d->status_pendidikan]['laki_laki']=$d->laki_laki;
+            $data[$d->status_pendidikan]['perempuan']=$d->perempuan;
+            $data[$d->status_pendidikan]['kuantal_1']=$d->kuintil_1;
+            $data[$d->status_pendidikan]['kuantal_2']=$d->kuintil_2;
+            $data[$d->status_pendidikan]['kuantal_3']=$d->kuintil_3;
+            $data[$d->status_pendidikan]['kuantal_4']=$d->kuintil_4;
+            $data[$d->status_pendidikan]['kuantal_5']=$d->kuintil_5;
+            $data[$d->status_pendidikan]['kab_tangerang']=$d->kab_tangerang;
         }
         
-        return view('pages.pendidikan-baca-tulis.edit')
+        return view('pages.pendidikan-status.edit')
             ->with('kecamatan', $kecamatan)
             ->with('kategori', $kategori)
             ->with('data', $data)
-            ->with('jenis', $jenis)
+            ->with('status', $status)
             ->with('id_kategori', $id_kategori)
             ->with('tahun', $tahun);
     }
@@ -139,7 +144,7 @@ class PendidikanBacaTulisController extends Controller
     public function update(Request $request,$id_kategori,$tahun)
     {
         // return $request->all();
-        PendidikanBacaTulis::where('id_kategori',$id_kategori)->where('tahun',$tahun)->forceDelete();
+        PendidikanStatusPendidikan::where('id_kategori',$id_kategori)->where('tahun',$tahun)->forceDelete();
 
         $laki_laki=$request->laki_laki;
         $perempuan=$request->perempuan;
@@ -148,13 +153,14 @@ class PendidikanBacaTulisController extends Controller
         $kuantal_3=$request->kuantal_3;
         $kuantal_4=$request->kuantal_4;
         $kuantal_5=$request->kuantal_5;
+        $kab_tangerang=$request->kab_tangerang;
         
         foreach($laki_laki as $id_jen=>$val)
         {
-            $ins=new PendidikanBacaTulis;
+            $ins=new PendidikanStatusPendidikan;
             $ins->id_kategori = $id_kategori;
             $ins->tahun = $tahun;
-            $ins->jenis = $id_jen;
+            $ins->status_pendidikan = $id_jen;
             $ins->laki_laki = str_replace(array(',','.'),'.',$val);
             $ins->perempuan = str_replace(array(',','.'),'.',$perempuan[$id_jen]);
             $ins->kuintil_1 = str_replace(array(',','.'),'.',$kuantal_1[$id_jen]);
@@ -162,9 +168,10 @@ class PendidikanBacaTulisController extends Controller
             $ins->kuintil_3 = str_replace(array(',','.'),'.',$kuantal_3[$id_jen]);
             $ins->kuintil_4 = str_replace(array(',','.'),'.',$kuantal_4[$id_jen]);
             $ins->kuintil_5 = str_replace(array(',','.'),'.',$kuantal_5[$id_jen]);
+            $ins->kab_tangerang = str_replace(array(',','.'),'.',$kab_tangerang[$id_jen]);
             
             $ins->save();
         }
-        return redirect()->route('baca-tulis.index',[$id_kategori,$tahun])->with('Data  Berhasil Diperbaharui');
+        return redirect()->route('status-pendidikan.index',[$id_kategori,$tahun])->with('Data  Berhasil Diperbaharui');
     }
 }
