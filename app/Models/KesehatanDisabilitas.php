@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class KesehatanDisabilitas extends Model
 {
     use SoftDeletes;
-    protected $table='kesehatan_disabilita';
+    protected $table='kesehatan_disabilitas';
     protected $fillable = ['id_kecamatan','id_kategori','bayi_lahir','bblr_jumlah','bblr_dirujuk','gizi_buruk','created_at','updated_at','deleted_at'];
 
     function kategori()
