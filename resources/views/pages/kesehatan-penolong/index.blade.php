@@ -223,9 +223,9 @@
                                 
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     @if (count($data)==0)
-                                        <li><a href="{{ route('balita-asi.create',array($kategori->id,$tahun)) }}"><i class="icon-googleplus5 pull-right"></i> Tambah Data</a></li>
+                                        <li><a href="{{ route('penolong-persalinan.create',array($kategori->id,$tahun)) }}"><i class="icon-googleplus5 pull-right"></i> Tambah Data</a></li>
                                     @else
-                                        <li><a href="{{ route('balita-asi.edit',array($kategori->id,$tahun)) }}"><i class="icon-googleplus5 pull-right"></i> Ubah Data</a></li>
+                                        <li><a href="{{ route('penolong-persalinan.edit',array($kategori->id,$tahun)) }}"><i class="icon-googleplus5 pull-right"></i> Ubah Data</a></li>
                                     @endif
                                 </ul>
                             </li>
@@ -314,21 +314,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th colspan="{{(count($jenis) + 1)}}"><b>Jenis Kelamin</b></th>
-                            </tr>
-                            <tr>
-                                <td class="text-left">Laki Laki</td>
-                                @foreach ($jenis as $idx_jen=>$item)
-                                    <td class="text-center">{{isset($data[$idx_jen]['laki_laki']) ? number_format($data[$idx_jen]['laki_laki'],2,',','.') : 0}}</td>
-                                @endforeach
-                            </tr>
-                            <tr>
-                                <td class="text-left">Perempuan</td>
-                                @foreach ($jenis as $idx_jen=>$item)
-                                    <td class="text-center">{{isset($data[$idx_jen]['perempuan']) ? number_format($data[$idx_jen]['perempuan'],2,',','.') : 0}}</td>
-                                @endforeach
-                            </tr>
+                            
                             <tr>
                                 <th colspan="{{(count($jenis) + 1)}}"><b>Kuantal Pengeluaran</b></th>
                             </tr>
@@ -340,9 +326,20 @@
                                     @endforeach
                                 </tr>
                             @endfor
+                            <tr>
+                                <th colspan="{{(count($jenis) + 1)}}"><b>Pendidikan Tertinggi</b></th>
+                            </tr>
+                            @foreach ($krt as $idx => $val)
+                                <tr>
+                                    <td class="text-left">{{$val}}</td>
+                                    @foreach ($jenis as $idx_jen=>$item)
+                                        <td class="text-center">{{isset($data[$idx_jen][$idx]) ? number_format($data[$idx_jen][$idx],2,',','.'): 0}}</td>
+                                    @endforeach
+                                </tr>
+                            @endforeach
                            
                             <tr>
-                                <td class="text-right"><b>Kabupaten Tangerang</b></td>
+                                <td class="text-left"><b>Kabupaten Tangerang</b></td>
                                 @foreach ($jenis as $idx_jen=>$item)
                                     <td class="text-center">{{isset($data[$idx_jen]['kab_tangerang']) ? number_format($data[$idx_jen]['kab_tangerang'],2,',','.') : 0}}</td>
                                 @endforeach
@@ -383,7 +380,7 @@
 
     function loaddata(tahun)
         {
-            location.href='{{url("/kesehatan/balita-asi/".$id_kategori)}}/'+tahun;
+            location.href='{{url("/kesehatan/penolong-persalinan/".$id_kategori)}}/'+tahun;
         }
 	</script>
 @endsection

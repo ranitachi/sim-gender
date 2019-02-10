@@ -383,7 +383,7 @@
 
     function loaddata(tahun)
         {
-            location.href='{{url("/pendidikan/balita-kartu-imunisasi/".$id_kategori)}}/'+tahun;
+            location.href='{{url("/kesehatan/balita/".$id_kategori)}}/'+tahun;
         }
 	</script>
 @endsection

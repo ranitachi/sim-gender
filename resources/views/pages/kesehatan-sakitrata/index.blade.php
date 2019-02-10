@@ -383,7 +383,7 @@
 
     function loaddata(tahun)
         {
-            location.href='{{url("/pendidikan/aps-5-18-formal/".$id_kategori)}}/'+tahun;
+            location.href='{{url("/kesehatan/kesehatan-alh/".$id_kategori)}}/'+tahun;
         }
 	</script>
 @endsection

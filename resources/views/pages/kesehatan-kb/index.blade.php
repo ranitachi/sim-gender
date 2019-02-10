@@ -223,9 +223,9 @@
                                 
                                 <ul class="dropdown-menu dropdown-menu-right">
                                     @if (count($data)==0)
-                                        <li><a href="{{ route('balita-asi.create',array($kategori->id,$tahun)) }}"><i class="icon-googleplus5 pull-right"></i> Tambah Data</a></li>
+                                        <li><a href="{{ route('kb.create',array($kategori->id,$tahun)) }}"><i class="icon-googleplus5 pull-right"></i> Tambah Data</a></li>
                                     @else
-                                        <li><a href="{{ route('balita-asi.edit',array($kategori->id,$tahun)) }}"><i class="icon-googleplus5 pull-right"></i> Ubah Data</a></li>
+                                        <li><a href="{{ route('kb.edit',array($kategori->id,$tahun)) }}"><i class="icon-googleplus5 pull-right"></i> Ubah Data</a></li>
                                     @endif
                                 </ul>
                             </li>
@@ -307,45 +307,67 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th class="text-center">Karateristik</th>
+                                <th class="text-center" rowspan="2">Karateristik</th>
+                                <th class="text-center" colspan="{{(count($jenis)+1)}}">Status Penggunaan Alat/Cara KB</th>
+                            </tr>
+                            <tr>
                                 @foreach ($jenis as $idx=>$item)
                                     <th class="text-center">{{$item}}</th>
                                 @endforeach
+                                <th class="text-center">Jumlah (%)</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th colspan="{{(count($jenis) + 1)}}"><b>Jenis Kelamin</b></th>
-                            </tr>
-                            <tr>
-                                <td class="text-left">Laki Laki</td>
-                                @foreach ($jenis as $idx_jen=>$item)
-                                    <td class="text-center">{{isset($data[$idx_jen]['laki_laki']) ? number_format($data[$idx_jen]['laki_laki'],2,',','.') : 0}}</td>
-                                @endforeach
-                            </tr>
-                            <tr>
-                                <td class="text-left">Perempuan</td>
-                                @foreach ($jenis as $idx_jen=>$item)
-                                    <td class="text-center">{{isset($data[$idx_jen]['perempuan']) ? number_format($data[$idx_jen]['perempuan'],2,',','.') : 0}}</td>
-                                @endforeach
-                            </tr>
+                            
                             <tr>
                                 <th colspan="{{(count($jenis) + 1)}}"><b>Kuantal Pengeluaran</b></th>
                             </tr>
                             @for ($i = 1; $i <= 5; $i++)
                                 <tr>
                                     <td class="text-left">Kuantal {{$i}}</td>
+                                    @php
+                                        $jlh_row=0;
+                                    @endphp
                                     @foreach ($jenis as $idx_jen=>$item)
                                         <td class="text-center">{{isset($data[$idx_jen][('kuantal_'.$i)]) ? number_format($data[$idx_jen][('kuantal_'.$i)],2,',','.'): 0}}</td>
+                                        @php
+                                        $jlh_row+=(isset($data[$idx_jen][('kuantal_'.$i)]) ? $data[$idx_jen][('kuantal_'.$i)] : 0);
+                                    @endphp
                                     @endforeach
+                                    <td class="text-center">{{number_format($jlh_row,2,',','.')}}</td>
                                 </tr>
                             @endfor
+                            <tr>
+                                <th colspan="{{(count($jenis) + 1)}}"><b>Pendidikan Tertinggi</b></th>
+                            </tr>
+                            @foreach ($krt as $idx => $val)
+                                <tr>
+                                    <td class="text-left">{{$val}}</td>
+                                    @php
+                                        $jlh_row=0;
+                                    @endphp
+                                    @foreach ($jenis as $idx_jen=>$item)
+                                        <td class="text-center">{{isset($data[$idx_jen][$idx]) ? number_format($data[$idx_jen][$idx],2,',','.'): 0}}</td>
+                                        @php
+                                            $jlh_row+=(isset($data[$idx_jen][$idx]) ? $data[$idx_jen][$idx] : 0);
+                                        @endphp
+                                    @endforeach
+                                    <td class="text-center">{{number_format($jlh_row,2,',','.')}}</td>
+                                </tr>
+                            @endforeach
                            
                             <tr>
-                                <td class="text-right"><b>Kabupaten Tangerang</b></td>
+                                <td class="text-left"><b>Kabupaten Tangerang</b></td>
+                                @php
+                                    $jlh_row=0;
+                                @endphp
                                 @foreach ($jenis as $idx_jen=>$item)
                                     <td class="text-center">{{isset($data[$idx_jen]['kab_tangerang']) ? number_format($data[$idx_jen]['kab_tangerang'],2,',','.') : 0}}</td>
+                                    @php
+                                        $jlh_row+=(isset($data[$idx_jen]['kab_tangerang']) ? $data[$idx_jen]['kab_tangerang'] : 0);
+                                    @endphp
                                 @endforeach
+                                <td class="text-center">{{number_format($jlh_row,2,',','.')}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -383,7 +405,7 @@
 
     function loaddata(tahun)
         {
-            location.href='{{url("/kesehatan/balita-asi/".$id_kategori)}}/'+tahun;
+            location.href='{{url("/kesehatan/kb/".$id_kategori)}}/'+tahun;
         }
 	</script>
 @endsection

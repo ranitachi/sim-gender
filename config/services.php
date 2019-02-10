@@ -56,6 +56,14 @@ return [
             'emboli'=>'EMBOLI AIR KETUBAN',
             'jantung'=>'JANTUNG',
             'inversio'=>'INVERSIO'],
+    
+        'kematian_bayi' => ['bblr'=>'BBLR',
+                        'aspiksia'=>'Aspiksia',
+                        'tetanus'=>'Tetanus Neonatorum',
+                        'sepsis'=>'Sepsis',
+                        'konginetal'=>'Kelainan Konginetal',
+                        'lain_lain'=>'Lain-lain',
+                        'diare'=>'Diare'],
 
     'jenis_sakit_rata' => ['angka_kesakitan'=>'Angka Kesakitan','rata_rata'=>'Rata-Rata Lama Sakit (Hari)'],
     

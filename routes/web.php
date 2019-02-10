@@ -360,12 +360,75 @@ Route::get('/kesehatan/balita-asi-rata-rata/{id_kategori}/{tahun?}/edit', 'Keseh
 Route::post('/kesehatan/balita-asi-rata-rata/{id_kategori}/{tahun?}/update', 'KesehatanBalitaAsiRatarataController@update')->name('balita-asi.update');
 Route::post('/kesehatan/balita-asi-rata-rata/{id_kategori}/{tahun?}/store', 'KesehatanBalitaAsiRatarataController@store')->name('balita-asi.store');
 
+//--------Kesehatan Tempat Melahirkan
+Route::get('/kesehatan/tempat-melahirkan/{id_kategori}/{tahun?}', 'KesehatanTempatMelahirkanController@index')->name('tempat-melahirkan.index');
+Route::get('/kesehatan/tempat-melahirkan/{id_kategori}/{tahun?}/create', 'KesehatanTempatMelahirkanController@create')->name('tempat-melahirkan.create');
+Route::get('/kesehatan/tempat-melahirkan/{id_kategori}/{tahun?}/edit', 'KesehatanTempatMelahirkanController@edit')->name('tempat-melahirkan.edit');
+Route::post('/kesehatan/tempat-melahirkan/{id_kategori}/{tahun?}/update', 'KesehatanTempatMelahirkanController@update')->name('tempat-melahirkan.update');
+Route::post('/kesehatan/tempat-melahirkan/{id_kategori}/{tahun?}/store', 'KesehatanTempatMelahirkanController@store')->name('tempat-melahirkan.store');
+
+//--------Kesehatan Penolong Persalinan
+Route::get('/kesehatan/penolong-persalinan/{id_kategori}/{tahun?}', 'KesehatanPenolongPersalinanController@index')->name('penolong-persalinan.index');
+Route::get('/kesehatan/penolong-persalinan/{id_kategori}/{tahun?}/create', 'KesehatanPenolongPersalinanController@create')->name('penolong-persalinan.create');
+Route::get('/kesehatan/penolong-persalinan/{id_kategori}/{tahun?}/edit', 'KesehatanPenolongPersalinanController@edit')->name('penolong-persalinan.edit');
+Route::post('/kesehatan/penolong-persalinan/{id_kategori}/{tahun?}/update', 'KesehatanPenolongPersalinanController@update')->name('penolong-persalinan.update');
+Route::post('/kesehatan/penolong-persalinan/{id_kategori}/{tahun?}/store', 'KesehatanPenolongPersalinanController@store')->name('penolong-persalinan.store');
+
+//--------Kesehatan Berat Badan Bayi
+Route::get('/kesehatan/berat-badan-bayi/{id_kategori}/{tahun?}', 'KesehatanBeratBadanBayiController@index')->name('berat-badan-bayi.index');
+Route::get('/kesehatan/berat-badan-bayi/{id_kategori}/{tahun?}/create', 'KesehatanBeratBadanBayiController@create')->name('berat-badan-bayi.create');
+Route::get('/kesehatan/berat-badan-bayi/{id_kategori}/{tahun?}/edit', 'KesehatanBeratBadanBayiController@edit')->name('berat-badan-bayi.edit');
+Route::post('/kesehatan/berat-badan-bayi/{id_kategori}/{tahun?}/update', 'KesehatanBeratBadanBayiController@update')->name('berat-badan-bayi.update');
+Route::post('/kesehatan/berat-badan-bayi/{id_kategori}/{tahun?}/store', 'KesehatanBeratBadanBayiController@store')->name('berat-badan-bayi.store');
+
+//--------Kesehatan KB
+Route::get('/kesehatan/kb/{id_kategori}/{tahun?}', 'KesehatanKbController@index')->name('kb.index');
+Route::get('/kesehatan/kb/{id_kategori}/{tahun?}/create', 'KesehatanKbController@create')->name('kb.create');
+Route::get('/kesehatan/kb/{id_kategori}/{tahun?}/edit', 'KesehatanKbController@edit')->name('kb.edit');
+Route::post('/kesehatan/kb/{id_kategori}/{tahun?}/update', 'KesehatanKbController@update')->name('kb.update');
+Route::post('/kesehatan/kb/{id_kategori}/{tahun?}/store', 'KesehatanKbController@store')->name('kb.store');
+
+//--------Kesehatan Jenis Alat KB
+Route::get('/kesehatan/jenis-alat-kb/{id_kategori}/{tahun?}', 'KesehatanJenisAlatKbController@index')->name('jenis-alat-kb.index');
+Route::get('/kesehatan/jenis-alat-kb/{id_kategori}/{tahun?}/create', 'KesehatanJenisAlatKbController@create')->name('jenis-alat-kb.create');
+Route::get('/kesehatan/jenis-alat-kb/{id_kategori}/{tahun?}/edit', 'KesehatanJenisAlatKbController@edit')->name('jenis-alat-kb.edit');
+Route::post('/kesehatan/jenis-alat-kb/{id_kategori}/{tahun?}/update', 'KesehatanJenisAlatKbController@update')->name('jenis-alat-kb.update');
+Route::post('/kesehatan/jenis-alat-kb/{id_kategori}/{tahun?}/store', 'KesehatanJenisAlatKbController@store')->name('jenis-alat-kb.store');
+
 //--------Kesehatan Penyebab Kematian Ibu
 Route::get('/kesehatan/kematian-ibu/{id_kategori}/{tahun?}', 'KesehatanKematianIbuController@index')->name('kematian-ibu.index');
 Route::get('/kesehatan/kematian-ibu/{id_kategori}/{tahun?}/create', 'KesehatanKematianIbuController@create')->name('kematian-ibu.create');
 Route::get('/kesehatan/kematian-ibu/{id_kategori}/{tahun?}/edit', 'KesehatanKematianIbuController@edit')->name('kematian-ibu.edit');
 Route::post('/kesehatan/kematian-ibu/{id_kategori}/{tahun?}/update', 'KesehatanKematianIbuController@update')->name('kematian-ibu.update');
 Route::post('/kesehatan/kematian-ibu/{id_kategori}/{tahun?}/store', 'KesehatanKematianIbuController@store')->name('kematian-ibu.store');
+
+//--------Kesehatan Penyebab Kematian Bayi
+Route::get('/kesehatan/kematian-bayi/{id_kategori}/{tahun?}', 'KesehatanKematianBayiController@index')->name('kematian-bayi.index');
+Route::get('/kesehatan/kematian-bayi/{id_kategori}/{tahun?}/create', 'KesehatanKematianBayiController@create')->name('kematian-bayi.create');
+Route::get('/kesehatan/kematian-bayi/{id_kategori}/{tahun?}/edit', 'KesehatanKematianBayiController@edit')->name('kematian-bayi.edit');
+Route::post('/kesehatan/kematian-bayi/{id_kategori}/{tahun?}/update', 'KesehatanKematianBayiController@update')->name('kematian-bayi.update');
+Route::post('/kesehatan/kematian-bayi/{id_kategori}/{tahun?}/store', 'KesehatanKematianBayiController@store')->name('kematian-bayi.store');
+
+//--------Kesehatan Penemuan Kasus HIV-AIDS
+Route::get('/kesehatan/hiv-aids/{id_kategori}/{tahun?}', 'KesehatanHivAidsController@index')->name('hiv-aids.index');
+Route::get('/kesehatan/hiv-aids/{id_kategori}/{tahun?}/create', 'KesehatanHivAidsController@create')->name('hiv-aids.create');
+Route::get('/kesehatan/hiv-aids/{id_kategori}/{tahun?}/edit', 'KesehatanHivAidsController@edit')->name('hiv-aids.edit');
+Route::post('/kesehatan/hiv-aids/{id_kategori}/{tahun?}/update', 'KesehatanHivAidsController@update')->name('hiv-aids.update');
+Route::post('/kesehatan/hiv-aids/{id_kategori}/{tahun?}/store', 'KesehatanHivAidsController@store')->name('hiv-aids.store');
+
+//--------Kesehatan Imunisasi Rutin
+Route::get('/kesehatan/imunisasi-rutin/{id_kategori}/{tahun?}', 'KesehatanImunisasiRutinController@index')->name('imunisasi-rutin.index');
+Route::get('/kesehatan/imunisasi-rutin/{id_kategori}/{tahun?}/create', 'KesehatanImunisasiRutinController@create')->name('imunisasi-rutin.create');
+Route::get('/kesehatan/imunisasi-rutin/{id_kategori}/{tahun?}/edit', 'KesehatanImunisasiRutinController@edit')->name('imunisasi-rutin.edit');
+Route::post('/kesehatan/imunisasi-rutin/{id_kategori}/{tahun?}/update', 'KesehatanImunisasiRutinController@update')->name('imunisasi-rutin.update');
+Route::post('/kesehatan/imunisasi-rutin/{id_kategori}/{tahun?}/store', 'KesehatanImunisasiRutinController@store')->name('imunisasi-rutin.store');
+
+//--------Kesehatan Imunisasi Rutin Ibu Hamil
+Route::get('/kesehatan/imunisasi-rutin-ibu-hamil/{id_kategori}/{tahun?}', 'KesehatanImunisasiRutinIbuHamilController@index')->name('imunisasi-rutin-ibu-hamil.index');
+Route::get('/kesehatan/imunisasi-rutin-ibu-hamil/{id_kategori}/{tahun?}/create', 'KesehatanImunisasiRutinIbuHamilController@create')->name('imunisasi-rutin-ibu-hamil.create');
+Route::get('/kesehatan/imunisasi-rutin-ibu-hamil/{id_kategori}/{tahun?}/edit', 'KesehatanImunisasiRutinIbuHamilController@edit')->name('imunisasi-rutin-ibu-hamil.edit');
+Route::post('/kesehatan/imunisasi-rutin-ibu-hamil/{id_kategori}/{tahun?}/update', 'KesehatanImunisasiRutinIbuHamilController@update')->name('imunisasi-rutin-ibu-hamil.update');
+Route::post('/kesehatan/imunisasi-rutin-ibu-hamil/{id_kategori}/{tahun?}/store', 'KesehatanImunisasiRutinIbuHamilController@store')->name('imunisasi-rutin-ibu-hamil.store');
 
 
 // ----------Kependudukan PMKS
