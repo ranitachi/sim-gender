@@ -17,152 +17,15 @@
         var ctx='';
         function grafik(selector,jenjang)
         {
-            if(jenjang=='tk')
-            {
-                // alert(jenjang)
-                var dtL=[
-                        @foreach($chart_kecamatan as $ix=>$kec)
-                            {{ isset($det[$ix]['tk']['L']) ? $det[$ix]['tk']['L'] : 0}},
-                        @endforeach
-                    ];
-                var dtP=[
-                        @foreach($chart_kecamatan as $ix=>$kec)
-                            {{ isset($det[$ix]['tk']['P']) ? $det[$ix]['tk']['P'] : 0}},
-                        @endforeach
-                    ];
-            }
-            if(jenjang=='ra')
-            {
-                var dtL=[
-                    @foreach($chart_kecamatan as $ix=>$kec)
-                            {{ isset($det[$ix]['ra']['L']) ? $det[$ix]['ra']['L'] : 0}},
-                        @endforeach
-                    ];
-                var dtP=[
-                    @foreach($chart_kecamatan as $ix=>$kec)
-                            {{ isset($det[$ix]['ra']['P']) ? $det[$ix]['ra']['P'] : 0}},
-                        @endforeach
-                    ];
-            }
-            if(jenjang=='sd')
-            {
-                var dtL=[
-                        @foreach($chart_kecamatan as $ix=>$kec)
-                            {{ isset($det[$ix]['sd']['L']) ? $det[$ix]['sd']['L'] : 0}},
-                        @endforeach
-                    ];
-                var dtP=[
-                        @foreach($chart_kecamatan as $ix=>$kec)
-                            {{ isset($det[$ix]['sd']['P']) ? $det[$ix]['sd']['P'] : 0}},
-                        @endforeach
-                    ];
-            }
-            if(jenjang=='mi')
-            {
-                var dtL=[
-                    @foreach($chart_kecamatan as $ix=>$kec)
-                            {{ isset($det[$ix]['mi']['L']) ? $det[$ix]['mi']['L'] : 0}},
-                        @endforeach
-                    ];
-                var dtP=[
-                    @foreach($chart_kecamatan as $ix=>$kec)
-                            {{ isset($det[$ix]['mi']['P']) ? $det[$ix]['mi']['P'] : 0}},
-                        @endforeach
-                    ];
-            }
-            if(jenjang=='smp')
-            {
-                var dtL=[
-                        @foreach($chart_kecamatan as $ix=>$kec)
-                            {{ isset($det[$ix]['smp']['L']) ? $det[$ix]['smp']['L'] : 0}},
-                        @endforeach
-                    ];
-                var dtP=[
-                        @foreach($chart_kecamatan as $ix=>$kec)
-                            {{ isset($det[$ix]['smp']['P']) ? $det[$ix]['smp']['P'] : 0}},
-                        @endforeach
-                    ];
-            }
-            if(jenjang=='mts')
-            {
-                var dtL=[
-                    @foreach($chart_kecamatan as $ix=>$kec)
-                            {{ isset($det[$ix]['mts']['L']) ? $det[$ix]['mts']['L'] : 0}},
-                        @endforeach
-                    ];
-                var dtP=[
-                    @foreach($chart_kecamatan as $ix=>$kec)
-                            {{ isset($det[$ix]['mts']['P']) ? $det[$ix]['mts']['P'] : 0}},
-                        @endforeach
-                    ];
-            }
-            if(jenjang=='sma')
-            {
-                var dtL=[
-                        @foreach($chart_kecamatan as $ix=>$kec)
-                            {{ isset($det[$ix]['sma']['L']) ? $det[$ix]['sma']['L'] : 0}},
-                        @endforeach
-                    ];
-                var dtP=[
-                        @foreach($chart_kecamatan as $ix=>$kec)
-                            {{ isset($det[$ix]['sma']['P']) ? $det[$ix]['sma']['P'] : 0}},
-                        @endforeach
-                    ];
-            }
-            if(jenjang=='smk')
-            {
-                var dtL=[
-                    @foreach($chart_kecamatan as $ix=>$kec)
-                            {{ isset($det[$ix]['smk']['L']) ? $det[$ix]['smk']['L'] : 0}},
-                        @endforeach
-                    ];
-                var dtP=[
-                    @foreach($chart_kecamatan as $ix=>$kec)
-                            {{ isset($det[$ix]['smk']['P']) ? $det[$ix]['smk']['P'] : 0}},
-                        @endforeach
-                    ];
-            }
-            if(jenjang=='ma')
-            {
-                var dtL=[
-                    @foreach($chart_kecamatan as $ix=>$kec)
-                            {{ isset($det[$ix]['ma']['L']) ? $det[$ix]['ma']['L'] : 0}},
-                        @endforeach
-                    ];
-                var dtP=[
-                    @foreach($chart_kecamatan as $ix=>$kec)
-                            {{ isset($det[$ix]['ma']['P']) ? $det[$ix]['ma']['P'] : 0}},
-                        @endforeach
-                    ];
-            }
-
             var color = Chart.helpers.color;
             var horizontalBarChartData = {
-                labels: [
-                    @foreach($chart_kecamatan as $item)
-                        '{{ $item }}',
-                    @endforeach
-                ],
-                datasets: [{
-                    label: 'Laki - Laki (L)',
-                    backgroundColor: color(window.chartColors.red).alpha(0.5).rgbString(),
-                    borderColor: window.chartColors.red,
-                    borderWidth: 1,
-                    data: dtL
-                },
-                {
-                    label: 'Perempuan (P)',
-                    backgroundColor: color(window.chartColors.blue).alpha(0.5).rgbString(),
-                    borderColor: window.chartColors.blue,
-                    borderWidth: 1,
-                    data: dtP
-                }]
-
-            };
+                    labels: <?php echo json_encode($jenis2);?>,
+                    datasets: <?php echo json_encode($chart);?>,
+                };
 
                 ctx = document.getElementById(selector).getContext('2d');
                 window.myHorizontalBar = new Chart(ctx, {
-                    type: 'horizontalBar',
+                    type: 'bar',
                     data: horizontalBarChartData,
                     options: {
                         elements: {
@@ -176,13 +39,18 @@
                         },
                         title: {
                             display: true,
-                            text: 'Angka Masuk Kasar '+jenjang.toUpperCase()
+                            text: 'Persentase Cakupan (%)'
                         },
                         maintainAspectRatio: false,
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
                     }
-                });
-
-            
+                });    
         }
 </script>
     <div class="row">
@@ -265,40 +133,17 @@
                     </ul>
                 </div>
             </div>
-    
-            
-            @php
-                // $jjg=explode('-',$jenis);
-                // $lebar=99/count($jjg);
-            @endphp
-            
-               {{-- <div class="panel-body">
+                <div class="panel-body">
                     <div class="chart-container">
-                        <div class="text-center"><h5>Grafik {{ $kategori->judul }}</h5></div>
-                        @foreach ($jjg as $idx=>$item)    
-                            <div id="container" style="width: {{$lebar}}%; height:1000px;float:left">
-                                <canvas id="canvas_{{$idx+1}}"></canvas>
+                        <div class="text-center"><h5>Grafik {{ $kategori->judul }} Tahun {{$tahun}}</h5></div>
+                            <div id="container" style="width:100%; height:400px;float:left">
+                                <canvas id="canvas_1"></canvas>
                             </div>
-                        @endforeach
                         <script>
-                            var jjd="{{count($jjg)}}";
-                            var i;
-                            for(i=0;i<jjd;i++)
-                            {
-                                if(i==0)
-                                    var jen='{{isset($jjg[0]) ? $jjg[0] : ""}}';
-                                else if(i==1)
-                                    var jen='{{isset($jjg[1]) ? $jjg[1] : ""}}';
-                                else if(i==2)
-                                    var jen='{{isset($jjg[2]) ? $jjg[2] : ""}}';
-
-                                // grafik('canvas_'+(i+1) , jen);
-                            }
-                            // grafik('canvas_1' , 'tk');
-                            // grafik('canvas_2' , 'ra');
+                            grafik('canvas_1' , 'tk');
                         </script>
                     </div>
-                </div> --}}
+                </div> 
                 @php
                     $jlh_lk=$jlh_pr=$jlh_rasio=array();
                     $nomor=1;

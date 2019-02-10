@@ -22,29 +22,44 @@ class KesehatanImunisasiRutinIbuHamilController extends Controller
         $jumlah = KesehatanImunisasiRutinIbuHamil::where('id_kategori', $id_kategori)->get();
 
         $jenis=['tt'=>'TT II +'];
+        $jenis2=['TT II +'];
 
-        $data=array();
+        $data=$chrt=array();
+        $chart=$labels=array();
+        $c=0;
         foreach($jumlah as $d)
         {
             $data[$d->jenis][$d->tahun]['jumlah']=$d->jumlah;
             $data[$d->jenis][$d->tahun]['persentase']=$d->persentase;
-        }
 
-        $chart_puk = array();
-        $chart_tpak = array();
-        $chart_tkk = array();
-        $chart_tpt = array();
-        // return $data;
+            if($d->tahun>=(date('Y')-4))
+            {
+                $chrt[$d->tahun]['label']=$d->tahun;
+                $chrt[$d->tahun]['backgroundColor']='#'.random_color_part().random_color_part().random_color_part();
+                $chrt[$d->tahun]['data'][]=$d->jumlah;
+                $c++;
+            }
+        }
+        $id_x=0;
+        foreach($chrt as $item)
+        {
+            $chart[$id_x]['label']=$item['label'];
+            $chart[$id_x]['backgroundColor']=$item['backgroundColor'];
+            foreach($item['data'] as $x=>$y)
+            {
+                $chart[$id_x]['data'][]=$y;
+            }
+            $id_x++;
+        }
+        // return $chart;
         return view('pages.kesehatan-imunisasirutinibuhamil.index')
             ->with('kecamatan', $kecamatan)
+            ->with('chart', $chart)
             ->with('data', $data)
+            ->with('jenis2', $jenis2)
             ->with('jenis', $jenis)
             ->with('id_kategori', $id_kategori)
             ->with('tahun', $tahun)
-            ->with('chart_kecamatan', $chart_puk)
-            ->with('chart_tpak', $chart_tpak)
-            ->with('chart_tkk', $chart_tkk)
-            ->with('chart_tpt', $chart_tpt)
             ->with('kategori', $kategori);
     }
 

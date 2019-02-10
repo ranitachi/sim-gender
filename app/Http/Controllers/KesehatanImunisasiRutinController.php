@@ -22,29 +22,53 @@ class KesehatanImunisasiRutinController extends Controller
         $jumlah = KesehatanImunisasiRutin::where('id_kategori', $id_kategori)->get();
 
         $jenis=['bcg'=>'BCG','hepatitis'=>'Hepatitis B O','dpt'=>'DPT - HB III','polio'=>'Polio IV','campak'=>'Campak'];
+        $jenis2=['BCG','Hepatitis B O','DPT - HB III','Polio IV','Campak'];
 
-        $data=array();
+        $data=$chrt=array();
+        
+        $warna=array(
+                    '#123456',
+                    '#234567',
+                    '#345678',
+                    '#456789',
+                    '#567890',
+                    '#678901'
+                );
+        $c=0;
         foreach($jumlah as $d)
         {
             $data[$d->jenis][$d->tahun]['jumlah']=$d->jumlah;
             $data[$d->jenis][$d->tahun]['persentase']=$d->persentase;
+            if($d->tahun>=(date('Y')-4))
+            {
+                // $idx_thn=date('Y')-(date('Y')-4);
+                $chrt[$d->tahun]['label']=$d->tahun;
+                $chrt[$d->tahun]['backgroundColor']='#'.random_color_part().random_color_part().random_color_part();
+                $chrt[$d->tahun]['data'][]=$d->jumlah;
+                $c++;
+            }
         }
 
-        $chart_puk = array();
-        $chart_tpak = array();
-        $chart_tkk = array();
-        $chart_tpt = array();
-        // return $data;
+        $id_x=0;
+        foreach($chrt as $item)
+        {
+            $chart[$id_x]['label']=$item['label'];
+            $chart[$id_x]['backgroundColor']=$item['backgroundColor'];
+            foreach($item['data'] as $x=>$y)
+            {
+                $chart[$id_x]['data'][]=$y;
+            }
+            $id_x++;
+        }
+        // return $chart;
         return view('pages.kesehatan-imunisasirutin.index')
             ->with('kecamatan', $kecamatan)
             ->with('data', $data)
             ->with('jenis', $jenis)
+            ->with('jenis2', $jenis2)
             ->with('id_kategori', $id_kategori)
             ->with('tahun', $tahun)
-            ->with('chart_kecamatan', $chart_puk)
-            ->with('chart_tpak', $chart_tpak)
-            ->with('chart_tkk', $chart_tkk)
-            ->with('chart_tpt', $chart_tpt)
+            ->with('chart', $chart)
             ->with('kategori', $kategori);
     }
 
