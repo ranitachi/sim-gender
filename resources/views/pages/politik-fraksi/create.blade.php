@@ -68,10 +68,10 @@
                                         <input type="text" class="form-control" readonly name="partai[]" value="{{ $item }}">
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="laki[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="laki[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="perempuan[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="perempuan[]" value="0" required>
                                     </td>
                                 </tr>
                             @endforeach

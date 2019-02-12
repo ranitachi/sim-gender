@@ -69,13 +69,13 @@
                                         <input type="text" class="form-control" readonly name="jk[]" value="{{ $item }}">
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="belum_kawin[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="belum_kawin[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="kawin[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="kawin[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="cerai[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="cerai[]" value="0" required>
                                     </td>
                                 </tr>
                             @endforeach

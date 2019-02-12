@@ -70,13 +70,13 @@
                                         <input type="text" class="form-control" readonly value="{{ $item->nama_kecamatan }}">
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="hampir_miskin[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="hampir_miskin[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="miskin[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="miskin[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="sangat_miskin[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="sangat_miskin[]" value="0" required>
                                     </td>
                                 </tr>
                             @endforeach
