@@ -31,7 +31,6 @@
                             <li><a href="{{ route('subyek.index', $kategori->subyek->nama_subyek) }}"><<&nbsp; Kembali</a></li>
                         </ul>
 
-                        @if (Auth::check())
                             <ul class="breadcrumb-elements">
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle legitRipple" data-toggle="dropdown">
@@ -50,6 +49,8 @@
                                         @endif
                                     </ul>
                                 </li>
+                        @if (Auth::check())
+
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle legitRipple" data-toggle="dropdown">
                                         <i class="icon-cog5 position-left"></i>
@@ -62,8 +63,8 @@
                                         <li><a href="{{ route('politik-korban.edit', [$kategori->id, $tahun]) }}">Ubah Data {{ $tahun }}</a></li>
                                     </ul>
                                 </li>
+                                @endif
                             </ul>
-                        @endif
                     </div>
                 </div>
             </div>

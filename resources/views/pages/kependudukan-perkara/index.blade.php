@@ -31,37 +31,40 @@
                             <li><a href="{{ route('subyek.index', $kategori->subyek->nama_subyek) }}"><<&nbsp; Kembali</a></li>
                         </ul>
 
-                        <ul class="breadcrumb-elements">
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle legitRipple" data-toggle="dropdown">
-                                    <i class="icon-calendar position-left"></i>
-                                    Tahun {{ $tahun }}
-                                    <span class="caret"></span>
-                                </a>
-                                
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    @if ($tahun_tersedia->count()!=0)
-                                        @foreach ($tahun_tersedia as $item)
-                                            <li><a href="{{ route('kependudukan-perkara.index', [$kategori->id, $item]) }}">{{ $item }}</a></li>
-                                        @endforeach
-                                    @else
-                                        <li><a href="{{ route('kependudukan-perkara.index', [$kategori->id, date('Y')]) }}">{{ date('Y') }}</a></li>
-                                    @endif
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle legitRipple" data-toggle="dropdown">
-                                    <i class="icon-cog5 position-left"></i>
-                                    Aksi
-                                    <span class="caret"></span>
-                                </a>
-                                
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li><a href="{{ route('kependudukan-perkara.create', [$kategori->id, $tahun]) }}">Tambah Data Baru</a></li>
-                                    <li><a href="{{ route('kependudukan-perkara.edit', [$kategori->id, $tahun]) }}">Ubah Data {{ $tahun }}</a></li>
-                                </ul>
-                            </li>
-                        </ul>
+                            <ul class="breadcrumb-elements">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle legitRipple" data-toggle="dropdown">
+                                        <i class="icon-calendar position-left"></i>
+                                        Tahun {{ $tahun }}
+                                        <span class="caret"></span>
+                                    </a>
+                                    
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        @if ($tahun_tersedia->count()!=0)
+                                            @foreach ($tahun_tersedia as $item)
+                                                <li><a href="{{ route('kependudukan-perkara.index', [$kategori->id, $item]) }}">{{ $item }}</a></li>
+                                            @endforeach
+                                        @else
+                                            <li><a href="{{ route('kependudukan-perkara.index', [$kategori->id, date('Y')]) }}">{{ date('Y') }}</a></li>
+                                        @endif
+                                    </ul>
+                                </li>
+                        @if (Auth::check())
+
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle legitRipple" data-toggle="dropdown">
+                                        <i class="icon-cog5 position-left"></i>
+                                        Aksi
+                                        <span class="caret"></span>
+                                    </a>
+                                    
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        <li><a href="{{ route('kependudukan-perkara.create', [$kategori->id, $tahun]) }}">Tambah Data Baru</a></li>
+                                        <li><a href="{{ route('kependudukan-perkara.edit', [$kategori->id, $tahun]) }}">Ubah Data {{ $tahun }}</a></li>
+                                    </ul>
+                                </li>
+                                @endif
+                            </ul>
                     </div>
                 </div>
             </div>

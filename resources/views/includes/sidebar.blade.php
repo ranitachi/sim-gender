@@ -6,7 +6,7 @@
 							<div class="sidebar-user-material-content text-center">
 								<a href="#" class="legitRipple"><img src="{{ asset('/') }}assets/images/logo-kabupaten-tangerang.png" style="padding-left:10px;" class="img-circle img-responsive" alt=""></a>
 								<h5>Pemerintah Kabupaten Tangerang</h5>
-								<span class="text-size-small">hello@tangerangkab.go.id</span>
+								<span class="text-size-small">dp3a@tangerangkab.go.id</span>
 							</div>
 						</div>
 					</div>

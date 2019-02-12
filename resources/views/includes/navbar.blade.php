@@ -20,24 +20,33 @@
 
 			<p class="navbar-text">Sistem Informasi Gender dan Anak Kabupaten Tangerang</p>
 
-			<ul class="nav navbar-nav navbar-right">
+			@if (Auth::check())
+				<ul class="nav navbar-nav navbar-right">
 
-				<li class="dropdown dropdown-user">
-					<a class="dropdown-toggle" data-toggle="dropdown">
-						<img src="{{asset('assets/images/placeholder.jpg')}}" alt="">
-						<span>Administrator</span>
-						<i class="caret"></i>
-					</a>
+					<li class="dropdown dropdown-user">
+						<a class="dropdown-toggle" data-toggle="dropdown">
+							<img src="{{asset('assets/images/placeholder.jpg')}}" alt="">
+							<span>Administrator</span>
+							<i class="caret"></i>
+						</a>
 
-					<ul class="dropdown-menu dropdown-menu-right">
-						<li><a href="#"><i class="icon-user-plus"></i> My profile</a></li>
-						<li><a href="#"><i class="icon-coins"></i> My balance</a></li>
-						<li><a href="#"><span class="badge bg-teal-400 pull-right">58</span> <i class="icon-comment-discussion"></i> Messages</a></li>
-						<li class="divider"></li>
-						<li><a href="#"><i class="icon-cog5"></i> Account settings</a></li>
-						<li><a href="#"><i class="icon-switch2"></i> Logout</a></li>
-					</ul>
-				</li>
-			</ul>
+						<ul class="dropdown-menu dropdown-menu-right">
+							<li><a href="#"><i class="icon-users"></i> Ganti Profile</a></li>
+							<li><a href="#"><i class="icon-key"></i> Ganti Password</a></li>
+							<li>
+								<a  href="{{ route('logout') }}"
+									onclick="event.preventDefault();
+												document.getElementById('logout-form').submit();">
+									<i class="icon-switch2"></i> Logout
+								</a>
+
+								<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+									@csrf
+								</form>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			@endif
 		</div>
 	</div>

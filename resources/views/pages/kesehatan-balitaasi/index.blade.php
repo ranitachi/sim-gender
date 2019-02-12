@@ -213,23 +213,25 @@
                             <li class="active">{{ $kategori->judul }} Tahun {{$tahun}}</li>
                         </ul>
 
-                        <ul class="breadcrumb-elements">
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle legitRipple" data-toggle="dropdown">
-                                    <i class="icon-cog5 position-left"></i>
-                                    Aksi
-                                    <span class="caret"></span>
-                                </a>
-                                
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    @if (count($data)==0)
-                                        <li><a href="{{ route('balita-asi.create',array($kategori->id,$tahun)) }}"><i class="icon-googleplus5 pull-right"></i> Tambah Data</a></li>
-                                    @else
-                                        <li><a href="{{ route('balita-asi.edit',array($kategori->id,$tahun)) }}"><i class="icon-googleplus5 pull-right"></i> Ubah Data</a></li>
-                                    @endif
-                                </ul>
-                            </li>
-                        </ul>
+                        @if (Auth::check())
+                            <ul class="breadcrumb-elements">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle legitRipple" data-toggle="dropdown">
+                                        <i class="icon-cog5 position-left"></i>
+                                        Aksi
+                                        <span class="caret"></span>
+                                    </a>
+                                    
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        @if (count($data)==0)
+                                            <li><a href="{{ route('balita-asi.create',array($kategori->id,$tahun)) }}"><i class="icon-googleplus5 pull-right"></i> Tambah Data</a></li>
+                                        @else
+                                            <li><a href="{{ route('balita-asi.edit',array($kategori->id,$tahun)) }}"><i class="icon-googleplus5 pull-right"></i> Ubah Data</a></li>
+                                        @endif
+                                    </ul>
+                                </li>
+                            </ul>
+                        @endif
                         <div class="row pull-right" style="width:30%;float:right;margin-top:2px;">
                             
                             <div class="col-md-4 pull-right">
