@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    <title>Pendidikan Sekolah : Sistem Informasi Statistik Kabupaten Tangerang</title>
+    <title>Kesehatan : Sistem Informasi Statistik Kabupaten Tangerang</title>
     <script type="text/javascript" src="{{ asset('/') }}chartjs/Chart.bundle.js"></script>
     <script type="text/javascript" src="{{ asset('/') }}chartjs/util.js"></script>
     {{-- <script type="text/javascript" src="{{ asset('/') }}js/datalabel.js"></script> --}}
@@ -77,7 +77,7 @@
                     <div class="breadcrumb-line"><a class="breadcrumb-elements-toggle"><i class="icon-menu-open"></i></a>
                         <ul class="breadcrumb">
                             <li><a href=""><i class="icon-home2 position-left"></i> Dashboard</a></li>
-                            <li><a href="">Kesehatan</a></li>
+                            <li><a href="{{url('subyek/kesehatan')}}">Kesehatan</a></li>
                             <li class="active">{{ $kategori->judul }} Tahun {{$tahun}}</li>
                         </ul>
 
@@ -215,7 +215,7 @@
 
     function loaddata(tahun)
         {
-            location.href='{{url("/kesehatan/imunisasi-rutin/".$id_kategori)}}/'+tahun;
+            location.href='{{url("kesehatan/imunisasi-rutin/".$id_kategori)}}/'+tahun;
         }
 	</script>
 @endsection

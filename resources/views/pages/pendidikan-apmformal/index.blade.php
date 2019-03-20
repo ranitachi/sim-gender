@@ -209,7 +209,7 @@
                     <div class="breadcrumb-line"><a class="breadcrumb-elements-toggle"><i class="icon-menu-open"></i></a>
                         <ul class="breadcrumb">
                             <li><a href=""><i class="icon-home2 position-left"></i> Dashboard</a></li>
-                            <li><a href="">Pendidikan Sekolah</a></li>
+                            <li><a href="{{url('subyek/pendidikan')}}">Pendidikan Sekolah</a></li>
                             <li class="active">{{ $kategori->judul }} Tahun {{$tahun}}</li>
                         </ul>
 
@@ -383,7 +383,7 @@
 
     function loaddata(tahun)
         {
-            location.href='{{url("/pendidikan/aps-5-18-formal/".$id_kategori)}}/'+tahun;
+            location.href='{{url("/pendidikan/apm-formal/".$id_kategori)}}/'+tahun;
         }
 	</script>
 @endsection
