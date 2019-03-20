@@ -71,19 +71,19 @@
                                         <input type="text" class="form-control" readonly name="karakteristik[]" value="{{ $item }}">
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="shm_art[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="shm_art[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="shm_non_art[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="shm_non_art[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="shgb[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="shgb[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="lainnya[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="lainnya[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="tidak_punya[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="tidak_punya[]" value="0" required>
                                     </td>
                                 </tr>
                             @endforeach

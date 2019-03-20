@@ -71,16 +71,16 @@
                                         <input type="text" class="form-control" readonly value="{{ $item->nama_kecamatan }}">
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="susila_laki[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="susila_laki[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="susila_perempuan[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="susila_perempuan[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="napza_laki[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="napza_laki[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="napza_perempuan[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="napza_perempuan[]" value="0" required>
                                     </td>
                                 </tr>
                             @endforeach

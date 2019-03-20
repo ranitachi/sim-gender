@@ -69,10 +69,10 @@
                                         <input type="text" class="form-control" readonly value="{{ $item->nama_kecamatan }}">
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="ekonomi[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="ekonomi[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="psikologis[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="psikologis[]" value="0" required>
                                     </td>
                                 </tr>
                             @endforeach

@@ -42,23 +42,25 @@
                             <li class="active">{{ $kategori->judul }}</li>
                         </ul>
 
-                        <ul class="breadcrumb-elements">
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle legitRipple" data-toggle="dropdown">
-                                    <i class="icon-cog5 position-left"></i>
-                                    Aksi
-                                    <span class="caret"></span>
-                                </a>
-                                
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    @if ($data->count()==0)
-                                        <li><a href="{{ route('kesehatan-jumlah-dokter.create',array($kategori->id)) }}"><i class="icon-googleplus5 pull-right"></i> Tambah Data</a></li>
-                                    @else
-                                        <li><a href="{{ route('kesehatan-jumlah-dokter.edit',array($kategori->id)) }}"><i class="icon-googleplus5 pull-right"></i> Ubah Data</a></li>
-                                    @endif
-                                </ul>
-                            </li>
-                        </ul>
+                        @if (Auth::check())
+                            <ul class="breadcrumb-elements">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle legitRipple" data-toggle="dropdown">
+                                        <i class="icon-cog5 position-left"></i>
+                                        Aksi
+                                        <span class="caret"></span>
+                                    </a>
+                                    
+                                    <ul class="dropdown-menu dropdown-menu-right">
+                                        @if ($data->count()==0)
+                                            <li><a href="{{ route('kesehatan-jumlah-dokter.create',array($kategori->id)) }}"><i class="icon-googleplus5 pull-right"></i> Tambah Data</a></li>
+                                        @else
+                                            <li><a href="{{ route('kesehatan-jumlah-dokter.edit',array($kategori->id)) }}"><i class="icon-googleplus5 pull-right"></i> Ubah Data</a></li>
+                                        @endif
+                                    </ul>
+                                </li>
+                            </ul>
+                        @endif
                     </div>
                 </div>
             </div>

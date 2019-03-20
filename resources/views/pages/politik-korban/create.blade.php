@@ -70,16 +70,16 @@
                                         <input type="text" class="form-control" readonly name="jk[]" value="{{ $item }}">
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="orang_tua[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="orang_tua[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="keluarga[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="keluarga[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="suami_istri[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="suami_istri[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="lainnya[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="lainnya[]" value="0" required>
                                     </td>
                                 </tr>
                             @endforeach

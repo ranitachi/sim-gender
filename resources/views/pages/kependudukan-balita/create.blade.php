@@ -73,22 +73,22 @@
                                         <input type="text" class="form-control" readonly value="{{ $item->nama_kecamatan }}">
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="balita_l[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="balita_l[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="balita_p[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="balita_p[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="terlantar_l[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="terlantar_l[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="terlantar_p[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="terlantar_p[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="bermasalah_l[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="bermasalah_l[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="bermasalah_p[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="bermasalah_p[]" value="0" required>
                                     </td>
                                 </tr>
                             @endforeach

@@ -71,19 +71,19 @@
                                         <input type="text" class="form-control" readonly name="karakteristik[]" value="{{ $item }}">
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="isi_ulang[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="isi_ulang[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="leding[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="leding[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="sumur_pompa[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="sumur_pompa[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="mata_air_terlindungi[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="mata_air_terlindungi[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="mata_air_tidak_terlindungi[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="mata_air_tidak_terlindungi[]" value="0" required>
                                     </td>
                                 </tr>
                             @endforeach

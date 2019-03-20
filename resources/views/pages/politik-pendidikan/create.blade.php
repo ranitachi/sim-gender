@@ -70,16 +70,16 @@
                                         <input type="text" class="form-control" readonly name="partai[]" value="{{ $item }}">
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="smu[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="smu[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="d1_d2[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="d1_d2[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="s1[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="s1[]" value="0" required>
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="s2_s3[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="s2_s3[]" value="0" required>
                                     </td>
                                 </tr>
                             @endforeach

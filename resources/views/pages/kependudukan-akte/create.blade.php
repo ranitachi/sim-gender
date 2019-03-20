@@ -67,7 +67,7 @@
                                         <input type="text" class="form-control" readonly name="karakteristik[]" value="{{ $item }}">
                                     </td>
                                     <td>
-                                        <input type="number" min="0" class="form-control" name="jumlah[]" value="123" required>
+                                        <input type="number" min="0" class="form-control" name="jumlah[]" value="0" required>
                                     </td>
                                 </tr>
                             @endforeach
