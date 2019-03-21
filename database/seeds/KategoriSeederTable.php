@@ -84,7 +84,7 @@ class KategoriSeederTable extends Seeder
 
         $kat = new Kategori;
         $kat->id_subyek = 4;
-        $kat->judul = "Angka Putus Sekolah (APtS) Menurut Jenjang Pendidikan Tahun";
+        $kat->judul = "Angka Putus Sekolah (APS) Menurut Jenjang Pendidikan Tahun";
         $kat->url_route = "/pendidikan/apts"; 
         $kat->save();
 
