@@ -130,7 +130,13 @@
                             <td>{{ $item->laki }}</td>
                             <td>{{ $item->perempuan }}</td>
                             <td>{{ $item->jumlah }}</td>
-                            <td>{{ round($item->jumlah*100/$jumlah, 2) }} %</td>
+                            <td>
+                                @if ($jumlah!=0)
+                                    {{ round($item->jumlah*100/$jumlah, 2) }} %
+                                @else
+                                    0
+                                @endif
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
