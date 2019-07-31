@@ -502,3 +502,6 @@ Route::get('/kependudukan/angka-index/{id_kategori}/{tahun?}/create', 'Kependudu
 Route::get('/kependudukan/angka-index/{id_kategori}/{tahun?}/edit', 'KependudukanAngkaIndexController@edit')->name('angka-index.edit');
 Route::post('/kependudukan/angka-index/{id_kategori}/{tahun?}/store', 'KependudukanAngkaIndexController@store')->name('angka-index.store');
 Route::post('/kependudukan/angka-index/{id_kategori}/{tahun?}/update', 'KependudukanAngkaIndexController@update')->name('angka-index.update');
+
+
+Route::get('register','Auth\RegisterController@showRegistrationForm');
